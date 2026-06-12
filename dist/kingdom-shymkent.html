@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kingdom Shymkent — Тілдер мектебі / Языковая школа</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 158'%3E%3Crect width='160' height='158' rx='32' fill='%23081134'/%3E%3Cg fill='none' stroke='%23D9B45B' stroke-width='6' stroke-linecap='round'%3E%3Cline x1='14' y1='108' x2='40' y2='28'/%3E%3Cline x1='40' y1='28' x2='80' y2='108'/%3E%3Cline x1='80' y1='108' x2='120' y2='28'/%3E%3Cline x1='120' y1='28' x2='146' y2='108'/%3E%3Cline x1='80' y1='8' x2='56' y2='60'/%3E%3Cline x1='80' y1='8' x2='104' y2='60'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#081134;          /* королевская ночь — основной фон */
+    --night-2:#0B1742;        /* чуть светлее для карточек */
+    --night-3:#101F55;        /* hover */
+    --royal:#2E5BFF;          /* электрик-синий */
+    --gold:#D9B45B;           /* золото короны */
+    --gold-soft:#E8CD8B;
+    --cream:#F4EFE4;          /* сливочный текст */
+    --cream-dim:rgba(244,239,228,0.62);
+    --line:rgba(217,180,91,0.22);
+    --line-soft:rgba(244,239,228,0.1);
+    --radius:18px;
+    --container:1160px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Manrope', sans-serif;
+    background:var(--night);
+    color:var(--cream);
+    line-height:1.65;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond', serif; line-height:1.08; font-weight:600;}
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer;}
+  .container{max-width:var(--container); margin:0 auto; padding:0 22px;}
+  ::selection{background:var(--gold); color:var(--night);}
+
+  /* ---------- фоновая фактура ---------- */
+  body::before{
+    content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(ellipse 70% 45% at 50% -5%, rgba(46,91,255,0.22), transparent),
+      radial-gradient(ellipse 40% 30% at 90% 100%, rgba(46,91,255,0.1), transparent);
+  }
+  .grain{position:fixed; inset:0; z-index:50; pointer-events:none; opacity:0.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+  /* ---------- королевские детали ---------- */
+  .roman{
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:600;
+    color:var(--gold); font-size:1rem; letter-spacing:0.1em;
+  }
+  .rule{display:flex; align-items:center; gap:14px; margin:0 0 18px;}
+  .rule::before,.rule::after{content:''; height:1px; flex:0 0 38px; background:linear-gradient(90deg, transparent, var(--gold));}
+  .rule::after{background:linear-gradient(90deg, var(--gold), transparent);}
+  .crown-divider{display:flex; justify-content:center; padding:0 0 56px; color:var(--gold);}
+  .crown-divider svg{width:54px; opacity:0.9;}
+  .kicker{
+    display:inline-flex; align-items:center; gap:12px; font-size:0.74rem; font-weight:800;
+    letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:18px;
+  }
+  .kicker::before{content:'✦'; font-size:0.8em;}
+
+  /* ---------- progress ---------- */
+  .progress{position:fixed; top:0; left:0; height:2px; width:100%; z-index:200;}
+  .progress span{display:block; height:100%; width:0; background:linear-gradient(90deg, var(--gold), var(--gold-soft));}
+
+  /* ---------- nav ---------- */
+  header.nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(8,17,52,0.85); backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--line);
+    transition:transform .4s ease;
+  }
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 22px; max-width:var(--container); margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:11px;}
+  .logo svg{width:42px; height:42px;}
+  .logo .brand-word{font-family:'Cormorant Garamond',serif; font-weight:700; letter-spacing:0.2em; font-size:1.15rem; color:var(--cream);}
+  .logo .brand-word small{display:block; font-family:'Manrope',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:0.42em; color:var(--gold);}
+  .nav-links{display:none;}
+  .nav-right{display:flex; align-items:center; gap:12px;}
+  .lang-switch{display:flex; gap:3px; font-size:0.74rem; font-weight:800; letter-spacing:0.05em; border:1px solid var(--line); border-radius:999px; padding:3px; background:rgba(8,17,52,0.6);}
+  .lang-btn{background:none; border:none; color:var(--cream-dim); padding:6px 11px; border-radius:999px; transition:all .25s ease;}
+  .lang-btn.active{color:var(--night); background:var(--gold);}
+  .nav-cta{display:none;}
+  .burger{display:flex; flex-direction:column; gap:5px; background:none; border:none; padding:9px;}
+  .burger span{width:23px; height:2px; background:var(--gold); border-radius:2px; transition:all .3s ease;}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-menu{
+    position:fixed; inset:0; background:var(--night); z-index:99;
+    display:flex; flex-direction:column; align-items:flex-start; justify-content:center; gap:6px; padding:0 34px;
+    transform:translateX(100%); transition:transform .5s cubic-bezier(.16,1,.3,1);
+  }
+  .mobile-menu::before{
+    content:'K'; position:absolute; right:-40px; bottom:-70px; font-family:'Cormorant Garamond',serif;
+    font-size:24rem; font-weight:700; color:transparent; -webkit-text-stroke:1px var(--line); pointer-events:none;
+  }
+  .mobile-menu.open{transform:translateX(0);}
+  .mobile-menu a{font-family:'Cormorant Garamond',serif; font-size:2.1rem; padding:9px 0; border-bottom:1px solid var(--line-soft); width:100%; display:flex; align-items:baseline; gap:14px;}
+  .mobile-menu a .roman{font-size:0.85rem;}
+  .mobile-menu .btn{margin-top:24px; width:100%; font-family:'Manrope',sans-serif; font-size:0.95rem; border-bottom:none;}
+  @media(min-width:920px){
+    .nav-links{display:flex; gap:26px; font-size:0.85rem; font-weight:600; color:var(--cream-dim);}
+    .nav-links a{position:relative; padding:4px 0; transition:color .25s ease;}
+    .nav-links a::after{content:''; position:absolute; left:0; bottom:-2px; width:0; height:1px; background:var(--gold); transition:width .3s ease;}
+    .nav-links a:hover{color:var(--gold-soft);}
+    .nav-links a:hover::after{width:100%;}
+    .nav-cta{display:inline-flex;}
+    .burger{display:none;}
+  }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:16px 30px; border-radius:999px; font-weight:800; font-size:0.9rem; letter-spacing:0.02em;
+    border:1px solid transparent; transition:all .3s ease; line-height:1.2;
+  }
+  .btn-gold{
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold) 60%); color:var(--night);
+    box-shadow:0 14px 34px -14px rgba(217,180,91,0.55);
+  }
+  .btn-gold:hover{transform:translateY(-2px); box-shadow:0 20px 44px -14px rgba(217,180,91,0.75);}
+  .btn-outline{border-color:var(--line); color:var(--cream);}
+  .btn-outline:hover{border-color:var(--gold); color:var(--gold-soft); transform:translateY(-2px);}
+  .btn-royal{background:var(--royal); color:#fff; box-shadow:0 14px 34px -14px rgba(46,91,255,0.7);}
+  .btn-royal:hover{transform:translateY(-2px);}
+  .btn-wa{background:#1FAF54; color:#fff;}
+  .btn-wa:hover{background:#179247; transform:translateY(-2px);}
+  .btn svg{flex:0 0 auto;}
+
+  /* ---------- hero ---------- */
+  .hero{min-height:100svh; display:flex; flex-direction:column; justify-content:center; position:relative; padding:130px 0 0; overflow:hidden;}
+  .hero-big-word{
+    position:absolute; top:84px; left:50%; transform:translateX(-50%);
+    font-family:'Cormorant Garamond',serif; font-weight:700; letter-spacing:0.12em;
+    font-size:clamp(4.6rem, 17vw, 15rem); line-height:1; white-space:nowrap;
+    color:transparent; -webkit-text-stroke:1px rgba(217,180,91,0.16); user-select:none; pointer-events:none;
+  }
+  .hero-inner{position:relative; text-align:center; max-width:880px; margin:0 auto; padding:0 22px;}
+  .hero-crest{width:min(190px, 44vw); margin:0 auto 10px; position:relative;}
+  .hero-crest .halo{
+    position:absolute; inset:-34%; border-radius:50%;
+    background:radial-gradient(circle, rgba(46,91,255,0.3), transparent 65%); z-index:-1;
+  }
+  .hero h1{font-size:clamp(2.7rem, 8vw, 5.4rem); margin:18px 0 8px; color:var(--cream);}
+  .hero h1 em{font-style:italic; color:var(--gold); font-weight:600;}
+  .hero .lead{font-size:clamp(0.98rem, 2.4vw, 1.16rem); color:var(--cream-dim); max-width:54ch; margin:0 auto 36px;}
+  .hero-actions{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-bottom:40px;}
+  .hero-meta{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:12px 30px;
+    font-size:0.8rem; color:var(--cream-dim); letter-spacing:0.04em; padding-bottom:54px;
+  }
+  .hero-meta span{display:flex; align-items:center; gap:9px;}
+  .hero-meta b{color:var(--gold-soft); font-weight:800;}
+
+  /* ---------- marquee ---------- */
+  .marquee{border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden; padding:16px 0; background:rgba(11,23,66,0.5);}
+  .marquee-track{display:flex; gap:54px; white-space:nowrap; width:max-content;}
+  .marquee-track span{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.18rem; color:var(--gold-soft); display:flex; align-items:center; gap:54px;}
+  .marquee-track span::after{content:'♛'; font-style:normal; font-size:0.85em; color:var(--gold); opacity:0.7;}
+
+  /* ---------- sections ---------- */
+  section{padding:104px 0;}
+  .section-head{margin-bottom:54px; text-align:center;}
+  .section-head h2{font-size:clamp(2.3rem, 6vw, 3.8rem); color:var(--cream);}
+  .section-head h2 em{font-style:italic; color:var(--gold);}
+  .section-head p{color:var(--cream-dim); margin:16px auto 0; max-width:58ch;}
+  .section-head .kicker{justify-content:center;}
+
+  /* ---------- stats ---------- */
+  .stats-band{padding:0 0 100px;}
+  .stats-frame{
+    border:1px solid var(--line); border-radius:24px; padding:44px 28px; position:relative;
+    background:linear-gradient(160deg, rgba(46,91,255,0.08), rgba(11,23,66,0.4));
+  }
+  .stats-frame::before{
+    content:''; position:absolute; inset:7px; border:1px solid var(--line-soft); border-radius:18px; pointer-events:none;
+  }
+  .stats-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:34px 18px;}
+  @media(min-width:760px){.stats-grid{grid-template-columns:repeat(4,1fr);}}
+  .stat{text-align:center;}
+  .stat .num{font-family:'Cormorant Garamond',serif; font-size:clamp(2.6rem,6vw,4rem); font-weight:700; color:var(--gold-soft); line-height:1;}
+  .stat .lbl{font-size:0.8rem; color:var(--cream-dim); margin-top:8px;}
+
+  /* ---------- courses ---------- */
+  .course-list{display:flex; flex-direction:column; border-top:1px solid var(--line);}
+  .course-row{
+    display:grid; grid-template-columns:1fr; gap:12px; padding:30px 8px; border-bottom:1px solid var(--line);
+    transition:all .35s ease; position:relative; cursor:pointer; overflow:hidden;
+  }
+  @media(min-width:880px){
+    .course-row{grid-template-columns:70px 1.25fr 1.5fr auto auto; align-items:center; gap:26px; padding:36px 14px;}
+  }
+  .course-row::before{
+    content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--gold);
+    transform:scaleY(0); transition:transform .35s ease; transform-origin:top;
+  }
+  .course-row:hover{background:rgba(46,91,255,0.07); padding-left:22px;}
+  .course-row:hover::before{transform:scaleY(1);}
+  .course-row h3{font-size:clamp(1.5rem, 3.4vw, 2.1rem); color:var(--cream);}
+  .course-row .desc{color:var(--cream-dim); font-size:0.92rem; max-width:46ch;}
+  .course-tag{
+    display:inline-block; justify-self:start; font-size:0.7rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase;
+    border:1px solid var(--line); border-radius:999px; padding:8px 15px; color:var(--gold-soft); white-space:nowrap;
+  }
+  .course-go{
+    width:50px; height:50px; border-radius:50%; border:1px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; transition:all .35s ease; justify-self:end; color:var(--gold);
+  }
+  .course-row:hover .course-go{background:var(--gold); color:var(--night); transform:rotate(-45deg);}
+
+  /* ---------- about ---------- */
+  .about{position:relative; overflow:hidden; background:rgba(11,23,66,0.45); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .about-grid{display:grid; gap:16px; grid-template-columns:1fr;}
+  @media(min-width:780px){.about-grid{grid-template-columns:repeat(2,1fr); gap:20px;}}
+  .feature{
+    border:1px solid var(--line); border-radius:var(--radius); padding:30px;
+    background:rgba(8,17,52,0.55); transition:all .35s ease; position:relative; overflow:hidden;
+  }
+  .feature::after{
+    content:'♛'; position:absolute; right:18px; top:14px; color:var(--gold); opacity:0.12; font-size:2.2rem;
+    transition:all .35s ease;
+  }
+  .feature:hover{transform:translateY(-5px); border-color:var(--gold); background:var(--night-2);}
+  .feature:hover::after{opacity:0.4; transform:rotate(-12deg) scale(1.1);}
+  .feature .roman{display:block; margin-bottom:12px;}
+  .feature h3{font-size:1.55rem; margin-bottom:8px; color:var(--cream);}
+  .feature p{color:var(--cream-dim); font-size:0.92rem;}
+  .about-crown-bg{position:absolute; right:-70px; bottom:-50px; width:380px; opacity:0.05; pointer-events:none; color:var(--gold);}
+
+  /* ---------- teachers ---------- */
+  .teachers-grid{display:grid; gap:22px; grid-template-columns:1fr;}
+  @media(min-width:800px){.teachers-grid{grid-template-columns:repeat(3,1fr);}}
+  .teacher{
+    border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--night-2);
+    transition:all .4s ease; position:relative;
+  }
+  .teacher:hover{transform:translateY(-7px); border-color:var(--gold); box-shadow:0 30px 56px -28px rgba(0,0,0,0.7);}
+  .teacher .photo{
+    aspect-ratio:4/3.3; background:
+      radial-gradient(circle at 50% 110%, rgba(46,91,255,0.35), transparent 70%),
+      linear-gradient(160deg, var(--night-3), var(--night-2));
+    display:flex; align-items:center; justify-content:center; color:var(--cream-dim); position:relative;
+  }
+  .teacher .photo .mini-crown{position:absolute; top:16px; left:18px; width:30px; color:var(--gold); opacity:0.65;}
+  .teacher .body{padding:24px; border-top:1px solid var(--line);}
+  .teacher h3{font-size:1.6rem; margin-bottom:2px; color:var(--cream);}
+  .teacher .role{color:var(--gold-soft); font-weight:700; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:12px;}
+  .teacher p.bio{color:var(--cream-dim); font-size:0.9rem;}
+
+  /* ---------- reviews ---------- */
+  .reviews-track{display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 22px 18px; margin:0 -22px; scrollbar-width:none;}
+  .reviews-track::-webkit-scrollbar{display:none;}
+  .review{
+    flex:0 0 86%; scroll-snap-align:center; background:var(--night-2); border:1px solid var(--line);
+    border-radius:var(--radius); padding:32px; display:flex; flex-direction:column; gap:16px; position:relative;
+  }
+  @media(min-width:640px){.review{flex:0 0 400px;}}
+  .review::before{
+    content:'\201C'; position:absolute; top:6px; right:22px; font-family:'Cormorant Garamond',serif;
+    font-size:5.5rem; line-height:1; color:var(--gold); opacity:0.18;
+  }
+  .review p.txt{color:var(--cream-dim); font-size:0.95rem; flex:1; font-style:italic; font-family:'Cormorant Garamond',serif; font-size:1.15rem;}
+  .review .who{display:flex; align-items:center; gap:13px; border-top:1px solid var(--line-soft); padding-top:18px;}
+  .review .ava{
+    width:44px; height:44px; border-radius:50%; background:linear-gradient(140deg, var(--gold-soft), var(--gold));
+    color:var(--night); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.85rem;
+  }
+  .review .who h4{font-size:0.95rem; font-family:'Manrope',sans-serif; font-weight:700;}
+  .review .who span{font-size:0.78rem; color:var(--cream-dim);}
+  .review .stars{color:var(--gold); letter-spacing:3px; font-size:0.8rem;}
+  .drag-hint{display:flex; align-items:center; justify-content:center; gap:10px; margin-top:16px; color:var(--cream-dim); font-size:0.8rem;}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:780px; margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%; background:none; border:none; text-align:left; padding:26px 46px 26px 4px;
+    font-family:'Cormorant Garamond',serif; font-size:1.45rem; font-weight:600; color:var(--cream);
+    position:relative; transition:color .25s ease;
+  }
+  .faq-q:hover{color:var(--gold-soft);}
+  .faq-q::after{
+    content:'+'; position:absolute; right:8px; top:50%; transform:translateY(-50%);
+    font-size:1.8rem; font-weight:500; color:var(--gold); transition:transform .3s ease;
+  }
+  .faq-item.open .faq-q::after{transform:translateY(-50%) rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .45s cubic-bezier(.16,1,.3,1);}
+  .faq-a p{padding:0 4px 26px; color:var(--cream-dim); font-size:0.94rem; max-width:62ch; font-family:'Manrope',sans-serif;}
+
+  /* ---------- form ---------- */
+  .signup{position:relative; overflow:hidden;}
+  .signup-frame{
+    border:1px solid var(--gold); border-radius:28px; position:relative; overflow:hidden;
+    background:linear-gradient(150deg, rgba(46,91,255,0.14), rgba(11,23,66,0.6) 60%);
+    padding:40px 26px;
+  }
+  .signup-frame::before{content:''; position:absolute; inset:8px; border:1px solid var(--line); border-radius:21px; pointer-events:none;}
+  @media(min-width:680px){.signup-frame{padding:60px;}}
+  .signup-grid{display:grid; gap:44px; grid-template-columns:1fr; position:relative;}
+  @media(min-width:960px){.signup-grid{grid-template-columns:1fr 1fr; gap:64px; align-items:center;}}
+  .signup h2{font-size:clamp(2.1rem,5vw,3.3rem); margin-bottom:16px; color:var(--cream);}
+  .signup h2 em{font-style:italic; color:var(--gold);}
+  .signup .sub{color:var(--cream-dim); margin-bottom:28px; max-width:46ch;}
+  .perks{list-style:none; display:flex; flex-direction:column; gap:14px;}
+  .perks li{display:flex; gap:12px; align-items:flex-start; font-size:0.93rem;}
+  .perks .tick{
+    flex:0 0 22px; width:22px; height:22px; border-radius:50%; background:var(--gold); color:var(--night);
+    display:flex; align-items:center; justify-content:center; font-size:0.68rem; font-weight:800; margin-top:2px;
+  }
+  .form-card{background:var(--night); border:1px solid var(--line); border-radius:20px; padding:32px; position:relative;}
+  @media(min-width:560px){.form-card{padding:38px;}}
+  .form-card h3{font-size:1.7rem; margin-bottom:4px; color:var(--cream);}
+  .form-card .hint{font-size:0.84rem; color:var(--cream-dim); margin-bottom:24px;}
+  .field{display:flex; flex-direction:column; gap:7px; margin-bottom:16px;}
+  .field label{font-size:0.72rem; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-soft);}
+  .field input,.field select{
+    background:var(--night-2); border:1px solid var(--line-soft); border-radius:12px; padding:14px 16px;
+    font-size:0.95rem; font-family:inherit; color:var(--cream); outline:none; transition:all .25s ease;
+  }
+  .field input::placeholder{color:rgba(244,239,228,0.35);}
+  .field input:focus,.field select:focus{border-color:var(--gold); box-shadow:0 0 0 3px rgba(217,180,91,0.12);}
+  .field select{appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D9B45B' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; background-size:18px;}
+  .field select option{background:var(--night-2); color:var(--cream);}
+  .req{color:var(--gold);}
+  .form-note{font-size:0.76rem; color:var(--cream-dim); text-align:center; margin-top:14px;}
+  .form-error{display:none; color:#FF7B6B; font-size:0.85rem; margin-top:10px; font-weight:600;}
+  #thanks{display:none; text-align:center; padding:34px 6px;}
+  #thanks .ok{
+    width:62px; height:62px; border-radius:50%; background:rgba(217,180,91,0.14); color:var(--gold);
+    border:1px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; margin:0 auto 18px;
+  }
+  #thanks h3{margin-bottom:8px; color:var(--cream); font-size:1.7rem;}
+  #thanks p{color:var(--cream-dim); font-size:0.92rem;}
+
+  /* ---------- contacts ---------- */
+  .contacts-grid{display:grid; gap:18px; grid-template-columns:1fr;}
+  @media(min-width:800px){.contacts-grid{grid-template-columns:repeat(3,1fr);}}
+  .contact-card{
+    border:1px solid var(--line); border-radius:var(--radius); padding:28px; background:var(--night-2);
+    display:flex; flex-direction:column; gap:6px; transition:all .3s ease;
+  }
+  .contact-card:hover{transform:translateY(-4px); border-color:var(--gold);}
+  .contact-card .ico{width:44px; height:44px; border-radius:12px; background:rgba(217,180,91,0.12); color:var(--gold); display:flex; align-items:center; justify-content:center; margin-bottom:10px; border:1px solid var(--line);}
+  .contact-card h4{font-size:0.72rem; font-weight:800; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-soft);}
+  .contact-card p,.contact-card a.val{font-size:1.05rem; font-weight:700; color:var(--cream);}
+  .contact-card a.val:hover{color:var(--gold-soft);}
+  .maps-grid{display:grid; gap:22px; grid-template-columns:1fr; margin-top:26px;}
+  @media(min-width:800px){.maps-grid{grid-template-columns:repeat(2,1fr);}}
+  .branch{
+    border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+    background:var(--night-2); transition:all .3s ease;
+  }
+  .branch:hover{border-color:var(--gold); transform:translateY(-4px);}
+  .branch-head{display:flex; align-items:center; gap:16px; padding:22px 24px; border-bottom:1px solid var(--line-soft);}
+  .branch-head .roman{
+    flex:0 0 44px; width:44px; height:44px; border:1px solid var(--gold); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:1.15rem;
+  }
+  .branch-head h3{font-size:1.5rem; color:var(--cream);}
+  .branch-head p{color:var(--cream-dim); font-size:0.85rem;}
+  .map-frame{
+    border:none; border-top:1px dashed var(--line); height:280px;
+    display:flex; align-items:center; justify-content:center; color:var(--cream-dim); font-size:0.9rem; text-align:center; padding:20px;
+    background:rgba(8,17,52,0.5);
+  }
+  .map-frame iframe{width:100%; height:100%; border:0;}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line); padding:60px 0 130px; position:relative; overflow:hidden;}
+  footer::before{
+    content:'KINGDOM'; position:absolute; left:50%; bottom:-26px; transform:translateX(-50%);
+    font-family:'Cormorant Garamond',serif; font-weight:700; letter-spacing:0.18em;
+    font-size:clamp(4rem, 14vw, 11rem); line-height:1; white-space:nowrap;
+    color:transparent; -webkit-text-stroke:1px rgba(217,180,91,0.12); pointer-events:none;
+  }
+  .footer-grid{display:flex; flex-direction:column; gap:30px; position:relative;}
+  @media(min-width:780px){.footer-grid{flex-direction:row; justify-content:space-between; align-items:center;}}
+  .footer-links{display:flex; flex-wrap:wrap; gap:22px; font-size:0.88rem; color:var(--cream-dim);}
+  .footer-links a:hover{color:var(--gold-soft);}
+  .footer-bottom{margin-top:36px; padding-top:22px; border-top:1px solid var(--line-soft); font-size:0.78rem; color:var(--cream-dim); display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; position:relative;}
+
+  /* ---------- WhatsApp float ---------- */
+  .wa-float{
+    position:fixed; bottom:22px; right:18px; z-index:90;
+    display:flex; align-items:center; gap:10px;
+    background:#1FAF54; color:#fff; border-radius:999px; padding:14px 20px 14px 16px;
+    font-weight:800; font-size:0.88rem; box-shadow:0 14px 30px -10px rgba(31,175,84,0.55);
+    transition:transform .3s ease;
+  }
+  .wa-float:hover{transform:translateY(-3px) scale(1.03);}
+  .wa-float svg{width:22px; height:22px;}
+
+  /* ---------- reveal helpers ---------- */
+  .rv{opacity:0; transform:translateY(38px);}
+  .rv-s{opacity:0; transform:scale(0.92);}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="progress"><span id="progressBar"></span></div>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#top" class="logo" aria-label="Kingdom">
+      <svg viewBox="0 0 160 158" xmlns="http://www.w3.org/2000/svg">
+        <g class="crown-lines" fill="none" stroke="#D9B45B" stroke-width="2.6" stroke-linecap="round">
+          <line x1="14" y1="108" x2="40" y2="28"/>
+          <line x1="40" y1="28" x2="80" y2="108"/>
+          <line x1="80" y1="108" x2="120" y2="28"/>
+          <line x1="120" y1="28" x2="146" y2="108"/>
+          <line x1="80" y1="8" x2="56" y2="60"/>
+          <line x1="80" y1="8" x2="104" y2="60"/>
+          <line x1="48" y1="42" x2="55" y2="28"/>
+          <line x1="55" y1="28" x2="62" y2="42"/>
+          <line x1="98" y1="42" x2="105" y2="28"/>
+          <line x1="105" y1="28" x2="112" y2="42"/>
+        </g>
+        <g class="wordmark" fill="none" stroke="#F4EFE4" stroke-width="2">
+          <path d="M30 126 V146 M40 126 L30 138 M32 136 L40 146"/>
+          <path d="M47.5 126 V146"/>
+          <path d="M55 146 V126 M65 146 V126 M55 146 L65 126"/>
+          <path d="M80 127 H71 V145 H80 V137 H76"/>
+          <path d="M86 126 V146 M86 126 H90 Q96 126 96 136 Q96 146 90 146 H86"/>
+          <rect x="102" y="127" width="10" height="18" rx="5"/>
+          <path d="M118 146 V126 L124 138 L130 126 V146"/>
+        </g>
+      </svg>
+      <span class="brand-word">KINGDOM<small>SHYMKENT</small></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#courses" class="t" data-kaz="Курстар" data-ru="Курсы">Курстар</a>
+      <a href="#about" class="t" data-kaz="Біз туралы" data-ru="О нас">Біз туралы</a>
+      <a href="#teachers" class="t" data-kaz="Мұғалімдер" data-ru="Учителя">Мұғалімдер</a>
+      <a href="#reviews" class="t" data-kaz="Пікірлер" data-ru="Отзывы">Пікірлер</a>
+      <a href="#faq" class="t" data-kaz="Сұрақ-жауап" data-ru="Вопросы">Сұрақ-жауап</a>
+      <a href="#contacts" class="t" data-kaz="Байланыс" data-ru="Контакты">Байланыс</a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="kaz">ҚАЗ</button>
+        <button class="lang-btn" data-lang="ru">РУС</button>
+      </div>
+      <a href="#form" class="btn btn-gold nav-cta t" data-kaz="Жазылу" data-ru="Записаться">Жазылу</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= MOBILE MENU ================= -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#courses"><span class="roman">I</span><span class="t" data-kaz="Курстар" data-ru="Курсы">Курстар</span></a>
+  <a href="#about"><span class="roman">II</span><span class="t" data-kaz="Біз туралы" data-ru="О нас">Біз туралы</span></a>
+  <a href="#teachers"><span class="roman">III</span><span class="t" data-kaz="Мұғалімдер" data-ru="Учителя">Мұғалімдер</span></a>
+  <a href="#reviews"><span class="roman">IV</span><span class="t" data-kaz="Пікірлер" data-ru="Отзывы">Пікірлер</span></a>
+  <a href="#faq"><span class="roman">V</span><span class="t" data-kaz="Сұрақ-жауап" data-ru="Вопросы">Сұрақ-жауап</span></a>
+  <a href="#contacts"><span class="roman">VI</span><span class="t" data-kaz="Байланыс" data-ru="Контакты">Байланыс</span></a>
+  <a href="#form" class="btn btn-gold t" data-kaz="Тегін сабаққа жазылыңыз" data-ru="Запишитесь на бесплатный урок">Тегін сабаққа жазылыңыз</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="hero-big-word" aria-hidden="true">KINGDOM</div>
+
+  <div class="hero-inner">
+    <div class="hero-crest rv-s" id="heroCrest">
+      <div class="halo"></div>
+      <svg viewBox="0 0 160 158" xmlns="http://www.w3.org/2000/svg">
+        <g class="crown-lines" fill="none" stroke="#D9B45B" stroke-width="2.6" stroke-linecap="round">
+          <line x1="14" y1="108" x2="40" y2="28"/>
+          <line x1="40" y1="28" x2="80" y2="108"/>
+          <line x1="80" y1="108" x2="120" y2="28"/>
+          <line x1="120" y1="28" x2="146" y2="108"/>
+          <line x1="80" y1="8" x2="56" y2="60"/>
+          <line x1="80" y1="8" x2="104" y2="60"/>
+          <line x1="48" y1="42" x2="55" y2="28"/>
+          <line x1="55" y1="28" x2="62" y2="42"/>
+          <line x1="98" y1="42" x2="105" y2="28"/>
+          <line x1="105" y1="28" x2="112" y2="42"/>
+        </g>
+        <g class="wordmark" fill="none" stroke="#F4EFE4" stroke-width="2">
+          <path d="M30 126 V146 M40 126 L30 138 M32 136 L40 146"/>
+          <path d="M47.5 126 V146"/>
+          <path d="M55 146 V126 M65 146 V126 M55 146 L65 126"/>
+          <path d="M80 127 H71 V145 H80 V137 H76"/>
+          <path d="M86 126 V146 M86 126 H90 Q96 126 96 136 Q96 146 90 146 H86"/>
+          <rect x="102" y="127" width="10" height="18" rx="5"/>
+          <path d="M118 146 V126 L124 138 L130 126 V146"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="rule rv"><span class="roman t" data-kaz="Шымкенттегі тілдер мектебі" data-ru="Языковая школа в Шымкенте">Шымкенттегі тілдер мектебі</span></div>
+
+    <h1 class="rv">
+      <span class="t" data-kaz="Әр оқушы — өз тілінің" data-ru="Каждый ученик — король">Әр оқушы — өз тілінің</span>
+      <em class="t" data-kaz="королі" data-ru="своего языка">королі</em>
+    </h1>
+    <p class="lead rv t"
+      data-kaz="Ағылшын және орыс тілдері: шағын топтар, тәжірибелі мұғалімдер, нәтижеге бағытталған әдістеме. Тәж кию үшін алғашқы қадам — тегін сынақ сабағы."
+      data-ru="Английский и русский язык: малые группы, опытные преподаватели, методика на результат. Первый шаг к короне — бесплатный пробный урок.">Ағылшын және орыс тілдері: шағын топтар, тәжірибелі мұғалімдер, нәтижеге бағытталған әдістеме. Тәж кию үшін алғашқы қадам — тегін сынақ сабағы.</p>
+
+    <div class="hero-actions rv">
+      <a href="#form" class="btn btn-gold t" data-kaz="Тегін сабаққа жазылыңыз" data-ru="Запишитесь на бесплатный урок">Тегін сабаққа жазылыңыз</a>
+      <a href="#" class="btn btn-outline wa-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4 8.94 8.94 0 0 0 3.12 12.93a8.84 8.84 0 0 0 1.18 4.43L3 21l3.74-1.27a8.93 8.93 0 0 0 5.32 1.72h.01a8.94 8.94 0 0 0 8.93-8.93 8.86 8.86 0 0 0-2.6-6.2zM12.06 19.7a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.8.95.94-2.74-.18-.28a7.45 7.45 0 1 1 13.8-3.97 7.5 7.5 0 0 1-7.71 7.24z"/></svg>
+        <span class="t" data-kaz="WhatsApp-та жазу" data-ru="Написать в WhatsApp">WhatsApp-та жазу</span>
+      </a>
+    </div>
+
+    <div class="hero-meta rv">
+      <span><b>♛</b><span class="t" data-kaz="Алғашқы сабақ тегін" data-ru="Первый урок бесплатно">Алғашқы сабақ тегін</span></span>
+      <span><b>♛</b><span class="t" data-kaz="Топта 6–8 оқушы" data-ru="В группе 6–8 учеников">Топта 6–8 оқушы</span></span>
+      <span><b>♛</b><span class="t" data-kaz="Балалар мен ересектерге" data-ru="Для детей и взрослых">Балалар мен ересектерге</span></span>
+    </div>
+  </div>
+
+  <div class="marquee">
+    <div class="marquee-track" id="marqueeTrack">
+      <span class="t" data-kaz="Ағылшын тілі" data-ru="Английский язык">Ағылшын тілі</span>
+      <span class="t" data-kaz="Орыс тілі" data-ru="Русский язык">Орыс тілі</span>
+      <span class="t" data-kaz="Балаларға арналған курстар" data-ru="Курсы для детей">Балаларға арналған курстар</span>
+      <span class="t" data-kaz="Сөйлеу клубы" data-ru="Разговорный клуб">Сөйлеу клубы</span>
+      <span class="t" data-kaz="Шағын топтар" data-ru="Малые группы">Шағын топтар</span>
+      <span class="t" data-kaz="Ағылшын тілі" data-ru="Английский язык">Ағылшын тілі</span>
+      <span class="t" data-kaz="Орыс тілі" data-ru="Русский язык">Орыс тілі</span>
+      <span class="t" data-kaz="Балаларға арналған курстар" data-ru="Курсы для детей">Балаларға арналған курстар</span>
+      <span class="t" data-kaz="Сөйлеу клубы" data-ru="Разговорный клуб">Сөйлеу клубы</span>
+      <span class="t" data-kaz="Шағын топтар" data-ru="Малые группы">Шағын топтар</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-frame rv">
+      <div class="stats-grid">
+        <div class="stat"><div class="num"><i data-count="500">0</i>+</div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения">Жетістік орны</div></div>
+        <div class="stat"><div class="num"><i data-count="7">0</i></div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения">Жетістік орны</div></div>
+        <div class="stat"><div class="num"><i data-count="12">0</i></div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения">Жетістік орны</div></div>
+        <div class="stat"><div class="num"><i data-count="98">0</i>%</div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения">Жетістік орны</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= COURSES ================= -->
+<section id="courses">
+  <div class="container">
+    <div class="section-head rv">
+      <div class="kicker"><span class="t" data-kaz="Бағдарламалар" data-ru="Программы">Бағдарламалар</span></div>
+      <h2><span class="t" data-kaz="Корольдік" data-ru="Королевские">Корольдік</span> <em class="t" data-kaz="курстар" data-ru="курсы">курстар</em></h2>
+      <p class="t"
+        data-kaz="Курсты басыңыз — WhatsApp ашылып, тегін сынақ сабағына өтінім дайын болады."
+        data-ru="Нажмите на курс — откроется WhatsApp с готовой заявкой на бесплатный пробный урок.">Курсты басыңыз — WhatsApp ашылып, тегін сынақ сабағына өтінім дайын болады.</p>
+    </div>
+
+    <div class="course-list">
+      <div class="course-row rv" data-course="Starter A1-A2">
+        <div class="roman">I</div>
+        <h3>Starter A1–A2</h3>
+        <p class="desc t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <span class="course-tag t" data-kaz="8 апта • шағын топ" data-ru="8 недель • малая группа">8 апта • шағын топ</span>
+        <span class="course-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="course-row rv" data-course="Intermediate A2-B1">
+        <div class="roman">II</div>
+        <h3>Intermediate A2–B1</h3>
+        <p class="desc t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <span class="course-tag t" data-kaz="10 апта • шағын топ" data-ru="10 недель • малая группа">10 апта • шағын топ</span>
+        <span class="course-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="course-row rv" data-course="Upper B2-C1">
+        <div class="roman">III</div>
+        <h3>Upper B2–C1</h3>
+        <p class="desc t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <span class="course-tag t" data-kaz="12 апта • шағын топ" data-ru="12 недель • малая группа">12 апта • шағын топ</span>
+        <span class="course-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="course-row rv" data-course="Kids 6-10">
+        <div class="roman">IV</div>
+        <h3 class="t" data-kaz="Балаларға арналған курс" data-ru="Курс для детей">Балаларға арналған курс</h3>
+        <p class="desc t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <span class="course-tag t" data-kaz="6–10 жас • ойын форматы" data-ru="6–10 лет • игровой формат">6–10 жас • ойын форматы</span>
+        <span class="course-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="course-row rv" data-course="Russian">
+        <div class="roman">V</div>
+        <h3 class="t" data-kaz="Орыс тілі" data-ru="Русский язык">Орыс тілі</h3>
+        <p class="desc t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <span class="course-tag t" data-kaz="Барлық деңгей" data-ru="Все уровни">Барлық деңгей</span>
+        <span class="course-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <svg class="about-crown-bg" viewBox="0 0 160 110" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+    <path d="M14 108 L40 28 L80 108 L120 28 L146 108"/>
+    <path d="M80 8 L56 60 M80 8 L104 60"/>
+  </svg>
+  <div class="container">
+    <div class="section-head rv">
+      <div class="kicker"><span class="t" data-kaz="Артықшылықтар" data-ru="Преимущества">Артықшылықтар</span></div>
+      <h2><span class="t" data-kaz="Неліктен" data-ru="Почему именно">Неліктен</span> <em>Kingdom</em></h2>
+      <p class="t"
+        data-kaz="Kingdom — Шымкенттегі заманауи тілдер мектебі. Біз нәтижеге, жайлы ортаға және әр оқушыға жеке көзқарасқа сенеміз."
+        data-ru="Kingdom — современная языковая школа в Шымкенте. Мы верим в результат, комфортную среду и индивидуальный подход к каждому ученику.">Kingdom — Шымкенттегі заманауи тілдер мектебі. Біз нәтижеге, жайлы ортаға және әр оқушыға жеке көзқарасқа сенеміз.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="feature rv">
+        <span class="roman">I.</span>
+        <h3 class="t" data-kaz="Тәжірибелі мұғалімдер" data-ru="Опытные преподаватели">Тәжірибелі мұғалімдер</h3>
+        <p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+      </div>
+      <div class="feature rv">
+        <span class="roman">II.</span>
+        <h3 class="t" data-kaz="Шағын топтар" data-ru="Малые группы">Шағын топтар</h3>
+        <p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+      </div>
+      <div class="feature rv">
+        <span class="roman">III.</span>
+        <h3 class="t" data-kaz="Сөйлеуге басымдық" data-ru="Приоритет — разговорная речь">Сөйлеуге басымдық</h3>
+        <p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+      </div>
+      <div class="feature rv">
+        <span class="roman">IV.</span>
+        <h3 class="t" data-kaz="Ыңғайлы кесте мен орналасу" data-ru="Удобное расписание и расположение">Ыңғайлы кесте мен орналасу</h3>
+        <p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEACHERS ================= -->
+<section id="teachers">
+  <div class="container">
+    <div class="crown-divider">
+      <svg viewBox="0 0 160 110" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M14 108 L40 28 L80 108 L120 28 L146 108"/><path d="M80 8 L56 60 M80 8 L104 60"/></svg>
+    </div>
+    <div class="section-head rv">
+      <div class="kicker"><span class="t" data-kaz="Команда" data-ru="Команда">Команда</span></div>
+      <h2><span class="t" data-kaz="Тәждің" data-ru="Хранители">Тәждің</span> <em class="t" data-kaz="сақшылары" data-ru="короны">сақшылары</em></h2>
+      <p class="t"
+        data-kaz="Сертификатталған және оқушыны шынымен қызықтыра білетін мұғалімдер."
+        data-ru="Сертифицированные преподаватели, которые умеют по-настоящему увлечь ученика.">Сертификатталған және оқушыны шынымен қызықтыра білетін мұғалімдер.</p>
+    </div>
+
+    <div class="teachers-grid">
+      <div class="teacher rv">
+        <div class="photo">
+          <svg class="mini-crown" viewBox="0 0 160 110" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"><path d="M14 108 L40 28 L80 108 L120 28 L146 108"/><path d="M80 8 L56 60 M80 8 L104 60"/></svg>
+          <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </div>
+        <div class="body">
+          <h3 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h3>
+          <div class="role t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</div>
+          <p class="bio t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        </div>
+      </div>
+      <div class="teacher rv">
+        <div class="photo">
+          <svg class="mini-crown" viewBox="0 0 160 110" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"><path d="M14 108 L40 28 L80 108 L120 28 L146 108"/><path d="M80 8 L56 60 M80 8 L104 60"/></svg>
+          <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </div>
+        <div class="body">
+          <h3 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h3>
+          <div class="role t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</div>
+          <p class="bio t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        </div>
+      </div>
+      <div class="teacher rv">
+        <div class="photo">
+          <svg class="mini-crown" viewBox="0 0 160 110" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"><path d="M14 108 L40 28 L80 108 L120 28 L146 108"/><path d="M80 8 L56 60 M80 8 L104 60"/></svg>
+          <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </div>
+        <div class="body">
+          <h3 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h3>
+          <div class="role t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</div>
+          <p class="bio t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-head rv">
+      <div class="kicker"><span class="t" data-kaz="Пікірлер" data-ru="Отзывы">Пікірлер</span></div>
+      <h2><span class="t" data-kaz="Оқушылар" data-ru="Слово">Оқушылар</span> <em class="t" data-kaz="сөзі" data-ru="учеников">сөзі</em></h2>
+    </div>
+
+    <div class="reviews-track" id="reviewsTrack">
+      <div class="review rv">
+        <p class="txt t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <div class="who">
+          <div class="ava">А</div>
+          <div><h4 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h4><span class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</span></div>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review rv">
+        <p class="txt t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <div class="who">
+          <div class="ava">М</div>
+          <div><h4 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h4><span class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</span></div>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review rv">
+        <p class="txt t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <div class="who">
+          <div class="ava">Д</div>
+          <div><h4 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h4><span class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</span></div>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review rv">
+        <p class="txt t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <div class="who">
+          <div class="ava">С</div>
+          <div><h4 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h4><span class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</span></div>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review rv">
+        <p class="txt t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <div class="who">
+          <div class="ava">Н</div>
+          <div><h4 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h4><span class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</span></div>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="drag-hint">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12l4-4M5 12l4 4M19 12l-4-4M19 12l-4 4"/></svg>
+      <span class="t" data-kaz="Оңға-солға жылжытыңыз" data-ru="Листайте в стороны">Оңға-солға жылжытыңыз</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head rv">
+      <div class="kicker"><span class="t" data-kaz="Сұрақ-жауап" data-ru="Вопросы и ответы">Сұрақ-жауап</span></div>
+      <h2><span class="t" data-kaz="Жиі қойылатын" data-ru="Частые">Жиі қойылатын</span> <em class="t" data-kaz="сұрақтар" data-ru="вопросы">сұрақтар</em></h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item rv">
+        <button class="faq-q t" data-kaz="Сабақтар қалай өтеді?" data-ru="Как проходят занятия?">Сабақтар қалай өтеді?</button>
+        <div class="faq-a"><p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q t" data-kaz="Деңгейімді қалай білемін?" data-ru="Как узнать свой уровень?">Деңгейімді қалай білемін?</button>
+        <div class="faq-a"><p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q t" data-kaz="Топта неше адам оқиды?" data-ru="Сколько человек в группе?">Топта неше адам оқиды?</button>
+        <div class="faq-a"><p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q t" data-kaz="Тегін сынақ сабағы бар ма?" data-ru="Есть ли бесплатный пробный урок?">Тегін сынақ сабағы бар ма?</button>
+        <div class="faq-a"><p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q t" data-kaz="Балаларға қандай курстар бар?" data-ru="Какие курсы есть для детей?">Балаларға қандай курстар бар?</button>
+        <div class="faq-a"><p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FORM ================= -->
+<section class="signup" id="form">
+  <div class="container">
+    <div class="signup-frame rv">
+      <div class="signup-grid">
+        <div>
+          <div class="kicker"><span class="t" data-kaz="Тегін сабақ" data-ru="Бесплатный урок">Тегін сабақ</span></div>
+          <h2><span class="t" data-kaz="Тәжіңізді" data-ru="Примерьте">Тәжіңізді</span> <em class="t" data-kaz="киіп көріңіз" data-ru="корону">киіп көріңіз</em></h2>
+          <p class="sub t"
+            data-kaz="Анкетаны толтырыңыз — өтінім бірден WhatsApp арқылы менеджерге жетеді, 30 минут ішінде жауап береміз."
+            data-ru="Заполните анкету — заявка сразу уйдёт менеджеру в WhatsApp, ответим в течение 30 минут.">Анкетаны толтырыңыз — өтінім бірден WhatsApp арқылы менеджерге жетеді, 30 минут ішінде жауап береміз.</p>
+          <ul class="perks">
+            <li><span class="tick">✓</span><span class="t" data-kaz="Деңгей анықтайтын тегін тестілеу" data-ru="Бесплатное тестирование уровня">Деңгей анықтайтын тегін тестілеу</span></li>
+            <li><span class="tick">✓</span><span class="t" data-kaz="Толық сабақ форматында өтеді" data-ru="Проходит в формате полноценного занятия">Толық сабақ форматында өтеді</span></li>
+            <li><span class="tick">✓</span><span class="t" data-kaz="Ешқандай міндеттеме жоқ" data-ru="Никаких обязательств">Ешқандай міндеттеме жоқ</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="form-card">
+            <form id="leadForm">
+              <h3 class="t" data-kaz="Жазылу" data-ru="Записаться">Жазылу</h3>
+              <p class="hint t" data-kaz="Өтінім WhatsApp-қа жіберіледі" data-ru="Заявка отправится в WhatsApp">Өтінім WhatsApp-қа жіберіледі</p>
+              <div class="field">
+                <label class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні <span class="req">*</span></label>
+                <input type="text" name="name" id="nameInput" required class="t" data-kaz="Аты-жөніңізді жазыңыз" data-ru="Введите имя и фамилию" placeholder="Аты-жөніңізді жазыңыз">
+              </div>
+              <div class="field">
+                <label class="t" data-kaz="Телефон" data-ru="Телефон">Телефон <span class="req">*</span></label>
+                <input type="tel" name="phone" id="phoneInput" required placeholder="+7 (___) ___-__-__" inputmode="numeric">
+              </div>
+              <div class="field">
+                <label class="t" data-kaz="Курс" data-ru="Курс">Курс</label>
+                <select name="course" id="courseSelect">
+                  <option value="Starter A1-A2">Starter A1–A2</option>
+                  <option value="Intermediate A2-B1">Intermediate A2–B1</option>
+                  <option value="Upper B2-C1">Upper B2–C1</option>
+                  <option value="Kids 6-10" class="t" data-kaz="Балаларға арналған курс (6–10 жас)" data-ru="Курс для детей (6–10 лет)">Балаларға арналған курс (6–10 жас)</option>
+                  <option value="Russian" class="t" data-kaz="Орыс тілі" data-ru="Русский язык">Орыс тілі</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="t" data-kaz="Ыңғайлы уақыт" data-ru="Удобное время">Ыңғайлы уақыт</label>
+                <select name="time" id="timeSelect">
+                  <option value="9:00-12:00" class="t" data-kaz="Таңертең (9:00–12:00)" data-ru="Утром (9:00–12:00)">Таңертең (9:00–12:00)</option>
+                  <option value="12:00-17:00" class="t" data-kaz="Күндіз (12:00–17:00)" data-ru="Днём (12:00–17:00)">Күндіз (12:00–17:00)</option>
+                  <option value="17:00-21:00" class="t" data-kaz="Кешке (17:00–21:00)" data-ru="Вечером (17:00–21:00)">Кешке (17:00–21:00)</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-wa" style="width:100%;">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4 8.94 8.94 0 0 0 3.12 12.93a8.84 8.84 0 0 0 1.18 4.43L3 21l3.74-1.27a8.93 8.93 0 0 0 5.32 1.72h.01a8.94 8.94 0 0 0 8.93-8.93 8.86 8.86 0 0 0-2.6-6.2zM12.06 19.7a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.8.95.94-2.74-.18-.28a7.45 7.45 0 1 1 13.8-3.97 7.5 7.5 0 0 1-7.71 7.24z"/></svg>
+                <span class="t" data-kaz="WhatsApp арқылы жіберу" data-ru="Отправить в WhatsApp">WhatsApp арқылы жіберу</span>
+              </button>
+              <p class="form-error" id="formError"><span class="t" data-kaz="Телефон нөмірін толық енгізіңіз" data-ru="Введите номер телефона полностью">Телефон нөмірін толық енгізіңіз</span></p>
+              <p class="form-note t" data-kaz="Батырманы басқанда WhatsApp ашылып, дайын хабарлама шығады" data-ru="При нажатии откроется WhatsApp с готовым сообщением">Батырманы басқанда WhatsApp ашылып, дайын хабарлама шығады</p>
+            </form>
+
+            <div id="thanks">
+              <div class="ok">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <h3 class="t" data-kaz="Рахмет!" data-ru="Спасибо!">Рахмет!</h3>
+              <p class="t" data-kaz="Жақын арада хабарласамыз." data-ru="Мы скоро свяжемся с вами.">Жақын арада хабарласамыз.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACTS ================= -->
+<section id="contacts">
+  <div class="container">
+    <div class="section-head rv">
+      <div class="kicker"><span class="t" data-kaz="Байланыс" data-ru="Контакты">Байланыс</span></div>
+      <h2><span class="t" data-kaz="Корольдікке" data-ru="Дорога в">Корольдікке</span> <em class="t" data-kaz="жол" data-ru="королевство">жол</em></h2>
+    </div>
+
+    <div class="contacts-grid">
+      <div class="contact-card rv">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h4 class="t" data-kaz="Мекенжай" data-ru="Адрес">Мекенжай</h4>
+        <p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+      </div>
+      <div class="contact-card rv">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h4 class="t" data-kaz="Телефон" data-ru="Телефон">Телефон</h4>
+        <a class="val" id="phoneLink" href="tel:+77053396313">+7 (705) 339-63-13</a>
+      </div>
+      <div class="contact-card rv">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4 8.94 8.94 0 0 0 3.12 12.93a8.84 8.84 0 0 0 1.18 4.43L3 21l3.74-1.27a8.93 8.93 0 0 0 5.32 1.72h.01a8.94 8.94 0 0 0 8.93-8.93 8.86 8.86 0 0 0-2.6-6.2zM12.06 19.7a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.8.95.94-2.74-.18-.28a7.45 7.45 0 1 1 13.8-3.97 7.5 7.5 0 0 1-7.71 7.24z"/></svg></div>
+        <h4>WhatsApp</h4>
+        <a class="val wa-link t" href="#" data-kaz="Хабарласу" data-ru="Написать">Хабарласу</a>
+      </div>
+    </div>
+
+    <div class="maps-grid">
+      <div class="branch rv">
+        <div class="branch-head">
+          <span class="roman">I</span>
+          <div>
+            <h3 class="t" data-kaz="1-филиал" data-ru="Филиал 1">1-филиал</h3>
+            <p class="t" data-kaz="Мәтін орны (мекенжай)" data-ru="Место для текста (адрес)">Мәтін орны (мекенжай)</p>
+          </div>
+        </div>
+        <div class="map-frame">
+          <!-- Сюда вставить виджет 2ГИС филиала 1: https://2gis.kz -> "Поделиться" -> "Виджет на сайт" -->
+          <span class="t" data-kaz="2ГИС картасының орны (1-филиал)" data-ru="Место для карты 2ГИС (филиал 1)">2ГИС картасының орны (1-филиал)</span>
+        </div>
+      </div>
+      <div class="branch rv">
+        <div class="branch-head">
+          <span class="roman">II</span>
+          <div>
+            <h3 class="t" data-kaz="2-филиал" data-ru="Филиал 2">2-филиал</h3>
+            <p class="t" data-kaz="Мәтін орны (мекенжай)" data-ru="Место для текста (адрес)">Мәтін орны (мекенжай)</p>
+          </div>
+        </div>
+        <div class="map-frame">
+          <!-- Сюда вставить виджет 2ГИС филиала 2: https://2gis.kz -> "Поделиться" -> "Виджет на сайт" -->
+          <span class="t" data-kaz="2ГИС картасының орны (2-филиал)" data-ru="Место для карты 2ГИС (филиал 2)">2ГИС картасының орны (2-филиал)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <a href="#top" class="logo">
+        <svg viewBox="0 0 160 158" xmlns="http://www.w3.org/2000/svg" width="46">
+          <g class="crown-lines" fill="none" stroke="#D9B45B" stroke-width="2.6" stroke-linecap="round">
+            <line x1="14" y1="108" x2="40" y2="28"/>
+            <line x1="40" y1="28" x2="80" y2="108"/>
+            <line x1="80" y1="108" x2="120" y2="28"/>
+            <line x1="120" y1="28" x2="146" y2="108"/>
+            <line x1="80" y1="8" x2="56" y2="60"/>
+            <line x1="80" y1="8" x2="104" y2="60"/>
+            <line x1="48" y1="42" x2="55" y2="28"/>
+            <line x1="55" y1="28" x2="62" y2="42"/>
+            <line x1="98" y1="42" x2="105" y2="28"/>
+            <line x1="105" y1="28" x2="112" y2="42"/>
+          </g>
+          <g class="wordmark" fill="none" stroke="#F4EFE4" stroke-width="2">
+            <path d="M30 126 V146 M40 126 L30 138 M32 136 L40 146"/>
+            <path d="M47.5 126 V146"/>
+            <path d="M55 146 V126 M65 146 V126 M55 146 L65 126"/>
+            <path d="M80 127 H71 V145 H80 V137 H76"/>
+            <path d="M86 126 V146 M86 126 H90 Q96 126 96 136 Q96 146 90 146 H86"/>
+            <rect x="102" y="127" width="10" height="18" rx="5"/>
+            <path d="M118 146 V126 L124 138 L130 126 V146"/>
+          </g>
+        </svg>
+        <span class="brand-word">KINGDOM<small>SHYMKENT</small></span>
+      </a>
+
+      <div class="footer-links">
+        <a href="#courses" class="t" data-kaz="Курстар" data-ru="Курсы">Курстар</a>
+        <a href="#about" class="t" data-kaz="Біз туралы" data-ru="О нас">Біз туралы</a>
+        <a href="#teachers" class="t" data-kaz="Мұғалімдер" data-ru="Учителя">Мұғалімдер</a>
+        <a href="#reviews" class="t" data-kaz="Пікірлер" data-ru="Отзывы">Пікірлер</a>
+        <a href="#contacts" class="t" data-kaz="Байланыс" data-ru="Контакты">Байланыс</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Kingdom Shymkent</span>
+      <span class="t" data-kaz="Барлық құқықтар қорғалған" data-ru="Все права защищены">Барлық құқықтар қорғалған</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= WHATSAPP FLOAT ================= -->
+<a href="#" class="wa-float wa-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4 8.94 8.94 0 0 0 3.12 12.93a8.84 8.84 0 0 0 1.18 4.43L3 21l3.74-1.27a8.93 8.93 0 0 0 5.32 1.72h.01a8.94 8.94 0 0 0 8.93-8.93 8.86 8.86 0 0 0-2.6-6.2zM12.06 19.7a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.8.95.94-2.74-.18-.28a7.45 7.45 0 1 1 13.8-3.97 7.5 7.5 0 0 1-7.71 7.24zm4.1-5.56c-.22-.11-1.32-.65-1.53-.73-.2-.08-.35-.11-.5.11-.15.22-.57.73-.7.88-.13.15-.26.16-.48.05a6.13 6.13 0 0 1-1.8-1.11 6.74 6.74 0 0 1-1.25-1.55c-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.08-.15.04-.28-.02-.39-.06-.11-.5-1.2-.68-1.65-.18-.43-.36-.37-.5-.38h-.43a.82.82 0 0 0-.6.28 2.5 2.5 0 0 0-.78 1.86c0 1.1.8 2.16.91 2.31.11.15 1.57 2.4 3.81 3.36.53.23.95.37 1.27.47.53.17 1.02.14 1.4.09.43-.06 1.32-.54 1.5-1.06.19-.52.19-.96.13-1.05-.05-.1-.2-.16-.42-.27z"/></svg>
+  <span class="t" data-kaz="Жазу" data-ru="Написать">Жазу</span>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  /* ===== КОНФИГ: замените номер на реальный WhatsApp школы (без +) ===== */
+  var WA_NUMBER = '77053396313';
+
+  /* ============ I18N ============ */
+  function setLanguage(lang){
+    document.documentElement.lang = lang === 'kaz' ? 'kk' : 'ru';
+    document.querySelectorAll('.t').forEach(function(el){
+      var val = el.dataset[lang];
+      if(val === undefined) return;
+      if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA'){
+        el.setAttribute('placeholder', val);
+      } else {
+        el.textContent = val;
+      }
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    localStorage.setItem('kingdom_lang', lang);
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){ setLanguage(btn.dataset.lang); });
+  });
+  setLanguage(localStorage.getItem('kingdom_lang') || 'kaz');
+
+  function currentLang(){ return localStorage.getItem('kingdom_lang') || 'kaz'; }
+
+  /* ============ WhatsApp ============ */
+  function waUrl(text){
+    return 'https://wa.me/' + WA_NUMBER + (text ? '?text=' + encodeURIComponent(text) : '');
+  }
+  /* приветствия в WhatsApp всегда на казахском */
+  function defaultWaText(){
+    return 'Сәлеметсіз бе! Kingdom мектебінің курстары туралы білгім келеді.';
+  }
+  document.querySelectorAll('.wa-link').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      window.open(waUrl(defaultWaText()), '_blank');
+    });
+  });
+
+  document.querySelectorAll('.course-row').forEach(function(row){
+    row.addEventListener('click', function(){
+      var course = row.dataset.course;
+      var text = 'Сәлеметсіз бе! «' + course + '» курсына тегін сынақ сабағына жазылғым келеді.';
+      window.open(waUrl(text), '_blank');
+    });
+  });
+
+  /* ============ MOBILE MENU ============ */
+  var burger = document.getElementById('burger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  /* ============ PHONE MASK ============ */
+  var phoneInput = document.getElementById('phoneInput');
+  phoneInput.addEventListener('focus', function(){
+    if(!phoneInput.value) phoneInput.value = '+7 ';
+  });
+  phoneInput.addEventListener('input', function(e){
+    var digits = e.target.value.replace(/\D/g, '');
+    if(digits.indexOf('8') === 0) digits = '7' + digits.slice(1);
+    if(digits.indexOf('7') !== 0) digits = '7' + digits;
+    digits = digits.slice(0, 11);
+    var out = '+7';
+    if(digits.length > 1) out += ' (' + digits.slice(1, 4);
+    if(digits.length >= 4) out += ') ' + digits.slice(4, 7);
+    if(digits.length >= 7) out += '-' + digits.slice(7, 9);
+    if(digits.length >= 9) out += '-' + digits.slice(9, 11);
+    e.target.value = out;
+  });
+
+  /* ============ FORM -> WhatsApp ============ */
+  var leadForm = document.getElementById('leadForm');
+  var thanks = document.getElementById('thanks');
+  var formError = document.getElementById('formError');
+
+  leadForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var digits = phoneInput.value.replace(/\D/g, '');
+    if(digits.length < 11){
+      formError.style.display = 'block';
+      phoneInput.focus();
+      return;
+    }
+    formError.style.display = 'none';
+
+    var name = document.getElementById('nameInput').value.trim();
+    var courseSel = document.getElementById('courseSelect');
+    var course = courseSel.options[courseSel.selectedIndex].text;
+    var timeSel = document.getElementById('timeSelect');
+    var time = timeSel.options[timeSel.selectedIndex].text;
+
+    var msg = 'Сәлеметсіз бе! Тегін сынақ сабағына жазылғым келеді.\n'
+        + 'Аты-жөні: ' + name + '\n'
+        + 'Телефон: ' + phoneInput.value + '\n'
+        + 'Курс: ' + course + '\n'
+        + 'Ыңғайлы уақыт: ' + time;
+    window.open(waUrl(msg), '_blank');
+    leadForm.style.display = 'none';
+    thanks.style.display = 'block';
+  });
+
+  /* ============ FAQ ============ */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = '0';
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ============ GSAP ============ */
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* корона рисуется штрих за штрихом */
+  document.querySelectorAll('.crown-lines line').forEach(function(ln, i){
+    var len = Math.hypot(ln.x2.baseVal.value - ln.x1.baseVal.value, ln.y2.baseVal.value - ln.y1.baseVal.value);
+    ln.style.strokeDasharray = len;
+    ln.style.strokeDashoffset = len;
+    gsap.to(ln, { strokeDashoffset: 0, duration: 1.2, delay: 0.2 + (i % 10) * 0.09, ease: 'power2.out' });
+  });
+
+  /* hero intro */
+  gsap.timeline({ defaults: { ease: 'power3.out', duration: 1 } })
+    .to('.hero-crest', { opacity: 1, scale: 1, duration: 1.2, ease: 'back.out(1.4)' })
+    .to('.hero .rv', { opacity: 1, y: 0, stagger: 0.12 }, '-=0.7');
+
+  /* большое слово KINGDOM — параллакс-расхождение букв */
+  gsap.to('.hero-big-word', {
+    letterSpacing: '0.3em', opacity: 0.4, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom 30%', scrub: 1 }
+  });
+  gsap.to('#heroCrest', {
+    y: -50, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+  });
+
+  /* generic reveals */
+  gsap.utils.toArray('.rv').forEach(function(el){
+    if(el.closest('.hero')) return;
+    gsap.to(el, {
+      opacity: 1, y: 0, duration: 0.95, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 88%' }
+    });
+  });
+  gsap.utils.toArray('.rv-s').forEach(function(el){
+    if(el.closest('.hero')) return;
+    gsap.to(el, {
+      opacity: 1, scale: 1, duration: 1, ease: 'back.out(1.3)',
+      scrollTrigger: { trigger: el, start: 'top 88%' }
+    });
+  });
+
+  /* marquee */
+  gsap.to('#marqueeTrack', { xPercent: -50, ease: 'none', duration: 24, repeat: -1 });
+
+  /* счётчики */
+  document.querySelectorAll('.stat .num i').forEach(function(el){
+    var target = parseInt(el.dataset.count, 10);
+    var obj = { val: 0 };
+    ScrollTrigger.create({
+      trigger: el, start: 'top 92%', once: true,
+      onEnter: function(){
+        gsap.to(obj, {
+          val: target, duration: 1.8, ease: 'power2.out',
+          onUpdate: function(){ el.textContent = Math.round(obj.val); }
+        });
+      }
+    });
+  });
+
+  /* nav прячется при скролле вниз + прогресс */
+  var lastY = 0;
+  var navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    if(y > 140 && y > lastY && !mobileMenu.classList.contains('open')){
+      navbar.style.transform = 'translateY(-100%)';
+    } else {
+      navbar.style.transform = 'translateY(0)';
+    }
+    lastY = y;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('progressBar').style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+  }, { passive: true });
+</script>
+</body>
+</html>
