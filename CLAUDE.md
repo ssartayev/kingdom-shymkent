@@ -1,6 +1,6 @@
 # Kingdom Shymkent — лендинг
 
-Один автономный файл: [dist/kingdom-shymkent.html](dist/kingdom-shymkent.html)
+Один автономный файл: [dist/index.html](dist/index.html)
 Стек: чистый HTML + CSS + vanilla JS, GSAP с CDN (анимации появления секций, счётчики статистики, плавающие "орбы" фона).
 
 ## Запуск
@@ -8,7 +8,7 @@
 ```bash
 cd dist && python3 -m http.server 8000
 ```
-Открыть http://localhost:8000/kingdom-shymkent.html
+Открыть http://localhost:8000
 
 ## Проверка перед сборкой
 

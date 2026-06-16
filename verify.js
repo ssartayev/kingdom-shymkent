@@ -1,8 +1,8 @@
-// Verification script for dist/kingdom-shymkent.html
+// Verification script for dist/index.html
 const fs = require('fs');
 const path = require('path');
 
-const file = path.join(__dirname, 'dist', 'kingdom-shymkent.html');
+const file = path.join(__dirname, 'dist', 'index.html');
 const html = fs.readFileSync(file, 'utf8');
 
 let errors = [];
