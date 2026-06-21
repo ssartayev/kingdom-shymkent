@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kingdom Shymkent — Тілдер мектебі / Языковая школа</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 158'%3E%3Crect width='160' height='158' rx='32' fill='%23081134'/%3E%3Cg fill='none' stroke='%23D9B45B' stroke-width='6' stroke-linecap='round'%3E%3Cline x1='14' y1='108' x2='40' y2='28'/%3E%3Cline x1='40' y1='28' x2='80' y2='108'/%3E%3Cline x1='80' y1='108' x2='120' y2='28'/%3E%3Cline x1='120' y1='28' x2='146' y2='108'/%3E%3Cline x1='80' y1='8' x2='56' y2='60'/%3E%3Cline x1='80' y1='8' x2='104' y2='60'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 158'%3E%3Crect width='160' height='158' rx='32' fill='%23081134'/%3E%3Cg fill='none' stroke='%23D9B45B' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='13' y1='17' x2='80' y2='107'/%3E%3Cline x1='147' y1='17' x2='80' y2='107'/%3E%3Cline x1='80' y1='8' x2='36' y2='103'/%3E%3Cline x1='80' y1='8' x2='123' y2='103'/%3E%3Cline x1='38' y1='37' x2='47' y2='23'/%3E%3Cline x1='47' y1='23' x2='56' y2='37'/%3E%3Cline x1='104' y1='37' x2='113' y2='23'/%3E%3Cline x1='113' y1='23' x2='122' y2='37'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -55,7 +55,7 @@
     font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:600;
     color:var(--gold); font-size:1rem; letter-spacing:0.1em;
   }
-  .rule{display:flex; align-items:center; gap:14px; margin:0 0 18px;}
+  .rule{display:flex; align-items:center; justify-content:center; gap:14px; margin:0 0 18px;}
   .rule::before,.rule::after{content:''; height:1px; flex:0 0 38px; background:linear-gradient(90deg, transparent, var(--gold));}
   .rule::after{background:linear-gradient(90deg, var(--gold), transparent);}
   .crown-divider{display:flex; justify-content:center; padding:0 0 56px; color:var(--gold);}
@@ -82,6 +82,17 @@
   .logo svg{width:42px; height:42px;}
   .logo .brand-word{font-family:'Cormorant Garamond',serif; font-weight:700; letter-spacing:0.2em; font-size:1.15rem; color:var(--cream);}
   .logo .brand-word small{display:block; font-family:'Manrope',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:0.42em; color:var(--gold);}
+  /* логотип-картинка (форма из PNG, золотая заливка через маску) */
+  .logo-mark{
+    display:block; flex:none;
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold) 65%);
+    -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+    -webkit-mask-position:center; mask-position:center;
+    -webkit-mask-size:contain; mask-size:contain;
+  }
+  .logo-mark--crown{ -webkit-mask-image:url(logo-crown.png); mask-image:url(logo-crown.png); }
+  .logo-mark--full{ -webkit-mask-image:url(logo-full.png); mask-image:url(logo-full.png); }
+  .logo .logo-mark--crown{ width:54px; aspect-ratio:700/464; }
   .nav-links{display:none;}
   .nav-right{display:flex; align-items:center; gap:12px;}
   .lang-switch{display:flex; gap:3px; font-size:0.74rem; font-weight:800; letter-spacing:0.05em; border:1px solid var(--line); border-radius:999px; padding:3px; background:rgba(8,17,52,0.6);}
@@ -145,6 +156,7 @@
   }
   .hero-inner{position:relative; text-align:center; max-width:880px; margin:0 auto; padding:0 22px;}
   .hero-crest{width:min(190px, 44vw); margin:0 auto 10px; position:relative;}
+  .hero-crest .logo-mark--full{width:100%; aspect-ratio:640/768; position:relative; filter:drop-shadow(0 6px 26px rgba(217,180,91,0.35));}
   .hero-crest .halo{
     position:absolute; inset:-34%; border-radius:50%;
     background:radial-gradient(circle, rgba(46,91,255,0.3), transparent 65%); z-index:-1;
@@ -399,6 +411,74 @@
   .wa-float:hover{transform:translateY(-3px) scale(1.03);}
   .wa-float svg{width:22px; height:22px;}
 
+  /* ---------- level test ---------- */
+  #leveltest{position:relative;}
+  .quiz-card{
+    max-width:760px; margin:0 auto; background:linear-gradient(160deg, var(--night-2), rgba(8,17,52,0.9));
+    border:1px solid var(--line); border-radius:26px; padding:38px 24px;
+    box-shadow:0 40px 90px -50px rgba(0,0,0,0.9); position:relative; overflow:hidden;
+  }
+  .quiz-card::before{
+    content:''; position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(ellipse 60% 50% at 50% 0%, rgba(46,91,255,0.16), transparent);
+  }
+  .quiz-stage{position:relative;}
+  .quiz-crown{font-size:2.4rem; color:var(--gold); text-align:center; line-height:1; margin-bottom:14px;}
+  .quiz-intro-title{font-size:clamp(1.6rem,4.5vw,2.3rem); text-align:center; color:var(--cream); margin-bottom:10px;}
+  .quiz-intro-sub{text-align:center; color:var(--cream-dim); max-width:46ch; margin:0 auto 26px; font-size:0.96rem;}
+  .quiz-lang-pick{display:grid; gap:14px; grid-template-columns:1fr;}
+  .quiz-pick{
+    display:flex; align-items:center; gap:16px; text-align:left;
+    padding:18px 22px; border-radius:16px; border:1px solid var(--line);
+    background:rgba(244,239,228,0.03); color:var(--cream); transition:all .25s ease;
+  }
+  .quiz-pick:hover{border-color:var(--gold); background:rgba(217,180,91,0.08); transform:translateY(-2px);}
+  .quiz-pick-emoji{font-size:1.7rem; line-height:1; filter:saturate(1.1);}
+  .quiz-pick-txt{display:flex; flex-direction:column;}
+  .quiz-pick-txt b{font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:700; color:var(--cream);}
+  .quiz-pick-txt span{font-size:0.8rem; color:var(--cream-dim);}
+  .quiz-pick .quiz-pick-go{margin-left:auto; color:var(--gold);}
+
+  .quiz-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase;}
+  .quiz-count{color:var(--gold); font-weight:800;}
+  .quiz-lang-label{color:var(--cream-dim); font-weight:700;}
+  .quiz-progress{height:5px; border-radius:999px; background:rgba(244,239,228,0.1); overflow:hidden; margin-bottom:30px;}
+  .quiz-progress span{display:block; height:100%; width:0; background:linear-gradient(90deg, var(--gold), var(--gold-soft)); transition:width .35s ease;}
+  .quiz-question{font-family:'Cormorant Garamond',serif; font-size:clamp(1.5rem,4vw,2.1rem); color:var(--cream); text-align:center; min-height:2.2em; display:flex; align-items:center; justify-content:center; margin-bottom:26px; line-height:1.25;}
+  .quiz-question b{color:var(--gold); font-style:italic;}
+  .quiz-options{display:grid; gap:12px; grid-template-columns:1fr;}
+  .quiz-opt{
+    padding:15px 22px; border-radius:14px; border:1px solid var(--line-soft);
+    background:rgba(244,239,228,0.03); color:var(--cream); font-size:1rem; font-weight:600;
+    text-align:center; transition:all .2s ease;
+  }
+  .quiz-opt:hover{border-color:var(--gold); background:rgba(217,180,91,0.1); transform:translateY(-2px);}
+  .quiz-opt:active{transform:scale(0.98);}
+
+  .quiz-result-badge{
+    width:96px; height:96px; margin:0 auto 8px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:700; color:var(--night);
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold) 60%);
+    box-shadow:0 18px 40px -14px rgba(217,180,91,0.7);
+  }
+  .quiz-level-name{text-align:center; font-family:'Cormorant Garamond',serif; font-size:1.7rem; color:var(--cream); margin-bottom:4px;}
+  .quiz-score{text-align:center; color:var(--gold); font-weight:800; font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:18px;}
+  .quiz-level-desc{text-align:center; color:var(--cream-dim); max-width:48ch; margin:0 auto 24px; font-size:0.98rem;}
+  .quiz-cta-box{border-top:1px solid var(--line-soft); padding-top:24px; text-align:center;}
+  .quiz-ad{color:var(--cream); font-size:0.95rem; max-width:50ch; margin:0 auto 22px; line-height:1.6;}
+  .quiz-cta-box .btn{width:100%; max-width:360px;}
+  .quiz-retake{
+    display:block; margin:16px auto 0; background:none; border:none; color:var(--cream-dim);
+    font-size:0.85rem; font-weight:600; text-decoration:underline; text-underline-offset:3px; transition:color .2s ease;
+  }
+  .quiz-retake:hover{color:var(--gold-soft);}
+  @media(min-width:560px){
+    .quiz-card{padding:48px 44px;}
+    .quiz-lang-pick{grid-template-columns:1fr 1fr;}
+    .quiz-options{grid-template-columns:1fr 1fr;}
+  }
+
   /* ---------- reveal helpers ---------- */
   .rv{opacity:0; transform:translateY(38px);}
   .rv-s{opacity:0; transform:scale(0.92);}
@@ -413,34 +493,13 @@
 <header class="nav" id="navbar">
   <div class="nav-inner">
     <a href="#top" class="logo" aria-label="Kingdom">
-      <svg viewBox="0 0 160 158" xmlns="http://www.w3.org/2000/svg">
-        <g class="crown-lines" fill="none" stroke="#D9B45B" stroke-width="2.6" stroke-linecap="round">
-          <line x1="14" y1="108" x2="40" y2="28"/>
-          <line x1="40" y1="28" x2="80" y2="108"/>
-          <line x1="80" y1="108" x2="120" y2="28"/>
-          <line x1="120" y1="28" x2="146" y2="108"/>
-          <line x1="80" y1="8" x2="56" y2="60"/>
-          <line x1="80" y1="8" x2="104" y2="60"/>
-          <line x1="48" y1="42" x2="55" y2="28"/>
-          <line x1="55" y1="28" x2="62" y2="42"/>
-          <line x1="98" y1="42" x2="105" y2="28"/>
-          <line x1="105" y1="28" x2="112" y2="42"/>
-        </g>
-        <g class="wordmark" fill="none" stroke="#F4EFE4" stroke-width="2">
-          <path d="M30 126 V146 M40 126 L30 138 M32 136 L40 146"/>
-          <path d="M47.5 126 V146"/>
-          <path d="M55 146 V126 M65 146 V126 M55 146 L65 126"/>
-          <path d="M80 127 H71 V145 H80 V137 H76"/>
-          <path d="M86 126 V146 M86 126 H90 Q96 126 96 136 Q96 146 90 146 H86"/>
-          <rect x="102" y="127" width="10" height="18" rx="5"/>
-          <path d="M118 146 V126 L124 138 L130 126 V146"/>
-        </g>
-      </svg>
+      <span class="logo-mark logo-mark--crown" aria-hidden="true"></span>
       <span class="brand-word">KINGDOM<small>SHYMKENT</small></span>
     </a>
 
     <nav class="nav-links">
       <a href="#courses" class="t" data-kaz="Курстар" data-ru="Курсы">Курстар</a>
+      <a href="#leveltest" class="t" data-kaz="Деңгей тесті" data-ru="Тест уровня">Деңгей тесті</a>
       <a href="#about" class="t" data-kaz="Біз туралы" data-ru="О нас">Біз туралы</a>
       <a href="#teachers" class="t" data-kaz="Мұғалімдер" data-ru="Учителя">Мұғалімдер</a>
       <a href="#reviews" class="t" data-kaz="Пікірлер" data-ru="Отзывы">Пікірлер</a>
@@ -462,11 +521,12 @@
 <!-- ================= MOBILE MENU ================= -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#courses"><span class="roman">I</span><span class="t" data-kaz="Курстар" data-ru="Курсы">Курстар</span></a>
-  <a href="#about"><span class="roman">II</span><span class="t" data-kaz="Біз туралы" data-ru="О нас">Біз туралы</span></a>
-  <a href="#teachers"><span class="roman">III</span><span class="t" data-kaz="Мұғалімдер" data-ru="Учителя">Мұғалімдер</span></a>
-  <a href="#reviews"><span class="roman">IV</span><span class="t" data-kaz="Пікірлер" data-ru="Отзывы">Пікірлер</span></a>
-  <a href="#faq"><span class="roman">V</span><span class="t" data-kaz="Сұрақ-жауап" data-ru="Вопросы">Сұрақ-жауап</span></a>
-  <a href="#contacts"><span class="roman">VI</span><span class="t" data-kaz="Байланыс" data-ru="Контакты">Байланыс</span></a>
+  <a href="#leveltest"><span class="roman">II</span><span class="t" data-kaz="Деңгей тесті" data-ru="Тест уровня">Деңгей тесті</span></a>
+  <a href="#about"><span class="roman">III</span><span class="t" data-kaz="Біз туралы" data-ru="О нас">Біз туралы</span></a>
+  <a href="#teachers"><span class="roman">IV</span><span class="t" data-kaz="Мұғалімдер" data-ru="Учителя">Мұғалімдер</span></a>
+  <a href="#reviews"><span class="roman">V</span><span class="t" data-kaz="Пікірлер" data-ru="Отзывы">Пікірлер</span></a>
+  <a href="#faq"><span class="roman">VI</span><span class="t" data-kaz="Сұрақ-жауап" data-ru="Вопросы">Сұрақ-жауап</span></a>
+  <a href="#contacts"><span class="roman">VII</span><span class="t" data-kaz="Байланыс" data-ru="Контакты">Байланыс</span></a>
   <a href="#form" class="btn btn-gold t" data-kaz="Тегін сабаққа жазылыңыз" data-ru="Запишитесь на бесплатный урок">Тегін сабаққа жазылыңыз</a>
 </div>
 
@@ -477,29 +537,7 @@
   <div class="hero-inner">
     <div class="hero-crest rv-s" id="heroCrest">
       <div class="halo"></div>
-      <svg viewBox="0 0 160 158" xmlns="http://www.w3.org/2000/svg">
-        <g class="crown-lines" fill="none" stroke="#D9B45B" stroke-width="2.6" stroke-linecap="round">
-          <line x1="14" y1="108" x2="40" y2="28"/>
-          <line x1="40" y1="28" x2="80" y2="108"/>
-          <line x1="80" y1="108" x2="120" y2="28"/>
-          <line x1="120" y1="28" x2="146" y2="108"/>
-          <line x1="80" y1="8" x2="56" y2="60"/>
-          <line x1="80" y1="8" x2="104" y2="60"/>
-          <line x1="48" y1="42" x2="55" y2="28"/>
-          <line x1="55" y1="28" x2="62" y2="42"/>
-          <line x1="98" y1="42" x2="105" y2="28"/>
-          <line x1="105" y1="28" x2="112" y2="42"/>
-        </g>
-        <g class="wordmark" fill="none" stroke="#F4EFE4" stroke-width="2">
-          <path d="M30 126 V146 M40 126 L30 138 M32 136 L40 146"/>
-          <path d="M47.5 126 V146"/>
-          <path d="M55 146 V126 M65 146 V126 M55 146 L65 126"/>
-          <path d="M80 127 H71 V145 H80 V137 H76"/>
-          <path d="M86 126 V146 M86 126 H90 Q96 126 96 136 Q96 146 90 146 H86"/>
-          <rect x="102" y="127" width="10" height="18" rx="5"/>
-          <path d="M118 146 V126 L124 138 L130 126 V146"/>
-        </g>
-      </svg>
+      <span class="logo-mark logo-mark--full" aria-hidden="true"></span>
     </div>
 
     <div class="rule rv"><span class="roman t" data-kaz="Шымкенттегі тілдер мектебі" data-ru="Языковая школа в Шымкенте">Шымкенттегі тілдер мектебі</span></div>
@@ -603,6 +641,70 @@
         <p class="desc t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
         <span class="course-tag t" data-kaz="Барлық деңгей" data-ru="Все уровни">Барлық деңгей</span>
         <span class="course-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEVEL TEST ================= -->
+<section id="leveltest">
+  <div class="container">
+    <div class="section-head rv">
+      <div class="kicker"><span class="t" data-kaz="Деңгей тесті" data-ru="Тест уровня">Деңгей тесті</span></div>
+      <h2><span class="t" data-kaz="Деңгейіңізді" data-ru="Узнайте свой">Деңгейіңізді</span> <em class="t" data-kaz="тегін анықтаңыз" data-ru="уровень бесплатно">тегін анықтаңыз</em></h2>
+      <p class="t"
+        data-kaz="12 сұраққа жауап беріп, ағылшын немесе орыс тіліндегі деңгейіңізді біліп алыңыз — нәтиже бойынша сізге топ ұсынамыз."
+        data-ru="Ответьте на 12 вопросов и узнайте свой уровень английского или русского — по результату подберём вам группу.">12 сұраққа жауап беріп, ағылшын немесе орыс тіліндегі деңгейіңізді біліп алыңыз — нәтиже бойынша сізге топ ұсынамыз.</p>
+    </div>
+
+    <div class="quiz-card rv">
+      <!-- intro -->
+      <div class="quiz-stage" id="quizIntro">
+        <div class="quiz-crown">♛</div>
+        <h3 class="quiz-intro-title t" data-kaz="Қай тілді тексереміз?" data-ru="Какой язык проверяем?">Қай тілді тексереміз?</h3>
+        <p class="quiz-intro-sub t" data-kaz="Тілді таңдаңыз — 12 қысқа сұрақ, шамамен 3 минут." data-ru="Выберите язык — 12 коротких вопросов, около 3 минут.">Тілді таңдаңыз — 12 қысқа сұрақ, шамамен 3 минут.</p>
+        <div class="quiz-lang-pick">
+          <button class="quiz-pick" data-test="en">
+            <span class="quiz-pick-emoji">🇬🇧</span>
+            <span class="quiz-pick-txt">
+              <b class="t" data-kaz="Ағылшын тілі" data-ru="Английский">Ағылшын тілі</b>
+              <span class="t" data-kaz="12 сұрақ • ~3 минут" data-ru="12 вопросов • ~3 минуты">12 сұрақ • ~3 минут</span>
+            </span>
+            <span class="quiz-pick-go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </button>
+          <button class="quiz-pick" data-test="ru">
+            <span class="quiz-pick-emoji">🇷🇺</span>
+            <span class="quiz-pick-txt">
+              <b class="t" data-kaz="Орыс тілі" data-ru="Русский">Орыс тілі</b>
+              <span class="t" data-kaz="12 сұрақ • ~3 минут" data-ru="12 вопросов • ~3 минуты">12 сұрақ • ~3 минут</span>
+            </span>
+            <span class="quiz-pick-go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- quiz -->
+      <div class="quiz-stage" id="quizPlay" style="display:none;">
+        <div class="quiz-top">
+          <span class="quiz-count" id="quizCount"></span>
+          <span class="quiz-lang-label" id="quizLangLabel"></span>
+        </div>
+        <div class="quiz-progress"><span id="quizBar"></span></div>
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+      </div>
+
+      <!-- result -->
+      <div class="quiz-stage" id="quizResult" style="display:none;">
+        <div class="quiz-result-badge" id="quizBadge"></div>
+        <div class="quiz-level-name" id="quizLevelName"></div>
+        <div class="quiz-score" id="quizScore"></div>
+        <p class="quiz-level-desc" id="quizLevelDesc"></p>
+        <div class="quiz-cta-box">
+          <p class="quiz-ad" id="quizAd"></p>
+          <a href="#" class="btn btn-gold" id="quizConsult"><span class="t" data-kaz="Тегін консультацияға жазылу" data-ru="Записаться на бесплатную консультацию">Тегін консультацияға жазылу</span></a>
+          <button class="quiz-retake t" id="quizRetake" data-kaz="Тестті қайта өту" data-ru="Пройти тест заново">Тестті қайта өту</button>
+        </div>
       </div>
     </div>
   </div>
@@ -923,29 +1025,7 @@
   <div class="container">
     <div class="footer-grid">
       <a href="#top" class="logo">
-        <svg viewBox="0 0 160 158" xmlns="http://www.w3.org/2000/svg" width="46">
-          <g class="crown-lines" fill="none" stroke="#D9B45B" stroke-width="2.6" stroke-linecap="round">
-            <line x1="14" y1="108" x2="40" y2="28"/>
-            <line x1="40" y1="28" x2="80" y2="108"/>
-            <line x1="80" y1="108" x2="120" y2="28"/>
-            <line x1="120" y1="28" x2="146" y2="108"/>
-            <line x1="80" y1="8" x2="56" y2="60"/>
-            <line x1="80" y1="8" x2="104" y2="60"/>
-            <line x1="48" y1="42" x2="55" y2="28"/>
-            <line x1="55" y1="28" x2="62" y2="42"/>
-            <line x1="98" y1="42" x2="105" y2="28"/>
-            <line x1="105" y1="28" x2="112" y2="42"/>
-          </g>
-          <g class="wordmark" fill="none" stroke="#F4EFE4" stroke-width="2">
-            <path d="M30 126 V146 M40 126 L30 138 M32 136 L40 146"/>
-            <path d="M47.5 126 V146"/>
-            <path d="M55 146 V126 M65 146 V126 M55 146 L65 126"/>
-            <path d="M80 127 H71 V145 H80 V137 H76"/>
-            <path d="M86 126 V146 M86 126 H90 Q96 126 96 136 Q96 146 90 146 H86"/>
-            <rect x="102" y="127" width="10" height="18" rx="5"/>
-            <path d="M118 146 V126 L124 138 L130 126 V146"/>
-          </g>
-        </svg>
+        <span class="logo-mark logo-mark--crown" aria-hidden="true"></span>
         <span class="brand-word">KINGDOM<small>SHYMKENT</small></span>
       </a>
 
@@ -1103,6 +1183,165 @@
       }
     });
   });
+
+  /* ============ LEVEL TEST ============ */
+  (function(){
+    var TOTAL = 12;
+
+    var bank = {
+      en: [
+        { q:"Hello! ___ name is Anna.", opts:["My","I","Me","Mine"], c:0 },
+        { q:"She ___ coffee every morning.", opts:["drink","drinks","drinking","drank"], c:1 },
+        { q:"There ___ two books on the table.", opts:["is","am","are","be"], c:2 },
+        { q:"I ___ to London last year.", opts:["go","went","gone","going"], c:1 },
+        { q:"He is ___ than his brother.", opts:["tall","taller","tallest","more tall"], c:1 },
+        { q:"___ you ever been to Paris?", opts:["Did","Have","Has","Are"], c:1 },
+        { q:"If it rains tomorrow, we ___ at home.", opts:["stay","will stay","stayed","would stay"], c:1 },
+        { q:"The report ___ by the manager yesterday.", opts:["wrote","was written","has written","is writing"], c:1 },
+        { q:"I'm not used ___ early.", opts:["to get up","to getting up","get up","getting up"], c:1 },
+        { q:"By the time we arrived, the film ___.", opts:["already started","had already started","has already started","was starting"], c:1 },
+        { q:"She suggested ___ a break.", opts:["to take","taking","take","that taking"], c:1 },
+        { q:"Hardly ___ the door when the phone rang.", opts:["I had closed","had I closed","I closed","did I close"], c:1 }
+      ],
+      ru: [
+        { q:"Привет! Меня ___ Анна.", opts:["зовут","зову","звать","зовёт"], c:0 },
+        { q:"Я ___ в Шымкенте.", opts:["живу","живёшь","живёт","живут"], c:0 },
+        { q:"Это моя ___.", opts:["книга","книгу","книге","книгой"], c:0 },
+        { q:"Вчера я ___ в кино.", opts:["иду","ходил","пойду","хожу"], c:1 },
+        { q:"У меня нет ___.", opts:["время","времени","временем","времена"], c:1 },
+        { q:"Она говорит по-русски ___, чем я.", opts:["хорошо","лучше","хороший","добрее"], c:1 },
+        { q:"Если бы я знал, я ___ тебе.", opts:["помогу","помог бы","помогал","помогаю"], c:1 },
+        { q:"Книга, ___ я читаю, очень интересная.", opts:["который","которую","которая","которой"], c:1 },
+        { q:"Мне нужно ___ к экзамену.", opts:["готовиться","готовлюсь","готовый","готовлю"], c:0 },
+        { q:"Несмотря ___ дождь, мы пошли гулять.", opts:["на","в","о","при"], c:0 },
+        { q:"Этот дом был ___ в прошлом веке.", opts:["построен","построил","строит","построить"], c:0 },
+        { q:"___ бы ни случилось, я тебя поддержу.", opts:["Что","Как","Где","Когда"], c:0 }
+      ]
+    };
+
+    var i18n = {
+      kaz: {
+        langName: { en:'Ағылшын тілі', ru:'Орыс тілі' },
+        langWord: { en:'ағылшын', ru:'орыс' },
+        scoreLabel: 'Дұрыс жауап',
+        levels: {
+          A1:{ name:'A1 — Бастаушы', desc:'Сіз тілмен жаңа танысып келе жатырсыз. Берік іргетас қалау үшін Starter (A1–A2) тобы тамаша сәйкес келеді.' },
+          A2:{ name:'A2 — Қарапайым', desc:'Негізгі базаңыз қаланған. Еркін сөйлеуге жету үшін Intermediate (A2–B1) бағдарламасы ұсынылады.' },
+          B1:{ name:'B1 — Орта деңгей', desc:'Күнделікті тақырыптарда сенімдісіз. Intermediate (A2–B1) тобын аяқтап, B2-ге шығуға дайынсыз.' },
+          B2:{ name:'B2 — Орташадан жоғары', desc:'Күшті деңгей! Тіліңізді кәсіби деңгейге жеткізу үшін Upper (B2–C1) тобы лайық.' },
+          C1:{ name:'C1 — Жоғары деңгей', desc:'Тамаша нәтиже! Upper (B2–C1) тобында тілді жетілдіріп, халықаралық емтихандарға дайындала аласыз.' }
+        },
+        ad: {
+          en:'Kingdom Shymkent — шағын топтар, тәжірибелі мұғалімдер және нәтижеге бағытталған әдістеме. Тегін консультацияда әдіскеріміз дәл деңгейіңізге сай ағылшын тобын таңдап береді.',
+          ru:'Kingdom Shymkent — шағын топтар, тәжірибелі мұғалімдер және нәтижеге бағытталған әдістеме. Тегін консультацияда әдіскеріміз дәл деңгейіңізге сай орыс тілі тобын таңдап береді.'
+        }
+      },
+      ru: {
+        langName: { en:'Английский язык', ru:'Русский язык' },
+        langWord: { en:'английского', ru:'русского' },
+        scoreLabel: 'Правильных ответов',
+        levels: {
+          A1:{ name:'A1 — Начальный', desc:'Вы только начинаете знакомство с языком. Чтобы заложить прочный фундамент, идеально подойдёт группа Starter (A1–A2).' },
+          A2:{ name:'A2 — Элементарный', desc:'База уже есть. Чтобы заговорить свободно, рекомендуем программу Intermediate (A2–B1).' },
+          B1:{ name:'B1 — Средний', desc:'Вы уверенно держитесь в бытовых темах. Группа Intermediate (A2–B1) поможет выйти на уровень B2.' },
+          B2:{ name:'B2 — Выше среднего', desc:'Сильный уровень! Чтобы довести язык до профессионального, подойдёт группа Upper (B2–C1).' },
+          C1:{ name:'C1 — Продвинутый', desc:'Отличный результат! В группе Upper (B2–C1) можно отшлифовать язык и подготовиться к международным экзаменам.' }
+        },
+        ad: {
+          en:'Kingdom Shymkent — малые группы, опытные преподаватели и методика на результат. На бесплатной консультации методист подберёт группу английского точно под ваш уровень.',
+          ru:'Kingdom Shymkent — малые группы, опытные преподаватели и методика на результат. На бесплатной консультации методист подберёт группу русского точно под ваш уровень.'
+        }
+      }
+    };
+
+    var currentTest = 'en', current = 0, score = 0;
+
+    var elIntro  = document.getElementById('quizIntro');
+    var elPlay   = document.getElementById('quizPlay');
+    var elResult = document.getElementById('quizResult');
+
+    function L(){ return i18n[currentLang()]; }
+    function levelFor(s){
+      if(s <= 3) return 'A1';
+      if(s <= 5) return 'A2';
+      if(s <= 8) return 'B1';
+      if(s <= 10) return 'B2';
+      return 'C1';
+    }
+    function show(stage){
+      elIntro.style.display  = (stage === 'intro')  ? 'block' : 'none';
+      elPlay.style.display   = (stage === 'play')   ? 'block' : 'none';
+      elResult.style.display = (stage === 'result') ? 'block' : 'none';
+    }
+
+    function renderQuestion(){
+      var item = bank[currentTest][current];
+      document.getElementById('quizCount').textContent = (current + 1) + ' / ' + TOTAL;
+      document.getElementById('quizLangLabel').textContent = L().langName[currentTest];
+      document.getElementById('quizBar').style.width = (current / TOTAL * 100) + '%';
+      document.getElementById('quizQuestion').innerHTML = item.q.replace('___', '<b>· · ·</b>');
+      var wrap = document.getElementById('quizOptions');
+      wrap.innerHTML = '';
+      item.opts.forEach(function(opt, idx){
+        var b = document.createElement('button');
+        b.className = 'quiz-opt';
+        b.textContent = opt;
+        b.addEventListener('click', function(){ answer(idx); });
+        wrap.appendChild(b);
+      });
+    }
+
+    function answer(idx){
+      if(idx === bank[currentTest][current].c) score++;
+      current++;
+      if(current >= TOTAL){
+        document.getElementById('quizBar').style.width = '100%';
+        show('result');
+        renderResult();
+      } else {
+        renderQuestion();
+      }
+    }
+
+    function renderResult(){
+      var lvl = levelFor(score);
+      var info = L().levels[lvl];
+      document.getElementById('quizBadge').textContent = lvl;
+      document.getElementById('quizLevelName').textContent = info.name;
+      document.getElementById('quizScore').textContent = L().scoreLabel + ': ' + score + ' / ' + TOTAL;
+      document.getElementById('quizLevelDesc').textContent = info.desc;
+      document.getElementById('quizAd').textContent = L().ad[currentTest];
+    }
+
+    function start(test){
+      currentTest = test; current = 0; score = 0;
+      show('play');
+      renderQuestion();
+    }
+
+    function consultMsg(){
+      var lvl = levelFor(score);
+      var word = currentTest === 'en' ? 'ағылшын' : 'орыс';
+      return 'Сәлеметсіз бе! Деңгей тестінен өттім. Менің ' + word + ' тілі деңгейім — ' + lvl + '. Тегін консультацияға жазылғым келеді.';
+    }
+
+    document.querySelectorAll('.quiz-pick').forEach(function(btn){
+      btn.addEventListener('click', function(){ start(btn.dataset.test); });
+    });
+    document.getElementById('quizRetake').addEventListener('click', function(){ show('intro'); });
+    document.getElementById('quizConsult').addEventListener('click', function(e){
+      e.preventDefault();
+      window.open(waUrl(consultMsg()), '_blank');
+    });
+
+    /* при смене языка перерисовываем динамические части теста */
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      b.addEventListener('click', function(){
+        if(elPlay.style.display !== 'none') renderQuestion();
+        else if(elResult.style.display !== 'none') renderResult();
+      });
+    });
+  })();
 
   /* ============ GSAP ============ */
   gsap.registerPlugin(ScrollTrigger);

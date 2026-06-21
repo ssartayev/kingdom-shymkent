@@ -31,22 +31,20 @@ if(stack.length > 0){
   errors.push(`Unclosed tags remaining: ${stack.join(', ')}`);
 }
 
-// 2. Count <line> elements (expect 30 = 3 logos x 10 crown lines: nav, hero card, footer)
-const lineCount = (html.match(/<line\b/g) || []).length;
-if(lineCount !== 30){
-  errors.push(`Expected 30 <line> elements, found ${lineCount}`);
-}
+// 2. Logo assets present (mask-based logo marks use these PNGs)
+const crownImgExists = fs.existsSync(path.join(__dirname, 'dist', 'logo-crown.png'));
+const fullImgExists = fs.existsSync(path.join(__dirname, 'dist', 'logo-full.png'));
+if(!crownImgExists) errors.push('Missing dist/logo-crown.png');
+if(!fullImgExists) errors.push('Missing dist/logo-full.png');
 
-// 3. Count wordmark groups (expect 3)
-const wordmarkCount = (html.match(/class="wordmark"/g) || []).length;
-if(wordmarkCount !== 3){
-  errors.push(`Expected 3 wordmark groups, found ${wordmarkCount}`);
+// 3. Logo marks referenced in HTML (nav + footer crown, hero full lockup)
+const crownMarkCount = (html.match(/logo-mark--crown/g) || []).length;
+const fullMarkCount = (html.match(/logo-mark--full/g) || []).length;
+if(crownMarkCount < 2){
+  errors.push(`Expected >=2 crown logo marks (nav, footer), found ${crownMarkCount}`);
 }
-
-// 4. crown-lines groups should be 3, each containing 10 <line>
-const crownGroupCount = (html.match(/class="crown-lines"/g) || []).length;
-if(crownGroupCount !== 3){
-  errors.push(`Expected 3 crown-lines groups, found ${crownGroupCount}`);
+if(fullMarkCount < 1){
+  errors.push(`Expected >=1 full logo mark (hero), found ${fullMarkCount}`);
 }
 
 // 5. data-kaz / data-ru count parity
@@ -61,9 +59,8 @@ if(kazCount === 0){
 
 // Report
 console.log(`Tags: ${stack.length === 0 ? 'OK (balanced)' : 'FAIL'}`);
-console.log(`<line> elements: ${lineCount} (expected 30)`);
-console.log(`wordmark groups: ${wordmarkCount} (expected 3)`);
-console.log(`crown-lines groups: ${crownGroupCount} (expected 3)`);
+console.log(`logo-crown.png: ${crownImgExists ? 'OK' : 'MISSING'}, logo-full.png: ${fullImgExists ? 'OK' : 'MISSING'}`);
+console.log(`crown marks: ${crownMarkCount} (expected >=2), full marks: ${fullMarkCount} (expected >=1)`);
 console.log(`data-kaz: ${kazCount}, data-ru: ${ruCount}`);
 
 if(errors.length){
