@@ -58,8 +58,8 @@
   .rule{display:flex; align-items:center; justify-content:center; gap:14px; margin:0 0 18px;}
   .rule::before,.rule::after{content:''; height:1px; flex:0 0 38px; background:linear-gradient(90deg, transparent, var(--gold));}
   .rule::after{background:linear-gradient(90deg, var(--gold), transparent);}
-  .crown-divider{display:flex; justify-content:center; padding:0 0 56px; color:var(--gold);}
-  .crown-divider svg{width:54px; opacity:0.9;}
+  .crown-divider{display:flex; justify-content:center; padding:0 0 56px;}
+  .crown-divider .logo-mark--crown{width:52px; aspect-ratio:700/464; opacity:0.92;}
   .kicker{
     display:inline-flex; align-items:center; gap:12px; font-size:0.74rem; font-weight:800;
     letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:18px;
@@ -93,6 +93,13 @@
   .logo-mark--crown{ -webkit-mask-image:url(logo-crown.png); mask-image:url(logo-crown.png); }
   .logo-mark--full{ -webkit-mask-image:url(logo-full.png); mask-image:url(logo-full.png); }
   .logo .logo-mark--crown{ width:54px; aspect-ratio:700/464; }
+  /* инлайн-иконка короны из настоящего лого (золото через маску) — замена старого символа короны */
+  .crown-ico{
+    display:inline-block; vertical-align:-0.12em; flex:none;
+    width:1.35em; aspect-ratio:700/464;
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold) 65%);
+    -webkit-mask:url(logo-crown.png) center/contain no-repeat; mask:url(logo-crown.png) center/contain no-repeat;
+  }
   .nav-links{display:none;}
   .nav-right{display:flex; align-items:center; gap:12px;}
   .lang-switch{display:flex; gap:3px; font-size:0.74rem; font-weight:800; letter-spacing:0.05em; border:1px solid var(--line); border-radius:999px; padding:3px; background:rgba(8,17,52,0.6);}
@@ -176,7 +183,11 @@
   .marquee{border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden; padding:16px 0; background:rgba(11,23,66,0.5);}
   .marquee-track{display:flex; gap:54px; white-space:nowrap; width:max-content;}
   .marquee-track span{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.18rem; color:var(--gold-soft); display:flex; align-items:center; gap:54px;}
-  .marquee-track span::after{content:'♛'; font-style:normal; font-size:0.85em; color:var(--gold); opacity:0.7;}
+  .marquee-track span::after{
+    content:''; display:inline-block; width:1.05em; aspect-ratio:700/464; opacity:0.7;
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold) 65%);
+    -webkit-mask:url(logo-crown.png) center/contain no-repeat; mask:url(logo-crown.png) center/contain no-repeat;
+  }
 
   /* ---------- sections ---------- */
   section{padding:104px 0;}
@@ -195,8 +206,7 @@
   .stats-frame::before{
     content:''; position:absolute; inset:7px; border:1px solid var(--line-soft); border-radius:18px; pointer-events:none;
   }
-  .stats-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:34px 18px;}
-  @media(min-width:760px){.stats-grid{grid-template-columns:repeat(4,1fr);}}
+  .stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px 16px;}
   .stat{text-align:center;}
   .stat .num{font-family:'Cormorant Garamond',serif; font-size:clamp(2.6rem,6vw,4rem); font-weight:700; color:var(--gold-soft); line-height:1;}
   .stat .lbl{font-size:0.8rem; color:var(--cream-dim); margin-top:8px;}
@@ -237,7 +247,9 @@
     background:rgba(8,17,52,0.55); transition:all .35s ease; position:relative; overflow:hidden;
   }
   .feature::after{
-    content:'♛'; position:absolute; right:18px; top:14px; color:var(--gold); opacity:0.12; font-size:2.2rem;
+    content:''; position:absolute; right:18px; top:16px; width:2.4rem; aspect-ratio:700/464; opacity:0.14;
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold) 65%);
+    -webkit-mask:url(logo-crown.png) center/contain no-repeat; mask:url(logo-crown.png) center/contain no-repeat;
     transition:all .35s ease;
   }
   .feature:hover{transform:translateY(-5px); border-color:var(--gold); background:var(--night-2);}
@@ -245,15 +257,17 @@
   .feature .roman{display:block; margin-bottom:12px;}
   .feature h3{font-size:1.55rem; margin-bottom:8px; color:var(--cream);}
   .feature p{color:var(--cream-dim); font-size:0.92rem;}
-  .about-crown-bg{position:absolute; right:-70px; bottom:-50px; width:380px; opacity:0.05; pointer-events:none; color:var(--gold);}
+  .about-crown-bg{position:absolute; right:-70px; bottom:-50px; width:380px; aspect-ratio:700/464; opacity:0.06; pointer-events:none;}
 
-  /* ---------- teachers ---------- */
-  .teachers-grid{display:grid; gap:22px; grid-template-columns:1fr;}
-  @media(min-width:800px){.teachers-grid{grid-template-columns:repeat(3,1fr);}}
+  /* ---------- teachers (horizontal scroll on all sizes) ---------- */
+  .teachers-track{display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; padding:10px 2px 22px; scrollbar-width:none;}
+  .teachers-track::-webkit-scrollbar{display:none;}
   .teacher{
+    flex:0 0 80%; scroll-snap-align:start;
     border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--night-2);
     transition:all .4s ease; position:relative;
   }
+  @media(min-width:640px){.teacher{flex:0 0 340px;}}
   .teacher:hover{transform:translateY(-7px); border-color:var(--gold); box-shadow:0 30px 56px -28px rgba(0,0,0,0.7);}
   .teacher .photo{
     aspect-ratio:4/3.3; background:
@@ -261,7 +275,7 @@
       linear-gradient(160deg, var(--night-3), var(--night-2));
     display:flex; align-items:center; justify-content:center; color:var(--cream-dim); position:relative;
   }
-  .teacher .photo .mini-crown{position:absolute; top:16px; left:18px; width:30px; color:var(--gold); opacity:0.65;}
+  .teacher .photo .mini-crown{position:absolute; top:16px; left:18px; width:34px; aspect-ratio:700/464; opacity:0.6;}
   .teacher .body{padding:24px; border-top:1px solid var(--line);}
   .teacher h3{font-size:1.6rem; margin-bottom:2px; color:var(--cream);}
   .teacher .role{color:var(--gold-soft); font-weight:700; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:12px;}
@@ -317,6 +331,7 @@
   .signup-frame::before{content:''; position:absolute; inset:8px; border:1px solid var(--line); border-radius:21px; pointer-events:none;}
   @media(min-width:680px){.signup-frame{padding:60px;}}
   .signup-grid{display:grid; gap:44px; grid-template-columns:1fr; position:relative;}
+  .signup-grid > *{min-width:0;}
   @media(min-width:960px){.signup-grid{grid-template-columns:1fr 1fr; gap:64px; align-items:center;}}
   .signup h2{font-size:clamp(2.1rem,5vw,3.3rem); margin-bottom:16px; color:var(--cream);}
   .signup h2 em{font-style:italic; color:var(--gold);}
@@ -336,6 +351,7 @@
   .field input,.field select{
     background:var(--night-2); border:1px solid var(--line-soft); border-radius:12px; padding:14px 16px;
     font-size:0.95rem; font-family:inherit; color:var(--cream); outline:none; transition:all .25s ease;
+    width:100%; min-width:0;
   }
   .field input::placeholder{color:rgba(244,239,228,0.35);}
   .field input:focus,.field select:focus{border-color:var(--gold); box-shadow:0 0 0 3px rgba(217,180,91,0.12);}
@@ -363,6 +379,7 @@
   .contact-card:hover{transform:translateY(-4px); border-color:var(--gold);}
   .contact-card .ico{width:44px; height:44px; border-radius:12px; background:rgba(217,180,91,0.12); color:var(--gold); display:flex; align-items:center; justify-content:center; margin-bottom:10px; border:1px solid var(--line);}
   .contact-card h4{font-size:0.72rem; font-weight:800; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-soft);}
+  .contact-card .cc-text{display:flex; flex-direction:column; gap:5px;}
   .contact-card p,.contact-card a.val{font-size:1.05rem; font-weight:700; color:var(--cream);}
   .contact-card a.val:hover{color:var(--gold-soft);}
   .maps-grid{display:grid; gap:22px; grid-template-columns:1fr; margin-top:26px;}
@@ -410,6 +427,39 @@
   }
   .wa-float:hover{transform:translateY(-3px) scale(1.03);}
   .wa-float svg{width:22px; height:22px;}
+
+  /* ---------- course modal ---------- */
+  body.modal-open{overflow:hidden;}
+  .course-modal{
+    position:fixed; inset:0; z-index:150; display:flex; align-items:center; justify-content:center;
+    padding:22px; opacity:0; visibility:hidden; transition:opacity .3s ease, visibility .3s ease;
+  }
+  .course-modal.open{opacity:1; visibility:visible;}
+  .course-modal-backdrop{position:absolute; inset:0; background:rgba(4,8,24,0.74); backdrop-filter:blur(6px);}
+  .course-modal-card{
+    position:relative; width:min(560px,100%); max-height:88vh; overflow-y:auto;
+    background:linear-gradient(160deg, var(--night-2), rgba(8,17,52,0.96));
+    border:1px solid var(--gold); border-radius:24px; padding:38px 30px 32px;
+    box-shadow:0 40px 100px -40px rgba(0,0,0,0.9); scrollbar-width:none;
+    transform:translateY(18px) scale(0.97); transition:transform .35s cubic-bezier(.16,1,.3,1);
+  }
+  .course-modal-card::-webkit-scrollbar{display:none;}
+  .course-modal.open .course-modal-card{transform:translateY(0) scale(1);}
+  .course-modal-close{
+    position:absolute; top:15px; right:15px; width:40px; height:40px; border-radius:50%;
+    background:rgba(244,239,228,0.06); border:1px solid var(--line); color:var(--cream);
+    display:flex; align-items:center; justify-content:center; transition:all .25s ease;
+  }
+  .course-modal-close:hover{border-color:var(--gold); color:var(--gold); transform:rotate(90deg);}
+  .cm-roman{font-size:1.05rem; margin-bottom:6px;}
+  .cm-title{font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(1.9rem,5vw,2.5rem); color:var(--cream); line-height:1.1; margin-bottom:12px; padding-right:36px;}
+  .cm-meta{display:inline-block; font-size:0.68rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; border:1px solid var(--line); border-radius:999px; padding:7px 14px; color:var(--gold-soft); margin-bottom:20px;}
+  .cm-desc{color:var(--cream-dim); font-size:0.96rem; margin-bottom:22px;}
+  .cm-points{list-style:none; display:flex; flex-direction:column; gap:12px; margin-bottom:28px;}
+  .cm-points li{display:flex; gap:12px; align-items:flex-start; font-size:0.92rem; color:var(--cream);}
+  .cm-points .tick{flex:0 0 22px; width:22px; height:22px; border-radius:50%; background:rgba(217,180,91,0.14); border:1px solid var(--gold); color:var(--gold); display:flex; align-items:center; justify-content:center; font-size:0.62rem; font-weight:800; margin-top:2px;}
+  .cm-cta{width:100%;}
+  .cm-note{font-size:0.76rem; color:var(--cream-dim); text-align:center; margin-top:14px;}
 
   /* ---------- level test ---------- */
   #leveltest{position:relative;}
@@ -492,8 +542,8 @@
     .course-row:hover .course-go{transform:translateY(-50%) rotate(-45deg);}
   }
   @media(max-width:560px){
-    section{padding:62px 0;}
-    .section-head{margin-bottom:34px;}
+    section{padding:56px 0;}
+    .section-head{margin-bottom:30px;}
     /* компактная шапка: лого/переключатель ужаты, CTA скрыт */
     .nav-inner{padding:10px 15px;}
     .logo{gap:9px;}
@@ -502,9 +552,47 @@
     .logo .brand-word small{font-size:0.5rem; letter-spacing:0.26em;}
     .nav-right{gap:8px;}
     .lang-btn{padding:6px 9px;}
-    /* карточки преимуществ компактнее */
-    .feature{padding:24px 22px;}
-    .feature h3{font-size:1.4rem;}
+
+    /* статистика — одной горизонтальной строкой, компактные цифры */
+    .stats-band{padding:0 0 64px;}
+    .stats-frame{padding:26px 12px;}
+    .stats-grid{gap:12px 6px;}
+    .stat .num{font-size:1.7rem;}
+    .stat .lbl{font-size:0.58rem; margin-top:4px; line-height:1.25;}
+
+    /* курсы компактнее — меньше скролла */
+    .course-row{padding:15px 46px 15px 4px; gap:6px;}
+    .course-row h3{font-size:1.3rem;}
+    .course-row .desc{font-size:0.82rem;}
+    .course-tag{padding:6px 12px; font-size:0.6rem;}
+    .course-go{width:36px; height:36px;}
+
+    /* преимущества — сетка 2×2 */
+    .about-grid{grid-template-columns:repeat(2,1fr); gap:12px;}
+    .feature{padding:18px 14px;}
+    .feature h3{font-size:1.12rem;}
+    .feature .roman{margin-bottom:6px;}
+    .feature p{font-size:0.82rem;}
+    .feature::after{width:1.7rem; right:11px; top:10px;}
+
+    /* форма — компактнее */
+    .signup-frame{padding:26px 15px;}
+    .signup-grid{gap:24px;}
+    .form-card{padding:24px 18px;}
+    .field{margin-bottom:12px;}
+
+    /* контакты — карточки в строку (узкие, меньше высоты) */
+    .contacts-grid{gap:10px;}
+    .contact-card{flex-direction:row; align-items:center; gap:14px; padding:16px 18px;}
+    .contact-card .ico{margin-bottom:0;}
+
+    /* филиалы/карты — не так громоздко */
+    .maps-grid{gap:14px; margin-top:18px;}
+    .branch-head{padding:16px 18px; gap:13px;}
+    .branch-head .roman{flex:0 0 38px; width:38px; height:38px; font-size:1rem;}
+    .branch-head h3{font-size:1.25rem;}
+    .map-frame{height:180px; font-size:0.8rem;}
+
     /* плавающая кнопка WhatsApp компактнее */
     .wa-float{padding:12px 16px 12px 13px; font-size:0.82rem; bottom:16px; right:13px;}
     .wa-float svg{width:20px; height:20px;}
@@ -586,9 +674,9 @@
     </div>
 
     <div class="hero-meta rv">
-      <span><b>♛</b><span class="t" data-kaz="Алғашқы сабақ тегін" data-ru="Первый урок бесплатно">Алғашқы сабақ тегін</span></span>
-      <span><b>♛</b><span class="t" data-kaz="Топта 6–8 оқушы" data-ru="В группе 6–8 учеников">Топта 6–8 оқушы</span></span>
-      <span><b>♛</b><span class="t" data-kaz="Балалар мен ересектерге" data-ru="Для детей и взрослых">Балалар мен ересектерге</span></span>
+      <span><b class="crown-ico" aria-hidden="true"></b><span class="t" data-kaz="Алғашқы сабақ тегін" data-ru="Первый урок бесплатно">Алғашқы сабақ тегін</span></span>
+      <span><b class="crown-ico" aria-hidden="true"></b><span class="t" data-kaz="Топта 6–8 оқушы" data-ru="В группе 6–8 учеников">Топта 6–8 оқушы</span></span>
+      <span><b class="crown-ico" aria-hidden="true"></b><span class="t" data-kaz="Балалар мен ересектерге" data-ru="Для детей и взрослых">Балалар мен ересектерге</span></span>
     </div>
   </div>
 
@@ -629,8 +717,8 @@
       <div class="kicker"><span class="t" data-kaz="Бағдарламалар" data-ru="Программы">Бағдарламалар</span></div>
       <h2><span class="t" data-kaz="Корольдік" data-ru="Королевские">Корольдік</span> <em class="t" data-kaz="курстар" data-ru="курсы">курстар</em></h2>
       <p class="t"
-        data-kaz="Курсты басыңыз — WhatsApp ашылып, тегін сынақ сабағына өтінім дайын болады."
-        data-ru="Нажмите на курс — откроется WhatsApp с готовой заявкой на бесплатный пробный урок.">Курсты басыңыз — WhatsApp ашылып, тегін сынақ сабағына өтінім дайын болады.</p>
+        data-kaz="Курсты басыңыз — толық сипаттамасын көріп, тегін сынақ сабағына жазылыңыз."
+        data-ru="Нажмите на курс — посмотрите детали и запишитесь на бесплатный пробный урок.">Курсты басыңыз — толық сипаттамасын көріп, тегін сынақ сабағына жазылыңыз.</p>
     </div>
 
     <div class="course-list">
@@ -687,7 +775,7 @@
     <div class="quiz-card rv">
       <!-- intro -->
       <div class="quiz-stage" id="quizIntro">
-        <div class="quiz-crown">♛</div>
+        <div class="quiz-crown"><span class="crown-ico" aria-hidden="true"></span></div>
         <h3 class="quiz-intro-title t" data-kaz="Қай тілді тексереміз?" data-ru="Какой язык проверяем?">Қай тілді тексереміз?</h3>
         <p class="quiz-intro-sub t" data-kaz="Тілді таңдаңыз — 12 қысқа сұрақ, шамамен 3 минут." data-ru="Выберите язык — 12 коротких вопросов, около 3 минут.">Тілді таңдаңыз — 12 қысқа сұрақ, шамамен 3 минут.</p>
         <div class="quiz-lang-pick">
@@ -739,10 +827,7 @@
 
 <!-- ================= ABOUT ================= -->
 <section class="about" id="about">
-  <svg class="about-crown-bg" viewBox="0 0 160 110" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
-    <path d="M14 108 L40 28 L80 108 L120 28 L146 108"/>
-    <path d="M80 8 L56 60 M80 8 L104 60"/>
-  </svg>
+  <span class="about-crown-bg logo-mark logo-mark--crown" aria-hidden="true"></span>
   <div class="container">
     <div class="section-head rv">
       <div class="kicker"><span class="t" data-kaz="Артықшылықтар" data-ru="Преимущества">Артықшылықтар</span></div>
@@ -781,7 +866,7 @@
 <section id="teachers">
   <div class="container">
     <div class="crown-divider">
-      <svg viewBox="0 0 160 110" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M14 108 L40 28 L80 108 L120 28 L146 108"/><path d="M80 8 L56 60 M80 8 L104 60"/></svg>
+      <span class="logo-mark logo-mark--crown" aria-hidden="true"></span>
     </div>
     <div class="section-head rv">
       <div class="kicker"><span class="t" data-kaz="Команда" data-ru="Команда">Команда</span></div>
@@ -791,10 +876,10 @@
         data-ru="Сертифицированные преподаватели, которые умеют по-настоящему увлечь ученика.">Сертификатталған және оқушыны шынымен қызықтыра білетін мұғалімдер.</p>
     </div>
 
-    <div class="teachers-grid">
+    <div class="teachers-track">
       <div class="teacher rv">
         <div class="photo">
-          <svg class="mini-crown" viewBox="0 0 160 110" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"><path d="M14 108 L40 28 L80 108 L120 28 L146 108"/><path d="M80 8 L56 60 M80 8 L104 60"/></svg>
+          <span class="mini-crown logo-mark logo-mark--crown" aria-hidden="true"></span>
           <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
         </div>
         <div class="body">
@@ -805,7 +890,7 @@
       </div>
       <div class="teacher rv">
         <div class="photo">
-          <svg class="mini-crown" viewBox="0 0 160 110" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"><path d="M14 108 L40 28 L80 108 L120 28 L146 108"/><path d="M80 8 L56 60 M80 8 L104 60"/></svg>
+          <span class="mini-crown logo-mark logo-mark--crown" aria-hidden="true"></span>
           <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
         </div>
         <div class="body">
@@ -816,7 +901,7 @@
       </div>
       <div class="teacher rv">
         <div class="photo">
-          <svg class="mini-crown" viewBox="0 0 160 110" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"><path d="M14 108 L40 28 L80 108 L120 28 L146 108"/><path d="M80 8 L56 60 M80 8 L104 60"/></svg>
+          <span class="mini-crown logo-mark logo-mark--crown" aria-hidden="true"></span>
           <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
         </div>
         <div class="body">
@@ -825,6 +910,10 @@
           <p class="bio t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
         </div>
       </div>
+    </div>
+    <div class="drag-hint">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12l4-4M5 12l4 4M19 12l-4-4M19 12l-4 4"/></svg>
+      <span class="t" data-kaz="Оңға-солға жылжытыңыз" data-ru="Листайте в стороны">Оңға-солға жылжытыңыз</span>
     </div>
   </div>
 </section>
@@ -1001,18 +1090,24 @@
     <div class="contacts-grid">
       <div class="contact-card rv">
         <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h4 class="t" data-kaz="Мекенжай" data-ru="Адрес">Мекенжай</h4>
-        <p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <div class="cc-text">
+          <h4 class="t" data-kaz="Мекенжай" data-ru="Адрес">Мекенжай</h4>
+          <p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        </div>
       </div>
       <div class="contact-card rv">
         <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-        <h4 class="t" data-kaz="Телефон" data-ru="Телефон">Телефон</h4>
-        <a class="val" id="phoneLink" href="tel:+77053396313">+7 (705) 339-63-13</a>
+        <div class="cc-text">
+          <h4 class="t" data-kaz="Телефон" data-ru="Телефон">Телефон</h4>
+          <a class="val" id="phoneLink" href="tel:+77053396313">+7 (705) 339-63-13</a>
+        </div>
       </div>
       <div class="contact-card rv">
         <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4 8.94 8.94 0 0 0 3.12 12.93a8.84 8.84 0 0 0 1.18 4.43L3 21l3.74-1.27a8.93 8.93 0 0 0 5.32 1.72h.01a8.94 8.94 0 0 0 8.93-8.93 8.86 8.86 0 0 0-2.6-6.2zM12.06 19.7a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.8.95.94-2.74-.18-.28a7.45 7.45 0 1 1 13.8-3.97 7.5 7.5 0 0 1-7.71 7.24z"/></svg></div>
-        <h4>WhatsApp</h4>
-        <a class="val wa-link t" href="#" data-kaz="Хабарласу" data-ru="Написать">Хабарласу</a>
+        <div class="cc-text">
+          <h4>WhatsApp</h4>
+          <a class="val wa-link t" href="#" data-kaz="Хабарласу" data-ru="Написать">Хабарласу</a>
+        </div>
       </div>
     </div>
 
@@ -1078,6 +1173,23 @@
   <span class="t" data-kaz="Жазу" data-ru="Написать">Жазу</span>
 </a>
 
+<!-- ================= COURSE MODAL ================= -->
+<div class="course-modal" id="courseModal" aria-hidden="true">
+  <div class="course-modal-backdrop" data-close></div>
+  <div class="course-modal-card" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
+    <button class="course-modal-close" data-close aria-label="Жабу / Закрыть">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="cm-roman roman" id="cmRoman"></div>
+    <h3 class="cm-title" id="cmTitle"></h3>
+    <span class="cm-meta" id="cmMeta"></span>
+    <p class="cm-desc" id="cmDesc"></p>
+    <ul class="cm-points" id="cmPoints"></ul>
+    <a href="#" class="btn btn-gold cm-cta" id="cmCta"></a>
+    <p class="cm-note" id="cmNote"></p>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
@@ -1123,12 +1235,139 @@
     });
   });
 
-  document.querySelectorAll('.course-row').forEach(function(row){
-    row.addEventListener('click', function(){
-      var course = row.dataset.course;
-      var text = 'Сәлеметсіз бе! «' + course + '» курсына тегін сынақ сабағына жазылғым келеді.';
-      window.open(waUrl(text), '_blank');
+  /* ============ COURSE MODAL ============ */
+  /* Деректерді осы жерден өзгертіңіз (сипаттама/пункттер) — екі тілде */
+  var courseInfo = {
+    'Starter A1-A2': {
+      roman:'I',
+      title:{ kaz:'Starter A1–A2', ru:'Starter A1–A2' },
+      meta:{ kaz:'8 апта • шағын топ • A1–A2', ru:'8 недель • малая группа • A1–A2' },
+      desc:{
+        kaz:'Нөлден бастаушыларға арналған курс. Алфавит, айтылым, негізгі грамматика және күнделікті сөйлесу: таныстыру, сұрақ қою, қарапайым жағдаяттар. Курс соңында өзіңіз туралы айтып, қарапайым диалог құра аласыз.',
+        ru:'Курс для тех, кто начинает с нуля. Алфавит, произношение, базовая грамматика и повседневное общение: знакомство, вопросы, простые ситуации. К концу курса вы сможете рассказать о себе и вести простой диалог.'
+      },
+      points:{
+        kaz:['Базалық грамматика және 800+ сөз','Айтылым мен тыңдап түсіну','Алғашқы еркін диалогтар'],
+        ru:['Базовая грамматика и 800+ слов','Произношение и аудирование','Первые свободные диалоги']
+      }
+    },
+    'Intermediate A2-B1': {
+      roman:'II',
+      title:{ kaz:'Intermediate A2–B1', ru:'Intermediate A2–B1' },
+      meta:{ kaz:'10 апта • шағын топ • A2–B1', ru:'10 недель • малая группа • A2–B1' },
+      desc:{
+        kaz:'Базасы бар оқушыларға арналған. Сөздік қорын кеңейтіп, өткен мен келер шақты бекітіп, еркін сөйлеуге көшеміз. Саяхат, жұмыс және оқу тақырыптарында сенімді сөйлейсіз.',
+        ru:'Для тех, у кого уже есть база. Расширяем словарный запас, закрепляем времена и переходим к свободной речи. Уверенно говорите на темы путешествий, работы и учёбы.'
+      },
+      points:{
+        kaz:['Барлық негізгі шақтар','Сөйлеу клубы мен пікірталастар','B1 деңгейіне шығу'],
+        ru:['Все основные времена','Разговорный клуб и дискуссии','Выход на уровень B1']
+      }
+    },
+    'Upper B2-C1': {
+      roman:'III',
+      title:{ kaz:'Upper B2–C1', ru:'Upper B2–C1' },
+      meta:{ kaz:'12 апта • шағын топ • B2–C1', ru:'12 недель • малая группа • B2–C1' },
+      desc:{
+        kaz:'Тілді кәсіби деңгейге жеткізгісі келетіндерге. Күрделі грамматика, идиомалар, академиялық және іскери лексика. Халықаралық емтихандарға (IELTS/TOEFL) дайындалуға берік негіз.',
+        ru:'Для тех, кто хочет довести язык до профессионального уровня. Сложная грамматика, идиомы, академическая и деловая лексика. Прочная база для подготовки к международным экзаменам (IELTS/TOEFL).'
+      },
+      points:{
+        kaz:['Идиомалар мен күрделі құрылымдар','Академиялық және іскери тіл','Емтиханға дайындық негізі'],
+        ru:['Идиомы и сложные конструкции','Академический и деловой язык','База для подготовки к экзамену']
+      }
+    },
+    'Kids 6-10': {
+      roman:'IV',
+      title:{ kaz:'Балаларға арналған курс', ru:'Курс для детей' },
+      meta:{ kaz:'6–10 жас • ойын форматы • шағын топ', ru:'6–10 лет • игровой формат • малая группа' },
+      desc:{
+        kaz:'Балаларға арналған ойын форматындағы сабақтар: әндер, ойындар мен карточкалар арқылы тілді жеңіл әрі қызықты үйренеді. Баланы қыспай, тілге деген қызығушылығын оятамыз.',
+        ru:'Занятия для детей в игровом формате: песни, игры и карточки помогают учить язык легко и с интересом. Без давления — пробуждаем у ребёнка любовь к языку.'
+      },
+      points:{
+        kaz:['Ойын мен әндер арқылы оқу','Тәжірибелі балалар педагогтары','Тұрақты прогресс есебі'],
+        ru:['Обучение через игры и песни','Опытные детские педагоги','Регулярный отчёт о прогрессе']
+      }
+    },
+    'Russian': {
+      roman:'V',
+      title:{ kaz:'Орыс тілі', ru:'Русский язык' },
+      meta:{ kaz:'Барлық деңгей • шағын топ', ru:'Все уровни • малая группа' },
+      desc:{
+        kaz:'Барлық деңгейге арналған орыс тілі: грамматика, сауатты жазу, сөйлеу және айтылым. Мектеп, жұмыс және күнделікті өмір үшін орыс тілінде сенімді сөйлеуге үйренесіз.',
+        ru:'Русский язык для всех уровней: грамматика, грамотное письмо, речь и произношение. Научитесь уверенно говорить по-русски для школы, работы и повседневной жизни.'
+      },
+      points:{
+        kaz:['Грамматика және сауатты жазу','Сөйлеу мен айтылым','Кез келген деңгейден бастау'],
+        ru:['Грамматика и грамотное письмо','Речь и произношение','Старт с любого уровня']
+      }
+    }
+  };
+
+  var courseModal = document.getElementById('courseModal');
+  var openCourse = null;
+
+  function renderCourseModal(){
+    if(!openCourse) return;
+    var info = courseInfo[openCourse];
+    if(!info) return;
+    var lang = currentLang();
+    document.getElementById('cmRoman').textContent = info.roman;
+    document.getElementById('cmTitle').textContent = info.title[lang];
+    document.getElementById('cmMeta').textContent = info.meta[lang];
+    document.getElementById('cmDesc').textContent = info.desc[lang];
+    var ul = document.getElementById('cmPoints');
+    ul.innerHTML = '';
+    info.points[lang].forEach(function(p){
+      var li = document.createElement('li');
+      var tick = document.createElement('span');
+      tick.className = 'tick'; tick.textContent = '✓';
+      var txt = document.createElement('span');
+      txt.textContent = p;
+      li.appendChild(tick); li.appendChild(txt);
+      ul.appendChild(li);
     });
+    document.getElementById('cmCta').textContent = (lang === 'kaz')
+      ? 'Тегін сынақ сабағына жазылу'
+      : 'Записаться на бесплатный пробный урок';
+    document.getElementById('cmNote').textContent = (lang === 'kaz')
+      ? 'Батырманы басқанда WhatsApp ашылып, дайын өтінім шығады'
+      : 'При нажатии откроется WhatsApp с готовой заявкой';
+  }
+
+  function openCourseModal(key){
+    openCourse = key;
+    renderCourseModal();
+    courseModal.classList.add('open');
+    courseModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  }
+  function closeCourseModal(){
+    courseModal.classList.remove('open');
+    courseModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    openCourse = null;
+  }
+
+  document.querySelectorAll('.course-row').forEach(function(row){
+    row.addEventListener('click', function(){ openCourseModal(row.dataset.course); });
+  });
+  courseModal.querySelectorAll('[data-close]').forEach(function(el){
+    el.addEventListener('click', closeCourseModal);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && courseModal.classList.contains('open')) closeCourseModal();
+  });
+  document.getElementById('cmCta').addEventListener('click', function(e){
+    e.preventDefault();
+    if(!openCourse) return;
+    var text = 'Сәлеметсіз бе! «' + openCourse + '» курсына тегін сынақ сабағына жазылғым келеді.';
+    window.open(waUrl(text), '_blank');
+  });
+  /* тіл ауысқанда ашық модальді қайта сызу */
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.addEventListener('click', function(){ if(openCourse) renderCourseModal(); });
   });
 
   /* ============ MOBILE MENU ============ */
@@ -1444,6 +1683,17 @@
     var h = document.documentElement.scrollHeight - window.innerHeight;
     document.getElementById('progressBar').style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
   }, { passive: true });
+
+  /* ============ DRAG HINTS — показывать только если есть что листать ============ */
+  function updateDragHints(){
+    document.querySelectorAll('.reviews-track, .teachers-track').forEach(function(tr){
+      var hint = tr.parentElement.querySelector('.drag-hint');
+      if(!hint) return;
+      hint.style.display = (tr.scrollWidth > tr.clientWidth + 4) ? 'flex' : 'none';
+    });
+  }
+  updateDragHints();
+  window.addEventListener('resize', updateDragHints, { passive: true });
 </script>
 </body>
 </html>
