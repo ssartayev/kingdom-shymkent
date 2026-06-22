@@ -98,7 +98,7 @@
   .lang-switch{display:flex; gap:3px; font-size:0.74rem; font-weight:800; letter-spacing:0.05em; border:1px solid var(--line); border-radius:999px; padding:3px; background:rgba(8,17,52,0.6);}
   .lang-btn{background:none; border:none; color:var(--cream-dim); padding:6px 11px; border-radius:999px; transition:all .25s ease;}
   .lang-btn.active{color:var(--night); background:var(--gold);}
-  .nav-cta{display:none;}
+  .nav-right .nav-cta{display:none;}
   .burger{display:flex; flex-direction:column; gap:5px; background:none; border:none; padding:9px;}
   .burger span{width:23px; height:2px; background:var(--gold); border-radius:2px; transition:all .3s ease;}
   .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
@@ -123,7 +123,7 @@
     .nav-links a::after{content:''; position:absolute; left:0; bottom:-2px; width:0; height:1px; background:var(--gold); transition:width .3s ease;}
     .nav-links a:hover{color:var(--gold-soft);}
     .nav-links a:hover::after{width:100%;}
-    .nav-cta{display:inline-flex;}
+    .nav-right .nav-cta{display:inline-flex;}
     .burger{display:none;}
   }
 
@@ -482,6 +482,33 @@
   /* ---------- reveal helpers ---------- */
   .rv{opacity:0; transform:translateY(38px);}
   .rv-s{opacity:0; transform:scale(0.92);}
+
+  /* ---------- mobile polish ---------- */
+  @media(max-width:879px){
+    /* курс: стрелка справа по центру, контент в колонку без лишней высоты */
+    .course-row{padding:22px 56px 22px 6px;}
+    .course-go{position:absolute; right:4px; top:50%; transform:translateY(-50%); width:42px; height:42px;}
+    .course-row:hover{padding-left:6px;}
+    .course-row:hover .course-go{transform:translateY(-50%) rotate(-45deg);}
+  }
+  @media(max-width:560px){
+    section{padding:62px 0;}
+    .section-head{margin-bottom:34px;}
+    /* компактная шапка: лого/переключатель ужаты, CTA скрыт */
+    .nav-inner{padding:10px 15px;}
+    .logo{gap:9px;}
+    .logo .logo-mark--crown{width:44px;}
+    .logo .brand-word{font-size:1rem; letter-spacing:0.1em;}
+    .logo .brand-word small{font-size:0.5rem; letter-spacing:0.26em;}
+    .nav-right{gap:8px;}
+    .lang-btn{padding:6px 9px;}
+    /* карточки преимуществ компактнее */
+    .feature{padding:24px 22px;}
+    .feature h3{font-size:1.4rem;}
+    /* плавающая кнопка WhatsApp компактнее */
+    .wa-float{padding:12px 16px 12px 13px; font-size:0.82rem; bottom:16px; right:13px;}
+    .wa-float svg{width:20px; height:20px;}
+  }
 </style>
 </head>
 <body>
