@@ -397,11 +397,14 @@
   .branch-head h3{font-size:1.5rem; color:var(--cream);}
   .branch-head p{color:var(--cream-dim); font-size:0.85rem;}
   .map-frame{
-    border:none; border-top:1px dashed var(--line); height:280px;
-    display:flex; align-items:center; justify-content:center; color:var(--cream-dim); font-size:0.9rem; text-align:center; padding:20px;
+    border:none; border-top:1px dashed var(--line); height:280px; overflow:hidden;
+    display:flex; align-items:center; justify-content:center; color:var(--cream-dim); font-size:0.9rem; text-align:center; padding:0;
     background:rgba(8,17,52,0.5);
   }
   .map-frame iframe{width:100%; height:100%; border:0;}
+  .branch-link{display:flex; align-items:center; justify-content:center; gap:8px; padding:14px; font-size:0.82rem; font-weight:700; letter-spacing:0.03em; color:var(--gold-soft); border-top:1px solid var(--line-soft); transition:all .25s ease;}
+  .branch-link:hover{background:rgba(217,180,91,0.08); color:var(--gold);}
+  .branch-link svg{width:15px; height:15px;}
 
   /* ---------- footer ---------- */
   footer{border-top:1px solid var(--line); padding:60px 0 130px; position:relative; overflow:hidden;}
@@ -1117,26 +1120,32 @@
           <span class="roman">I</span>
           <div>
             <h3 class="t" data-kaz="1-филиал" data-ru="Филиал 1">1-филиал</h3>
-            <p class="t" data-kaz="Мәтін орны (мекенжай)" data-ru="Место для текста (адрес)">Мәтін орны (мекенжай)</p>
+            <p class="t" data-kaz="Республика даңғылы, 21 · 1-қабат" data-ru="проспект Республики, 21 · 1 этаж">Республика даңғылы, 21 · 1-қабат</p>
           </div>
         </div>
         <div class="map-frame">
-          <!-- Сюда вставить виджет 2ГИС филиала 1: https://2gis.kz -> "Поделиться" -> "Виджет на сайт" -->
-          <span class="t" data-kaz="2ГИС картасының орны (1-филиал)" data-ru="Место для карты 2ГИС (филиал 1)">2ГИС картасының орны (1-филиал)</span>
+          <iframe title="Kingdom — проспект Республики, 21" src="https://www.openstreetmap.org/export/embed.html?bbox=69.570318,42.307088,69.586318,42.315088&amp;layer=mapnik&amp;marker=42.311088,69.578318" loading="lazy"></iframe>
         </div>
+        <a class="branch-link" href="https://2gis.kz/shymkent/geo/70000001026186559" target="_blank" rel="noopener">
+          <span class="t" data-kaz="2ГИС-те ашу" data-ru="Открыть в 2ГИС">2ГИС-те ашу</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
       </div>
       <div class="branch rv">
         <div class="branch-head">
           <span class="roman">II</span>
           <div>
             <h3 class="t" data-kaz="2-филиал" data-ru="Филиал 2">2-филиал</h3>
-            <p class="t" data-kaz="Мәтін орны (мекенжай)" data-ru="Место для текста (адрес)">Мәтін орны (мекенжай)</p>
+            <p class="t" data-kaz="Арғынбеков көшесі, 296 · 3-қабат" data-ru="улица Аргынбекова, 296 · 3 этаж">Арғынбеков көшесі, 296 · 3-қабат</p>
           </div>
         </div>
         <div class="map-frame">
-          <!-- Сюда вставить виджет 2ГИС филиала 2: https://2gis.kz -> "Поделиться" -> "Виджет на сайт" -->
-          <span class="t" data-kaz="2ГИС картасының орны (2-филиал)" data-ru="Место для карты 2ГИС (филиал 2)">2ГИС картасының орны (2-филиал)</span>
+          <iframe title="Kingdom — улица Аргынбекова, 296" src="https://www.openstreetmap.org/export/embed.html?bbox=69.636435,42.348215,69.652435,42.356215&amp;layer=mapnik&amp;marker=42.352215,69.644435" loading="lazy"></iframe>
         </div>
+        <a class="branch-link" href="https://2gis.kz/shymkent/geo/70000001105871200" target="_blank" rel="noopener">
+          <span class="t" data-kaz="2ГИС-те ашу" data-ru="Открыть в 2ГИС">2ГИС-те ашу</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
       </div>
     </div>
   </div>
