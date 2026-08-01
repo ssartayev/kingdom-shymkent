@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kingdom-shymkent.vercel.app/sitemap.xml
