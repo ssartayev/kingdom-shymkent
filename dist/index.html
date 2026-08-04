@@ -178,7 +178,7 @@
   .mobile-menu.open{transform:translateX(0);}
   .mobile-menu a{font-family:'Cormorant Garamond',serif; font-size:2.1rem; padding:9px 0; border-bottom:1px solid var(--line-soft); width:100%; display:flex; align-items:baseline; gap:14px;}
   .mobile-menu a .roman{font-size:0.85rem;}
-  .mobile-menu .btn{margin-top:24px; width:100%; font-family:'Manrope',sans-serif; font-size:0.95rem; border-bottom:none;}
+  .mobile-menu .btn{margin-top:24px; width:100%; font-family:'Manrope',sans-serif; font-size:0.95rem; border-bottom:none; padding:16px 24px;}
   @media(min-width:920px){
     .nav-links{display:flex; gap:26px; font-size:0.85rem; font-weight:600; color:var(--cream-dim);}
     .nav-links a{position:relative; padding:4px 0; transition:color .25s ease;}
@@ -485,6 +485,7 @@
     transition:transform .3s ease;
   }
   .wa-float:hover{transform:translateY(-3px) scale(1.03);}
+  .wa-float.is-hidden{opacity:0; pointer-events:none; transform:translateY(14px) scale(0.96);}
   .wa-float svg{width:22px; height:22px;}
 
   /* ---------- course modal ---------- */
@@ -610,7 +611,13 @@
     .logo .brand-word{font-size:1rem; letter-spacing:0.1em;}
     .logo .brand-word small{font-size:0.5rem; letter-spacing:0.26em;}
     .nav-right{gap:8px;}
-    .lang-btn{padding:6px 9px;}
+    .lang-switch{gap:4px; padding:3px;}
+    .lang-btn{padding:11px 10px;}          /* было 30px высотой */
+    .burger{padding:12px 10px;}            /* было 34px */
+    .quiz-retake{padding:12px 16px; margin-top:6px;}   /* было 19px */
+    .contact-card a.val{display:inline-block; padding:7px 0;}  /* было 28px */
+    .footer-links{gap:4px 22px;}
+    .footer-links a{display:inline-block; padding:8px 0;}      /* было 23px */
 
     /* статистика — одной горизонтальной строкой, компактные цифры */
     .stats-band{padding:0 0 64px;}
@@ -650,11 +657,21 @@
     .branch-head{padding:16px 18px; gap:13px;}
     .branch-head .roman{flex:0 0 38px; width:38px; height:38px; font-size:1rem;}
     .branch-head h3{font-size:1.25rem;}
-    .map-frame{height:180px; font-size:0.8rem;}
+    .map-frame{height:235px; font-size:0.8rem;}
 
     /* плавающая кнопка WhatsApp компактнее */
     .wa-float{padding:12px 16px 12px 13px; font-size:0.82rem; bottom:16px; right:13px;}
     .wa-float svg{width:20px; height:20px;}
+  }
+
+  /* --- очень узкие телефоны (≤360px): шапка не помещалась, бургер уезжал за экран --- */
+  @media(max-width:360px){
+    .nav-inner{padding:10px 12px;}
+    .logo .brand-word{display:none;}      /* оставляем только корону */
+    .logo .logo-mark--crown{width:38px;}
+    .nav-right{gap:6px;}
+    .lang-btn{padding:11px 8px;}
+    .hero-badges{gap:10px 14px; font-size:0.78rem;}
   }
 </style>
 </head>
@@ -1388,6 +1405,19 @@
       window.open(waUrl(defaultWaText()), '_blank');
     });
   });
+
+  /* плавающая кнопка WhatsApp: прячем на первом экране — там своя кнопка,
+     иначе она перекрывает hero-CTA на телефоне */
+  (function(){
+    var f = document.querySelector('.wa-float'), hero = document.getElementById('top');
+    if(!f || !hero || !('IntersectionObserver' in window)) return;
+    f.classList.add('is-hidden');
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        f.classList.toggle('is-hidden', e.isIntersecting && e.intersectionRatio > 0.3);
+      });
+    }, { threshold:[0, 0.3, 1] }).observe(hero);
+  })();
 
   /* ============ COURSE MODAL ============ */
   /* Деректерді осы жерден өзгертіңіз (сипаттама/пункттер) — екі тілде */
