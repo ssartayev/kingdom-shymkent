@@ -601,6 +601,23 @@
     .course-row:hover{padding-left:6px;}
     .course-row:hover .course-go{transform:translateY(-50%) rotate(-45deg);}
   }
+
+  /* --- компактные карточки до 639px: раньше карточка занимала ~70% экрана --- */
+  @media(max-width:639px){
+    .teachers-track{gap:14px;}
+    .teacher{flex:0 0 88%;}                /* шире -> текст меньше переносится */
+    .teacher .photo{aspect-ratio:4/3;}     /* был квадрат -> экономит ~80px высоты */
+    .teacher .body{padding:16px 16px 18px;}
+    .teacher h3{font-size:1.32rem;}
+    .teacher .role{font-size:0.74rem; margin-bottom:9px;}
+    .teacher p.bio{font-size:0.86rem; line-height:1.5;}
+
+    .reviews-track{gap:14px;}
+    .review{flex:0 0 90%; padding:22px 20px; gap:12px;}
+    .review p.txt{font-size:1.05rem;}
+    .review .who{padding-top:13px; gap:11px;}
+  }
+
   @media(max-width:560px){
     section{padding:56px 0;}
     .section-head{margin-bottom:30px;}
@@ -644,8 +661,10 @@
     /* форма — компактнее */
     .signup-frame{padding:26px 15px;}
     .signup-grid{gap:24px;}
-    .form-card{padding:24px 18px;}
-    .field{margin-bottom:12px;}
+    /* анкета компактнее */
+    .form-card{padding:20px 16px;}
+    .field{margin-bottom:11px; gap:5px;}
+    .field input,.field select{padding:12px 14px;}
 
     /* контакты — карточки в строку (узкие, меньше высоты) */
     .contacts-grid{gap:10px;}
