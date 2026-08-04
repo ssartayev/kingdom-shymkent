@@ -35,7 +35,7 @@
   "url": "https://kingdom-shymkent.vercel.app",
   "alternateName": "Kingdom тілдер мектебі",
   "description": "Тілдер мектебі / языковая школа в Шымкенте: английский и русский язык, математика, SAT, IELTS. Малые группы до 10 человек, тест уровня, бесплатный пробный урок.",
-  "telephone": "+77053396313",
+  "telephone": "+77011166273",
   "image": "https://kingdom-shymkent.vercel.app/og-image.png",
   "areaServed": "Shymkent",
   "knowsLanguage": ["kk", "ru", "en"],
@@ -325,12 +325,13 @@
   @media(min-width:640px){.teacher{flex:0 0 340px;}}
   .teacher:hover{transform:translateY(-7px); border-color:var(--gold); box-shadow:0 30px 56px -28px rgba(0,0,0,0.7);}
   .teacher .photo{
-    aspect-ratio:4/3.3; background:
+    aspect-ratio:1/1; background:
       radial-gradient(circle at 50% 110%, rgba(46,91,255,0.35), transparent 70%),
       linear-gradient(160deg, var(--night-3), var(--night-2));
     display:flex; align-items:center; justify-content:center; color:var(--cream-dim); position:relative;
   }
-  .teacher .photo .mini-crown{position:absolute; top:16px; left:18px; width:34px; aspect-ratio:700/464; opacity:0.6;}
+  .teacher .photo .mini-crown{position:absolute; top:16px; left:18px; width:34px; aspect-ratio:700/464; opacity:0.6; z-index:2;}
+  .teacher .photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;}
   .teacher .body{padding:24px; border-top:1px solid var(--line);}
   .teacher h3{font-size:1.6rem; margin-bottom:2px; color:var(--cream);}
   .teacher .role{color:var(--gold-soft); font-weight:700; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:12px;}
@@ -671,21 +672,22 @@
     </a>
 
     <nav class="nav-links">
-      <a href="#courses" class="t" data-kaz="Курстар" data-ru="Курсы">Курстар</a>
-      <a href="#leveltest" class="t" data-kaz="Деңгей тесті" data-ru="Тест уровня">Деңгей тесті</a>
-      <a href="#about" class="t" data-kaz="Біз туралы" data-ru="О нас">Біз туралы</a>
-      <a href="#teachers" class="t" data-kaz="Мұғалімдер" data-ru="Учителя">Мұғалімдер</a>
-      <a href="#reviews" class="t" data-kaz="Пікірлер" data-ru="Отзывы">Пікірлер</a>
-      <a href="#faq" class="t" data-kaz="Сұрақ-жауап" data-ru="Вопросы">Сұрақ-жауап</a>
-      <a href="#contacts" class="t" data-kaz="Байланыс" data-ru="Контакты">Байланыс</a>
+      <a href="#courses" class="t" data-kaz="Курстар" data-ru="Курсы" data-en="Courses">Курстар</a>
+      <a href="#leveltest" class="t" data-kaz="Деңгей тесті" data-ru="Тест уровня" data-en="Level test">Деңгей тесті</a>
+      <a href="#about" class="t" data-kaz="Біз туралы" data-ru="О нас" data-en="About">Біз туралы</a>
+      <a href="#teachers" class="t" data-kaz="Мұғалімдер" data-ru="Учителя" data-en="Teachers">Мұғалімдер</a>
+      <a href="#reviews" class="t" data-kaz="Пікірлер" data-ru="Отзывы" data-en="Reviews">Пікірлер</a>
+      <a href="#faq" class="t" data-kaz="Сұрақ-жауап" data-ru="Вопросы" data-en="FAQ">Сұрақ-жауап</a>
+      <a href="#contacts" class="t" data-kaz="Байланыс" data-ru="Контакты" data-en="Contacts">Байланыс</a>
     </nav>
 
     <div class="nav-right">
       <div class="lang-switch">
         <button class="lang-btn active" data-lang="kaz">ҚАЗ</button>
         <button class="lang-btn" data-lang="ru">РУС</button>
+        <button class="lang-btn" data-lang="en">ENG</button>
       </div>
-      <a href="#form" class="btn btn-gold nav-cta t" data-kaz="Жазылу" data-ru="Записаться">Жазылу</a>
+      <a href="#form" class="btn btn-gold nav-cta t" data-kaz="Жазылу" data-ru="Записаться" data-en="Sign up">Жазылу</a>
       <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -693,14 +695,14 @@
 
 <!-- ================= MOBILE MENU ================= -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#courses"><span class="roman">I</span><span class="t" data-kaz="Курстар" data-ru="Курсы">Курстар</span></a>
-  <a href="#leveltest"><span class="roman">II</span><span class="t" data-kaz="Деңгей тесті" data-ru="Тест уровня">Деңгей тесті</span></a>
-  <a href="#about"><span class="roman">III</span><span class="t" data-kaz="Біз туралы" data-ru="О нас">Біз туралы</span></a>
-  <a href="#teachers"><span class="roman">IV</span><span class="t" data-kaz="Мұғалімдер" data-ru="Учителя">Мұғалімдер</span></a>
-  <a href="#reviews"><span class="roman">V</span><span class="t" data-kaz="Пікірлер" data-ru="Отзывы">Пікірлер</span></a>
-  <a href="#faq"><span class="roman">VI</span><span class="t" data-kaz="Сұрақ-жауап" data-ru="Вопросы">Сұрақ-жауап</span></a>
-  <a href="#contacts"><span class="roman">VII</span><span class="t" data-kaz="Байланыс" data-ru="Контакты">Байланыс</span></a>
-  <a href="#form" class="btn btn-gold t" data-kaz="Тегін сабаққа жазылыңыз" data-ru="Запишитесь на бесплатный урок">Тегін сабаққа жазылыңыз</a>
+  <a href="#courses"><span class="roman">I</span><span class="t" data-kaz="Курстар" data-ru="Курсы" data-en="Courses">Курстар</span></a>
+  <a href="#leveltest"><span class="roman">II</span><span class="t" data-kaz="Деңгей тесті" data-ru="Тест уровня" data-en="Level test">Деңгей тесті</span></a>
+  <a href="#about"><span class="roman">III</span><span class="t" data-kaz="Біз туралы" data-ru="О нас" data-en="About">Біз туралы</span></a>
+  <a href="#teachers"><span class="roman">IV</span><span class="t" data-kaz="Мұғалімдер" data-ru="Учителя" data-en="Teachers">Мұғалімдер</span></a>
+  <a href="#reviews"><span class="roman">V</span><span class="t" data-kaz="Пікірлер" data-ru="Отзывы" data-en="Reviews">Пікірлер</span></a>
+  <a href="#faq"><span class="roman">VI</span><span class="t" data-kaz="Сұрақ-жауап" data-ru="Вопросы" data-en="FAQ">Сұрақ-жауап</span></a>
+  <a href="#contacts"><span class="roman">VII</span><span class="t" data-kaz="Байланыс" data-ru="Контакты" data-en="Contacts">Байланыс</span></a>
+  <a href="#form" class="btn btn-gold t" data-kaz="Тегін сабаққа жазылыңыз" data-ru="Запишитесь на бесплатный урок" data-en="Book a free lesson">Тегін сабаққа жазылыңыз</a>
 </div>
 
 <!-- ================= HERO ================= -->
@@ -713,47 +715,47 @@
       <span class="logo-mark logo-mark--full" aria-hidden="true"></span>
     </div>
 
-    <div class="rule rv"><span class="roman t" data-kaz="Шымкенттегі тілдер мектебі" data-ru="Языковая школа в Шымкенте">Шымкенттегі тілдер мектебі</span></div>
+    <div class="rule rv"><span class="roman t" data-kaz="Шымкенттегі тілдер мектебі" data-ru="Языковая школа в Шымкенте" data-en="Language school in Shymkent">Шымкенттегі тілдер мектебі</span></div>
 
     <h1 class="rv">
-      <span class="t" data-kaz="Әр оқушы — өз тілінің" data-ru="Каждый ученик — король">Әр оқушы — өз тілінің</span>
-      <em class="t" data-kaz="королі" data-ru="своего языка">королі</em>
+      <span class="t" data-kaz="Әр оқушы — өз тілінің" data-ru="Каждый ученик — король" data-en="Every student is the king">Әр оқушы — өз тілінің</span>
+      <em class="t" data-kaz="королі" data-ru="своего языка" data-en="of their own language">королі</em>
     </h1>
     <p class="lead rv t"
-      data-kaz="Ағылшын және орыс тілдері: шағын топтар, тәжірибелі мұғалімдер, нәтижеге бағытталған әдістеме. Тәж кию үшін алғашқы қадам — тегін сынақ сабағы."
-      data-ru="Английский и русский язык: малые группы, опытные преподаватели, методика на результат. Первый шаг к короне — бесплатный пробный урок.">Ағылшын және орыс тілдері: шағын топтар, тәжірибелі мұғалімдер, нәтижеге бағытталған әдістеме. Тәж кию үшін алғашқы қадам — тегін сынақ сабағы.</p>
+      data-kaz="Шымкенттегі ағылшын және орыс тілдері, математика, SAT және IELTS. Шағын топтар, тәжірибелі мұғалімдер, нәтижеге бағытталған әдістеме. Тәж кию үшін алғашқы қадам — тегін сынақ сабағы."
+      data-ru="Английский и русский язык, математика, SAT и IELTS в Шымкенте. Малые группы, опытные преподаватели, методика на результат. Первый шаг к короне — бесплатный пробный урок." data-en="English and Russian, mathematics, SAT and IELTS in Shymkent. Small groups, experienced teachers and a method built for results. Your first step to the crown is a free trial lesson.">Шымкенттегі ағылшын және орыс тілдері, математика, SAT және IELTS. Шағын топтар, тәжірибелі мұғалімдер, нәтижеге бағытталған әдістеме. Тәж кию үшін алғашқы қадам — тегін сынақ сабағы.</p>
 
     <div class="hero-actions rv">
-      <a href="#form" class="btn btn-gold t" data-kaz="Тегін сабаққа жазылыңыз" data-ru="Запишитесь на бесплатный урок">Тегін сабаққа жазылыңыз</a>
+      <a href="#form" class="btn btn-gold t" data-kaz="Тегін сабаққа жазылыңыз" data-ru="Запишитесь на бесплатный урок" data-en="Book a free lesson">Тегін сабаққа жазылыңыз</a>
       <a href="#" class="btn btn-outline wa-link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4 8.94 8.94 0 0 0 3.12 12.93a8.84 8.84 0 0 0 1.18 4.43L3 21l3.74-1.27a8.93 8.93 0 0 0 5.32 1.72h.01a8.94 8.94 0 0 0 8.93-8.93 8.86 8.86 0 0 0-2.6-6.2zM12.06 19.7a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.8.95.94-2.74-.18-.28a7.45 7.45 0 1 1 13.8-3.97 7.5 7.5 0 0 1-7.71 7.24z"/></svg>
-        <span class="t" data-kaz="WhatsApp-та жазу" data-ru="Написать в WhatsApp">WhatsApp-та жазу</span>
+        <span class="t" data-kaz="WhatsApp-та жазу" data-ru="Написать в WhatsApp" data-en="Message on WhatsApp">WhatsApp-та жазу</span>
       </a>
     </div>
 
     <div class="hero-meta rv">
-      <span><b class="crown-ico" aria-hidden="true"></b><span class="t" data-kaz="Алғашқы сабақ тегін" data-ru="Первый урок бесплатно">Алғашқы сабақ тегін</span></span>
-      <span><b class="crown-ico" aria-hidden="true"></b><span class="t" data-kaz="Топта 6–8 оқушы" data-ru="В группе 6–8 учеников">Топта 6–8 оқушы</span></span>
-      <span><b class="crown-ico" aria-hidden="true"></b><span class="t" data-kaz="Балалар мен ересектерге" data-ru="Для детей и взрослых">Балалар мен ересектерге</span></span>
+      <span><b class="crown-ico" aria-hidden="true"></b><span class="t" data-kaz="Алғашқы сабақ тегін" data-ru="Первый урок бесплатно" data-en="First lesson free">Алғашқы сабақ тегін</span></span>
+      <span><b class="crown-ico" aria-hidden="true"></b><span class="t" data-kaz="Топта 10 адамға дейін" data-ru="В группе до 10 человек" data-en="Up to 10 per group">Топта 10 адамға дейін</span></span>
+      <span><b class="crown-ico" aria-hidden="true"></b><span class="t" data-kaz="Балалар мен ересектерге" data-ru="Для детей и взрослых" data-en="For children and adults">Балалар мен ересектерге</span></span>
     </div>
   </div>
 
   <div class="marquee">
     <div class="marquee-track" id="marqueeTrack">
-      <span class="t" data-kaz="Ағылшын тілі" data-ru="Английский язык">Ағылшын тілі</span>
-      <span class="t" data-kaz="Орыс тілі" data-ru="Русский язык">Орыс тілі</span>
-      <span class="t" data-kaz="IELTS" data-ru="IELTS">IELTS</span>
-      <span class="t" data-kaz="SAT" data-ru="SAT">SAT</span>
-      <span class="t" data-kaz="Математика" data-ru="Математика">Математика</span>
-      <span class="t" data-kaz="Сөйлеу клубы" data-ru="Разговорный клуб">Сөйлеу клубы</span>
-      <span class="t" data-kaz="Шағын топтар" data-ru="Малые группы">Шағын топтар</span>
-      <span class="t" data-kaz="Ағылшын тілі" data-ru="Английский язык">Ағылшын тілі</span>
-      <span class="t" data-kaz="Орыс тілі" data-ru="Русский язык">Орыс тілі</span>
-      <span class="t" data-kaz="IELTS" data-ru="IELTS">IELTS</span>
-      <span class="t" data-kaz="SAT" data-ru="SAT">SAT</span>
-      <span class="t" data-kaz="Математика" data-ru="Математика">Математика</span>
-      <span class="t" data-kaz="Сөйлеу клубы" data-ru="Разговорный клуб">Сөйлеу клубы</span>
-      <span class="t" data-kaz="Шағын топтар" data-ru="Малые группы">Шағын топтар</span>
+      <span class="t" data-kaz="Ағылшын тілі" data-ru="Английский язык" data-en="English">Ағылшын тілі</span>
+      <span class="t" data-kaz="Орыс тілі" data-ru="Русский язык" data-en="Russian">Орыс тілі</span>
+      <span class="t" data-kaz="IELTS" data-ru="IELTS" data-en="IELTS">IELTS</span>
+      <span class="t" data-kaz="SAT" data-ru="SAT" data-en="SAT">SAT</span>
+      <span class="t" data-kaz="Математика" data-ru="Математика" data-en="Mathematics">Математика</span>
+      <span class="t" data-kaz="Тегін сынақ сабағы" data-ru="Бесплатный пробный урок" data-en="Free trial lesson">Тегін сынақ сабағы</span>
+      <span class="t" data-kaz="Шағын топтар" data-ru="Малые группы" data-en="Small groups">Шағын топтар</span>
+      <span class="t" data-kaz="Ағылшын тілі" data-ru="Английский язык" data-en="English">Ағылшын тілі</span>
+      <span class="t" data-kaz="Орыс тілі" data-ru="Русский язык" data-en="Russian">Орыс тілі</span>
+      <span class="t" data-kaz="IELTS" data-ru="IELTS" data-en="IELTS">IELTS</span>
+      <span class="t" data-kaz="SAT" data-ru="SAT" data-en="SAT">SAT</span>
+      <span class="t" data-kaz="Математика" data-ru="Математика" data-en="Mathematics">Математика</span>
+      <span class="t" data-kaz="Тегін сынақ сабағы" data-ru="Бесплатный пробный урок" data-en="Free trial lesson">Тегін сынақ сабағы</span>
+      <span class="t" data-kaz="Шағын топтар" data-ru="Малые группы" data-en="Small groups">Шағын топтар</span>
     </div>
   </div>
 </section>
@@ -763,10 +765,10 @@
   <div class="container">
     <div class="stats-frame rv">
       <div class="stats-grid">
-        <div class="stat"><div class="num"><i data-count="500">0</i>+</div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения">Жетістік орны</div></div>
-        <div class="stat"><div class="num"><i data-count="7">0</i></div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения">Жетістік орны</div></div>
-        <div class="stat"><div class="num"><i data-count="12">0</i></div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения">Жетістік орны</div></div>
-        <div class="stat"><div class="num"><i data-count="98">0</i>%</div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения">Жетістік орны</div></div>
+        <div class="stat"><div class="num"><i data-count="500">0</i>+</div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения" data-en="Achievement label">Жетістік орны</div></div>
+        <div class="stat"><div class="num"><i data-count="7">0</i></div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения" data-en="Achievement label">Жетістік орны</div></div>
+        <div class="stat"><div class="num"><i data-count="12">0</i></div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения" data-en="Achievement label">Жетістік орны</div></div>
+        <div class="stat"><div class="num"><i data-count="98">0</i>%</div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения" data-en="Achievement label">Жетістік орны</div></div>
       </div>
     </div>
   </div>
@@ -776,47 +778,47 @@
 <section id="courses">
   <div class="container">
     <div class="section-head rv">
-      <div class="kicker"><span class="t" data-kaz="Бағдарламалар" data-ru="Программы">Бағдарламалар</span></div>
-      <h2><span class="t" data-kaz="Корольдік" data-ru="Королевские">Корольдік</span> <em class="t" data-kaz="курстар" data-ru="курсы">курстар</em></h2>
+      <div class="kicker"><span class="t" data-kaz="Бағдарламалар" data-ru="Программы" data-en="Programmes">Бағдарламалар</span></div>
+      <h2><span class="t" data-kaz="Корольдік" data-ru="Королевские" data-en="Royal">Корольдік</span> <em class="t" data-kaz="курстар" data-ru="курсы" data-en="courses">курстар</em></h2>
       <p class="t"
         data-kaz="Барлық курс — топта 10 адамға дейін, әрқайсысына жеке (индивидуально) де жазылуға болады. Курсты басып, толық сипаттамасын көріңіз."
-        data-ru="Все курсы — до 10 человек в группе, на любой можно записаться и индивидуально. Нажмите на курс, чтобы увидеть детали.">Барлық курс — топта 10 адамға дейін, әрқайсысына жеке (индивидуально) де жазылуға болады. Курсты басып, толық сипаттамасын көріңіз.</p>
+        data-ru="Все курсы — до 10 человек в группе, на любой можно записаться и индивидуально. Нажмите на курс, чтобы увидеть детали." data-en="Every course has up to 10 students per group, and any of them can be taken one-to-one. Tap a course to see the details.">Барлық курс — топта 10 адамға дейін, әрқайсысына жеке (индивидуально) де жазылуға болады. Курсты басып, толық сипаттамасын көріңіз.</p>
     </div>
 
     <div class="course-list">
       <div class="course-row rv" data-course="eng">
         <div class="roman">I</div>
-        <h3 class="t" data-kaz="Ағылшын тілі" data-ru="Английский язык">Ағылшын тілі</h3>
-        <p class="desc t" data-kaz="Бастауыштан жоғары деңгейге дейін" data-ru="От начинающих до продвинутых">Бастауыштан жоғары деңгейге дейін</p>
-        <span class="course-tag t" data-kaz="Сөйлеуге басымдық" data-ru="Упор на разговор">Сөйлеуге басымдық</span>
+        <h3 class="t" data-kaz="Ағылшын тілі" data-ru="Английский язык" data-en="English">Ағылшын тілі</h3>
+        <p class="desc t" data-kaz="Бастауыштан жоғары деңгейге дейін" data-ru="От начинающих до продвинутых" data-en="From beginner to advanced">Бастауыштан жоғары деңгейге дейін</p>
+        <span class="course-tag t" data-kaz="Сөйлеуге басымдық" data-ru="Упор на разговор" data-en="Speaking focus">Сөйлеуге басымдық</span>
         <span class="course-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
       <div class="course-row rv" data-course="rus">
         <div class="roman">II</div>
-        <h3 class="t" data-kaz="Орыс тілі" data-ru="Русский язык">Орыс тілі</h3>
-        <p class="desc t" data-kaz="Бастауыштан жоғары деңгейге дейін" data-ru="От начинающих до продвинутых">Бастауыштан жоғары деңгейге дейін</p>
-        <span class="course-tag t" data-kaz="Сөйлеуге басымдық" data-ru="Упор на разговор">Сөйлеуге басымдық</span>
+        <h3 class="t" data-kaz="Орыс тілі" data-ru="Русский язык" data-en="Russian">Орыс тілі</h3>
+        <p class="desc t" data-kaz="Бастауыштан жоғары деңгейге дейін" data-ru="От начинающих до продвинутых" data-en="From beginner to advanced">Бастауыштан жоғары деңгейге дейін</p>
+        <span class="course-tag t" data-kaz="Сөйлеуге басымдық" data-ru="Упор на разговор" data-en="Speaking focus">Сөйлеуге басымдық</span>
         <span class="course-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
       <div class="course-row rv" data-course="math">
         <div class="roman">III</div>
-        <h3 class="t" data-kaz="Математика" data-ru="Математика">Математика</h3>
-        <p class="desc t" data-kaz="Мектеп бағдарламасы мен емтихан" data-ru="Школьная программа и экзамены">Мектеп бағдарламасы мен емтихан</p>
-        <span class="course-tag t" data-kaz="Жеке қарқын" data-ru="Индивидуальный темп">Жеке қарқын</span>
+        <h3 class="t" data-kaz="Математика" data-ru="Математика" data-en="Mathematics">Математика</h3>
+        <p class="desc t" data-kaz="Мектеп бағдарламасы мен емтихан" data-ru="Школьная программа и экзамены" data-en="School curriculum and exams">Мектеп бағдарламасы мен емтихан</p>
+        <span class="course-tag t" data-kaz="Жеке қарқын" data-ru="Индивидуальный темп" data-en="Individual pace">Жеке қарқын</span>
         <span class="course-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
       <div class="course-row rv" data-course="sat">
         <div class="roman">IV</div>
         <h3>SAT</h3>
-        <p class="desc t" data-kaz="SAT емтиханына дайындық" data-ru="Подготовка к экзамену SAT">SAT емтиханына дайындық</p>
+        <p class="desc t" data-kaz="SAT емтиханына дайындық" data-ru="Подготовка к экзамену SAT" data-en="SAT exam preparation">SAT емтиханына дайындық</p>
         <span class="course-tag">Math + English</span>
         <span class="course-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
       <div class="course-row rv" data-course="ielts">
         <div class="roman">V</div>
         <h3>IELTS</h3>
-        <p class="desc t" data-kaz="Халықаралық ағылшын емтиханы" data-ru="Международный экзамен по английскому">Халықаралық ағылшын емтиханы</p>
-        <span class="course-tag t" data-kaz="4 бөлім" data-ru="4 раздела">4 бөлім</span>
+        <p class="desc t" data-kaz="Халықаралық ағылшын емтиханы" data-ru="Международный экзамен по английскому" data-en="International English exam">Халықаралық ағылшын емтиханы</p>
+        <span class="course-tag t" data-kaz="4 бөлім" data-ru="4 раздела" data-en="4 sections">4 бөлім</span>
         <span class="course-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
     </div>
@@ -827,33 +829,33 @@
 <section id="leveltest">
   <div class="container">
     <div class="section-head rv">
-      <div class="kicker"><span class="t" data-kaz="Деңгей тесті" data-ru="Тест уровня">Деңгей тесті</span></div>
-      <h2><span class="t" data-kaz="Деңгейіңізді" data-ru="Узнайте свой">Деңгейіңізді</span> <em class="t" data-kaz="тегін анықтаңыз" data-ru="уровень бесплатно">тегін анықтаңыз</em></h2>
+      <div class="kicker"><span class="t" data-kaz="Деңгей тесті" data-ru="Тест уровня" data-en="Level test">Деңгей тесті</span></div>
+      <h2><span class="t" data-kaz="Деңгейіңізді" data-ru="Узнайте свой" data-en="Find out your">Деңгейіңізді</span> <em class="t" data-kaz="тегін анықтаңыз" data-ru="уровень бесплатно" data-en="level for free">тегін анықтаңыз</em></h2>
       <p class="t"
         data-kaz="12 сұраққа жауап беріп, ағылшын немесе орыс тіліндегі деңгейіңізді біліп алыңыз — нәтиже бойынша сізге топ ұсынамыз."
-        data-ru="Ответьте на 12 вопросов и узнайте свой уровень английского или русского — по результату подберём вам группу.">12 сұраққа жауап беріп, ағылшын немесе орыс тіліндегі деңгейіңізді біліп алыңыз — нәтиже бойынша сізге топ ұсынамыз.</p>
+        data-ru="Ответьте на 12 вопросов и узнайте свой уровень английского или русского — по результату подберём вам группу." data-en="Answer 12 questions and find out your level of English or Russian — we will suggest a group based on your result.">12 сұраққа жауап беріп, ағылшын немесе орыс тіліндегі деңгейіңізді біліп алыңыз — нәтиже бойынша сізге топ ұсынамыз.</p>
     </div>
 
     <div class="quiz-card rv">
       <!-- intro -->
       <div class="quiz-stage" id="quizIntro">
         <div class="quiz-crown"><span class="crown-ico" aria-hidden="true"></span></div>
-        <h3 class="quiz-intro-title t" data-kaz="Қай тілді тексереміз?" data-ru="Какой язык проверяем?">Қай тілді тексереміз?</h3>
-        <p class="quiz-intro-sub t" data-kaz="Тілді таңдаңыз — 12 қысқа сұрақ, шамамен 3 минут." data-ru="Выберите язык — 12 коротких вопросов, около 3 минут.">Тілді таңдаңыз — 12 қысқа сұрақ, шамамен 3 минут.</p>
+        <h3 class="quiz-intro-title t" data-kaz="Қай тілді тексереміз?" data-ru="Какой язык проверяем?" data-en="Which language shall we test?">Қай тілді тексереміз?</h3>
+        <p class="quiz-intro-sub t" data-kaz="Тілді таңдаңыз — 12 қысқа сұрақ, шамамен 3 минут." data-ru="Выберите язык — 12 коротких вопросов, около 3 минут." data-en="Choose a language — 12 short questions, about 3 minutes.">Тілді таңдаңыз — 12 қысқа сұрақ, шамамен 3 минут.</p>
         <div class="quiz-lang-pick">
           <button class="quiz-pick" data-test="en">
             <span class="quiz-pick-emoji">🇬🇧</span>
             <span class="quiz-pick-txt">
-              <b class="t" data-kaz="Ағылшын тілі" data-ru="Английский">Ағылшын тілі</b>
-              <span class="t" data-kaz="12 сұрақ • ~3 минут" data-ru="12 вопросов • ~3 минуты">12 сұрақ • ~3 минут</span>
+              <b class="t" data-kaz="Ағылшын тілі" data-ru="Английский" data-en="English">Ағылшын тілі</b>
+              <span class="t" data-kaz="12 сұрақ • ~3 минут" data-ru="12 вопросов • ~3 минуты" data-en="12 questions • ~3 min">12 сұрақ • ~3 минут</span>
             </span>
             <span class="quiz-pick-go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </button>
           <button class="quiz-pick" data-test="ru">
             <span class="quiz-pick-emoji">🇷🇺</span>
             <span class="quiz-pick-txt">
-              <b class="t" data-kaz="Орыс тілі" data-ru="Русский">Орыс тілі</b>
-              <span class="t" data-kaz="12 сұрақ • ~3 минут" data-ru="12 вопросов • ~3 минуты">12 сұрақ • ~3 минут</span>
+              <b class="t" data-kaz="Орыс тілі" data-ru="Русский" data-en="Russian">Орыс тілі</b>
+              <span class="t" data-kaz="12 сұрақ • ~3 минут" data-ru="12 вопросов • ~3 минуты" data-en="12 questions • ~3 min">12 сұрақ • ~3 минут</span>
             </span>
             <span class="quiz-pick-go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </button>
@@ -879,8 +881,8 @@
         <p class="quiz-level-desc" id="quizLevelDesc"></p>
         <div class="quiz-cta-box">
           <p class="quiz-ad" id="quizAd"></p>
-          <a href="#" class="btn btn-gold" id="quizConsult"><span class="t" data-kaz="Тегін консультацияға жазылу" data-ru="Записаться на бесплатную консультацию">Тегін консультацияға жазылу</span></a>
-          <button class="quiz-retake t" id="quizRetake" data-kaz="Тестті қайта өту" data-ru="Пройти тест заново">Тестті қайта өту</button>
+          <a href="#" class="btn btn-gold" id="quizConsult"><span class="t" data-kaz="Тегін консультацияға жазылу" data-ru="Записаться на бесплатную консультацию" data-en="Book a free consultation">Тегін консультацияға жазылу</span></a>
+          <button class="quiz-retake t" id="quizRetake" data-kaz="Тестті қайта өту" data-ru="Пройти тест заново" data-en="Take the test again">Тестті қайта өту</button>
         </div>
       </div>
     </div>
@@ -892,33 +894,33 @@
   <span class="about-crown-bg logo-mark logo-mark--crown" aria-hidden="true"></span>
   <div class="container">
     <div class="section-head rv">
-      <div class="kicker"><span class="t" data-kaz="Артықшылықтар" data-ru="Преимущества">Артықшылықтар</span></div>
-      <h2><span class="t" data-kaz="Неліктен" data-ru="Почему именно">Неліктен</span> <em>Kingdom</em></h2>
+      <div class="kicker"><span class="t" data-kaz="Артықшылықтар" data-ru="Преимущества" data-en="Why us">Артықшылықтар</span></div>
+      <h2><span class="t" data-kaz="Неліктен" data-ru="Почему именно" data-en="Why choose">Неліктен</span> <em>Kingdom</em></h2>
       <p class="t"
         data-kaz="Kingdom — Шымкенттегі заманауи тілдер мектебі. Біз нәтижеге, жайлы ортаға және әр оқушыға жеке көзқарасқа сенеміз."
-        data-ru="Kingdom — современная языковая школа в Шымкенте. Мы верим в результат, комфортную среду и индивидуальный подход к каждому ученику.">Kingdom — Шымкенттегі заманауи тілдер мектебі. Біз нәтижеге, жайлы ортаға және әр оқушыға жеке көзқарасқа сенеміз.</p>
+        data-ru="Kingdom — современная языковая школа в Шымкенте. Мы верим в результат, комфортную среду и индивидуальный подход к каждому ученику." data-en="Kingdom is a modern language school in Shymkent. We believe in results, a comfortable environment and an individual approach to every student.">Kingdom — Шымкенттегі заманауи тілдер мектебі. Біз нәтижеге, жайлы ортаға және әр оқушыға жеке көзқарасқа сенеміз.</p>
     </div>
 
     <div class="about-grid">
       <div class="feature rv">
         <span class="roman">I.</span>
-        <h3 class="t" data-kaz="Тәжірибелі мұғалімдер" data-ru="Опытные преподаватели">Тәжірибелі мұғалімдер</h3>
-        <p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <h3 class="t" data-kaz="Тәжірибелі мұғалімдер" data-ru="Опытные преподаватели" data-en="Experienced teachers">Тәжірибелі мұғалімдер</h3>
+        <p class="t" data-kaz="IELTS 7.0–7.5 иегерлері, халықаралық олимпиада жүлдегерлері. Әрқайсысының жүздеген оқушыны нәтижеге жеткізген тәжірибесі бар." data-ru="Обладатели IELTS 7.0–7.5, призёры международных олимпиад. За плечами каждого — сотни учеников, доведённых до результата." data-en="IELTS 7.0–7.5 holders and winners of international olympiads. Each of them has guided hundreds of students to their goal.">IELTS 7.0–7.5 иегерлері, халықаралық олимпиада жүлдегерлері. Әрқайсысының жүздеген оқушыны нәтижеге жеткізген тәжірибесі бар.</p>
       </div>
       <div class="feature rv">
         <span class="roman">II.</span>
-        <h3 class="t" data-kaz="Шағын топтар" data-ru="Малые группы">Шағын топтар</h3>
-        <p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <h3 class="t" data-kaz="Шағын топтар" data-ru="Малые группы" data-en="Small groups">Шағын топтар</h3>
+        <p class="t" data-kaz="Топта 10 адамға дейін. Мұғалім әр оқушыға жетеді, сабақта сөйлеу уақыты көп болады. Кез келген курсты жеке де оқуға болады." data-ru="В группе до 10 человек. Преподаватель успевает к каждому, а времени говорить на уроке — больше. Любой курс можно проходить индивидуально." data-en="Up to 10 students per group. The teacher has time for everyone and you get far more speaking practice. Any course can also be taken one-to-one.">Топта 10 адамға дейін. Мұғалім әр оқушыға жетеді, сабақта сөйлеу уақыты көп болады. Кез келген курсты жеке де оқуға болады.</p>
       </div>
       <div class="feature rv">
         <span class="roman">III.</span>
-        <h3 class="t" data-kaz="Сөйлеуге басымдық" data-ru="Приоритет — разговорная речь">Сөйлеуге басымдық</h3>
-        <p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <h3 class="t" data-kaz="Сөйлеуге басымдық" data-ru="Приоритет — разговорная речь" data-en="Speaking comes first">Сөйлеуге басымдық</h3>
+        <p class="t" data-kaz="Тілдік курстарда басты назар — сөйлеу. Грамматика мен жаңа сөздер бірден диалогта қолданылады: бірінші сабақтан бастап сөйлей бастайсыз." data-ru="На языковых курсах главный акцент — разговорная речь. Грамматика и новые слова сразу идут в диалог: вы начинаете говорить с первого урока." data-en="On our language courses speaking comes first. Grammar and new words go straight into conversation: you start speaking from the very first lesson.">Тілдік курстарда басты назар — сөйлеу. Грамматика мен жаңа сөздер бірден диалогта қолданылады: бірінші сабақтан бастап сөйлей бастайсыз.</p>
       </div>
       <div class="feature rv">
         <span class="roman">IV.</span>
-        <h3 class="t" data-kaz="Ыңғайлы кесте мен орналасу" data-ru="Удобное расписание и расположение">Ыңғайлы кесте мен орналасу</h3>
-        <p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <h3 class="t" data-kaz="Ыңғайлы кесте мен орналасу" data-ru="Удобное расписание и расположение" data-en="Convenient schedule and location">Ыңғайлы кесте мен орналасу</h3>
+        <p class="t" data-kaz="Шымкенттегі екі филиал: Республика даңғылы, 21 және Арғынбеков көшесі, 296. Кесте таңертеңгі, күндізгі және кешкі уақытқа — жұмыс пен мектепке ыңғайлап құрылады." data-ru="Два филиала в Шымкенте: проспект Республики, 21 и улица Аргынбекова, 296. Расписание на утро, день и вечер — подстраиваем под работу и школу." data-en="Two branches in Shymkent: 21 Respubliki Avenue and 296 Argynbekov Street. Morning, afternoon and evening slots — we fit the schedule around work and school.">Шымкенттегі екі филиал: Республика даңғылы, 21 және Арғынбеков көшесі, 296. Кесте таңертеңгі, күндізгі және кешкі уақытқа — жұмыс пен мектепке ыңғайлап құрылады.</p>
       </div>
     </div>
   </div>
@@ -931,51 +933,107 @@
       <span class="logo-mark logo-mark--crown" aria-hidden="true"></span>
     </div>
     <div class="section-head rv">
-      <div class="kicker"><span class="t" data-kaz="Команда" data-ru="Команда">Команда</span></div>
-      <h2><span class="t" data-kaz="Тәждің" data-ru="Хранители">Тәждің</span> <em class="t" data-kaz="сақшылары" data-ru="короны">сақшылары</em></h2>
+      <div class="kicker"><span class="t" data-kaz="Команда" data-ru="Команда" data-en="Team">Команда</span></div>
+      <h2><span class="t" data-kaz="Тәждің" data-ru="Хранители" data-en="Guardians of">Тәждің</span> <em class="t" data-kaz="сақшылары" data-ru="короны" data-en="the crown">сақшылары</em></h2>
       <p class="t"
         data-kaz="Сертификатталған және оқушыны шынымен қызықтыра білетін мұғалімдер."
-        data-ru="Сертифицированные преподаватели, которые умеют по-настоящему увлечь ученика.">Сертификатталған және оқушыны шынымен қызықтыра білетін мұғалімдер.</p>
+        data-ru="Сертифицированные преподаватели, которые умеют по-настоящему увлечь ученика." data-en="Certified teachers who genuinely know how to get students engaged.">Сертификатталған және оқушыны шынымен қызықтыра білетін мұғалімдер.</p>
     </div>
 
     <div class="teachers-track">
+      <!-- №1 — орын бос (кейін толтырылады) -->
       <div class="teacher rv">
         <div class="photo">
           <span class="mini-crown logo-mark logo-mark--crown" aria-hidden="true"></span>
           <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
         </div>
         <div class="body">
-          <h3 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h3>
-          <div class="role t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</div>
-          <p class="bio t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+          <h3 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия" data-en="Full name">Аты-жөні</h3>
+          <div class="role t" data-kaz="Мәтін орны" data-ru="Место для текста" data-en="Text placeholder">Мәтін орны</div>
+          <p class="bio t" data-kaz="Мәтін орны" data-ru="Место для текста" data-en="Text placeholder">Мәтін орны</p>
         </div>
       </div>
       <div class="teacher rv">
         <div class="photo">
           <span class="mini-crown logo-mark logo-mark--crown" aria-hidden="true"></span>
-          <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+          <img src="teachers/t2.jpg" alt="Дүйсебаева Қазына — Kingdom Shymkent" loading="lazy" width="800" height="800">
         </div>
         <div class="body">
-          <h3 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h3>
-          <div class="role t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</div>
-          <p class="bio t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+          <h3 class="t" data-kaz="Дүйсебаева Қазына" data-ru="Дуйсебаева Казына" data-en="Kazyna Duisebayeva">Дүйсебаева Қазына</h3>
+          <div class="role t" data-kaz="Орыс және ағылшын тілдері" data-ru="Русский и английский язык" data-en="Russian and English">Орыс және ағылшын тілдері</div>
+          <p class="bio t" data-kaz="ОҚМПУ түлегі. Kingdom-да 2 жыл тәжірибе." data-ru="Выпускница ЮКГПУ. 2 года преподавания в Kingdom." data-en="Graduate of SKSPU. Two years of teaching at Kingdom.">ОҚМПУ түлегі. Kingdom-да 2 жыл тәжірибе.</p>
         </div>
       </div>
       <div class="teacher rv">
         <div class="photo">
           <span class="mini-crown logo-mark logo-mark--crown" aria-hidden="true"></span>
-          <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+          <img src="teachers/t3.jpg" alt="Валиева Камила — Kingdom Shymkent" loading="lazy" width="800" height="800">
         </div>
         <div class="body">
-          <h3 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h3>
-          <div class="role t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</div>
-          <p class="bio t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+          <h3 class="t" data-kaz="Валиева Камила" data-ru="Валиева Камила" data-en="Kamila Valiyeva">Валиева Камила</h3>
+          <div class="role t" data-kaz="Ағылшын тілі · IELTS" data-ru="Английский язык · IELTS" data-en="English · IELTS">Ағылшын тілі · IELTS</div>
+          <p class="bio t" data-kaz="IELTS Academic 7.0, HSK 4. 2 жыл тәжірибе, 300-ден астам оқушы. Халықаралық олимпиадалар жүлдегері, FLEX жартылай финалисті." data-ru="IELTS Academic 7.0, HSK 4. 2 года опыта, более 300 учеников. Призёр международных олимпиад, полуфиналист FLEX." data-en="IELTS Academic 7.0, HSK 4. Two years of experience, over 300 students. Winner of international olympiads and FLEX semifinalist.">IELTS Academic 7.0, HSK 4. 2 жыл тәжірибе, 300-ден астам оқушы. Халықаралық олимпиадалар жүлдегері, FLEX жартылай финалисті.</p>
+        </div>
+      </div>
+      <div class="teacher rv">
+        <div class="photo">
+          <span class="mini-crown logo-mark logo-mark--crown" aria-hidden="true"></span>
+          <img src="teachers/t4.jpg" alt="Жәнібекқызы Арайлым — Kingdom Shymkent" loading="lazy" width="800" height="800">
+        </div>
+        <div class="body">
+          <h3 class="t" data-kaz="Жәнібекқызы Арайлым" data-ru="Жанибеккызы Арайлым" data-en="Arailym Zhanibekkyzy">Жәнібекқызы Арайлым</h3>
+          <div class="role t" data-kaz="Ағылшын тілі" data-ru="Английский язык" data-en="English">Ағылшын тілі</div>
+          <p class="bio t" data-kaz="Ө. Жәнібеков атындағы университеттің студенті. Universiti Putra Malaysia-да академиялық ұтқырлық. TEDx Speaking және Debate Club негізін қалаушысы." data-ru="Студентка университета им. О. Жанибекова. Академическая мобильность в Universiti Putra Malaysia. Сооснователь TEDx Speaking и Debate Club." data-en="Student at O. Zhanibekov University. Academic mobility programme at Universiti Putra Malaysia. Co-founder of TEDx Speaking and the Debate Club.">Ө. Жәнібеков атындағы университеттің студенті. Universiti Putra Malaysia-да академиялық ұтқырлық. TEDx Speaking және Debate Club негізін қалаушысы.</p>
+        </div>
+      </div>
+      <div class="teacher rv">
+        <div class="photo">
+          <span class="mini-crown logo-mark logo-mark--crown" aria-hidden="true"></span>
+          <img src="teachers/t5.jpg" alt="Нартай Жансая — Kingdom Shymkent" loading="lazy" width="800" height="800">
+        </div>
+        <div class="body">
+          <h3 class="t" data-kaz="Нартай Жансая" data-ru="Нартай Жансая" data-en="Zhansaya Nartay">Нартай Жансая</h3>
+          <div class="role t" data-kaz="Ағылшын тілі · IELTS" data-ru="Английский язык · IELTS" data-en="English · IELTS">Ағылшын тілі · IELTS</div>
+          <p class="bio t" data-kaz="IELTS mock 6.5. 2,5 жыл тәжірибе, 700-ден астам оқушы. Kingdom-да 2024 жылдан бері." data-ru="IELTS mock 6.5. 2,5 года опыта, более 700 учеников. В Kingdom с 2024 года." data-en="IELTS mock 6.5. Two and a half years of experience, over 700 students. At Kingdom since 2024.">IELTS mock 6.5. 2,5 жыл тәжірибе, 700-ден астам оқушы. Kingdom-да 2024 жылдан бері.</p>
+        </div>
+      </div>
+      <div class="teacher rv">
+        <div class="photo">
+          <span class="mini-crown logo-mark logo-mark--crown" aria-hidden="true"></span>
+          <img src="teachers/t6.jpg" alt="Өмірзақ Балнұр — Kingdom Shymkent" loading="lazy" width="800" height="800">
+        </div>
+        <div class="body">
+          <h3 class="t" data-kaz="Өмірзақ Балнұр" data-ru="Омирзак Балнур" data-en="Balnur Omirzak">Өмірзақ Балнұр</h3>
+          <div class="role t" data-kaz="Ағылшын тілі · IELTS" data-ru="Английский язык · IELTS" data-en="English · IELTS">Ағылшын тілі · IELTS</div>
+          <p class="bio t" data-kaz="IELTS Academic 7.5. 1,5 жыл тәжірибе, оқушылары 6.0+ алды. Ағылшын тілі мен математика бойынша олимпиада жүлдегері." data-ru="IELTS Academic 7.5. 1,5 года опыта, ученики получают 6.0+. Призёр олимпиад по английскому и математике." data-en="IELTS Academic 7.5. A year and a half of experience, students score 6.0+. Winner of olympiads in English and mathematics.">IELTS Academic 7.5. 1,5 жыл тәжірибе, оқушылары 6.0+ алды. Ағылшын тілі мен математика бойынша олимпиада жүлдегері.</p>
+        </div>
+      </div>
+      <div class="teacher rv">
+        <div class="photo">
+          <span class="mini-crown logo-mark logo-mark--crown" aria-hidden="true"></span>
+          <img src="teachers/t7.jpg" alt="Алихан Маратұлы — Kingdom Shymkent" loading="lazy" width="800" height="800">
+        </div>
+        <div class="body">
+          <h3 class="t" data-kaz="Алихан Маратұлы" data-ru="Алихан Маратулы" data-en="Alikhan Maratuly">Алихан Маратұлы</h3>
+          <div class="role t" data-kaz="Ағылшын және орыс тілдері" data-ru="Английский и русский язык" data-en="English and Russian">Ағылшын және орыс тілдері</div>
+          <p class="bio t" data-kaz="Ағылшын тілі деңгейі — IELTS 7.0. Жеке сабақтар береді. Сөйлеу дағдысына баса назар аударады." data-ru="Уровень английского — IELTS 7.0. Ведёт индивидуальные занятия. Делает упор на разговорную речь." data-en="English at IELTS 7.0 level. Teaches one-to-one lessons. Puts the emphasis on speaking.">Ағылшын тілі деңгейі — IELTS 7.0. Жеке сабақтар береді. Сөйлеу дағдысына баса назар аударады.</p>
+        </div>
+      </div>
+      <div class="teacher rv">
+        <div class="photo">
+          <span class="mini-crown logo-mark logo-mark--crown" aria-hidden="true"></span>
+          <img src="teachers/t8.jpg" alt="Азретқұлов Нұрсұлтан — Kingdom Shymkent" loading="lazy" width="800" height="800">
+        </div>
+        <div class="body">
+          <h3 class="t" data-kaz="Азретқұлов Нұрсұлтан" data-ru="Азреткулов Нурсултан" data-en="Nursultan Azretkulov">Азретқұлов Нұрсұлтан</h3>
+          <div class="role t" data-kaz="Ағылшын және орыс тілдері" data-ru="Английский и русский язык" data-en="English and Russian">Ағылшын және орыс тілдері</div>
+          <p class="bio t" data-kaz="НЗМ түлегі, IELTS 7.5. Заманауи әдістемемен жұмыс істейді. Оқушыларды еркін сөйлеуге үйретеді." data-ru="Выпускник НИШ, IELTS 7.5. Работает по современной методике. Учит уверенно говорить." data-en="NIS graduate, IELTS 7.5. Works with a modern methodology. Teaches students to speak with confidence.">НЗМ түлегі, IELTS 7.5. Заманауи әдістемемен жұмыс істейді. Оқушыларды еркін сөйлеуге үйретеді.</p>
         </div>
       </div>
     </div>
     <div class="drag-hint">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12l4-4M5 12l4 4M19 12l-4-4M19 12l-4 4"/></svg>
-      <span class="t" data-kaz="Оңға-солға жылжытыңыз" data-ru="Листайте в стороны">Оңға-солға жылжытыңыз</span>
+      <span class="t" data-kaz="Оңға-солға жылжытыңыз" data-ru="Листайте в стороны" data-en="Swipe sideways">Оңға-солға жылжытыңыз</span>
     </div>
   </div>
 </section>
@@ -984,55 +1042,79 @@
 <section id="reviews">
   <div class="container">
     <div class="section-head rv">
-      <div class="kicker"><span class="t" data-kaz="Пікірлер" data-ru="Отзывы">Пікірлер</span></div>
-      <h2><span class="t" data-kaz="Оқушылар" data-ru="Слово">Оқушылар</span> <em class="t" data-kaz="сөзі" data-ru="учеников">сөзі</em></h2>
+      <div class="kicker"><span class="t" data-kaz="Пікірлер" data-ru="Отзывы" data-en="Reviews">Пікірлер</span></div>
+      <h2><span class="t" data-kaz="Оқушылар" data-ru="Слово" data-en="What our">Оқушылар</span> <em class="t" data-kaz="сөзі" data-ru="учеников" data-en="students say">сөзі</em></h2>
     </div>
 
     <div class="reviews-track" id="reviewsTrack">
       <div class="review rv">
-        <p class="txt t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <p class="txt t" data-kaz="Курста оқып жүргеніме 2 апта болды. Қысқа уақыт болса да, нәтиже байқалып жатыр. Күн сайын IELTS-тың барлық секциясын қамтимыз, әсіресе Writing пен Listening жақсарды." data-ru="Учусь в Kingdom недавно, но уже вижу результат: за месяц занятий уровень вырос с 5.0 до 7.0. Сложные вещи объясняют простым языком, на уроках комфортно." data-en="I have not been at Kingdom long, but I already see the result: in a month my score went from 5.0 to 7.0. They explain difficult things in simple words and the lessons feel relaxed.">Курста оқып жүргеніме 2 апта болды. Қысқа уақыт болса да, нәтиже байқалып жатыр. Күн сайын IELTS-тың барлық секциясын қамтимыз, әсіресе Writing пен Listening жақсарды.</p>
         <div class="who">
-          <div class="ava">А</div>
-          <div><h4 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h4><span class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</span></div>
+          <div class="ava t" data-kaz="М" data-ru="А" data-en="A">М</div>
+          <div><h4 class="t" data-kaz="Мелдебек Алина" data-ru="Алихан Т." data-en="Alikhan T.">Мелдебек Алина</h4><span class="t" data-kaz="Оқушы · IELTS" data-ru="Ученик · IELTS" data-en="Student · IELTS">Оқушы · IELTS</span></div>
         </div>
         <div class="stars">★★★★★</div>
       </div>
       <div class="review rv">
-        <p class="txt t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <p class="txt t" data-kaz="Мұғалімдері сабақты қызықты әрі түсінікті етіп үйретеді, әр шәкіртке ерекше көңіл бөледі. Күнделікті жаңа сөздер жаттатып, оларды дұрыс қолдануды да үйретеді." data-ru="Занятия проходят продуктивно, без лишней воды, материал объясняют доступно. Отдельный плюс — подготовка к IELTS: дали чёткие стратегии по каждой части экзамена." data-en="The lessons are productive with no filler, and the material is explained clearly. The IELTS preparation is a real plus: we were given clear strategies for every part of the exam.">Мұғалімдері сабақты қызықты әрі түсінікті етіп үйретеді, әр шәкіртке ерекше көңіл бөледі. Күнделікті жаңа сөздер жаттатып, оларды дұрыс қолдануды да үйретеді.</p>
         <div class="who">
-          <div class="ava">М</div>
-          <div><h4 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h4><span class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</span></div>
+          <div class="ava t" data-kaz="О" data-ru="Б" data-en="B">О</div>
+          <div><h4 class="t" data-kaz="Омар Айқожа" data-ru="Бейбарыс Ж." data-en="Beibarys Zh.">Омар Айқожа</h4><span class="t" data-kaz="Оқушы · Ағылшын тілі" data-ru="Ученик · IELTS" data-en="Student · IELTS">Оқушы · Ағылшын тілі</span></div>
         </div>
         <div class="stars">★★★★★</div>
       </div>
       <div class="review rv">
-        <p class="txt t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <p class="txt t" data-kaz="Курс өте тамаша, жақсы нәтижелерге жетіп жатырмын. Жансая апайға үлкен рахмет — өте мықты маман." data-ru="Занимаюсь русским языком всего месяц, но уже получила отличный результат. Хочу искренне поблагодарить Балнур апай!" data-en="I have been studying Russian for only a month and already have an excellent result. Many thanks to Balnur apai!">Курс өте тамаша, жақсы нәтижелерге жетіп жатырмын. Жансая апайға үлкен рахмет — өте мықты маман.</p>
         <div class="who">
-          <div class="ava">Д</div>
-          <div><h4 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h4><span class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</span></div>
+          <div class="ava t" data-kaz="Н" data-ru="З" data-en="Z">Н</div>
+          <div><h4 class="t" data-kaz="Нұрпейіс А." data-ru="Зарина Пардаева" data-en="Zarina Pardayeva">Нұрпейіс А.</h4><span class="t" data-kaz="Оқушы · Ағылшын тілі" data-ru="Ученица · Русский язык" data-en="Student · Russian">Оқушы · Ағылшын тілі</span></div>
         </div>
         <div class="stars">★★★★★</div>
       </div>
       <div class="review rv">
-        <p class="txt t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <p class="txt t" data-kaz="Мисс Жұлдыздың сабақты жеткізуі, түсіндіруі өте күшті. Бұл курсты таңдағаныма өкінбеймін. Менеджерлердің сыпайылығы да бөлек." data-ru="Учусь здесь 5 месяцев. Очень комфортная атмосфера, хочется приходить на занятия. Уровень заметно вырос — спасибо Miss Zhansaya, она внимательная и всё объясняет понятно." data-en="I have been studying here for five months. The atmosphere is very comfortable and you want to come to class. My level has grown noticeably — thank you, Miss Zhansaya, she is attentive and explains everything clearly.">Мисс Жұлдыздың сабақты жеткізуі, түсіндіруі өте күшті. Бұл курсты таңдағаныма өкінбеймін. Менеджерлердің сыпайылығы да бөлек.</p>
         <div class="who">
-          <div class="ava">С</div>
-          <div><h4 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h4><span class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</span></div>
+          <div class="ava t" data-kaz="А" data-ru="А" data-en="A">А</div>
+          <div><h4 class="t" data-kaz="Арайлым Сембай" data-ru="Айнура" data-en="Ainura">Арайлым Сембай</h4><span class="t" data-kaz="Оқушы" data-ru="Ученица · Английский язык" data-en="Student · English">Оқушы</span></div>
         </div>
         <div class="stars">★★★★★</div>
       </div>
       <div class="review rv">
-        <p class="txt t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p>
+        <p class="txt t" data-kaz="Қатысып жүргеніме 2 ай болды, өте керемет курс. Ағылшын деңгейім айтарлықтай көтерілді. Барлығына осы курсты ұсынамын." data-ru="Жансая апай — хороший преподаватель. Понятно объясняет материал, помогает разобраться в сложных темах. Много практики, чувствуется прогресс." data-en="Zhansaya apai is a great teacher. She explains the material clearly and helps you work through difficult topics. Lots of practice, and you can feel the progress.">Қатысып жүргеніме 2 ай болды, өте керемет курс. Ағылшын деңгейім айтарлықтай көтерілді. Барлығына осы курсты ұсынамын.</p>
         <div class="who">
-          <div class="ava">Н</div>
-          <div><h4 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні</h4><span class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</span></div>
+          <div class="ava t" data-kaz="Д" data-ru="А" data-en="A">Д</div>
+          <div><h4 class="t" data-kaz="Дана М." data-ru="Асылжан" data-en="Asylzhan">Дана М.</h4><span class="t" data-kaz="Оқушы · Ағылшын тілі" data-ru="Ученик · Английский язык" data-en="Student · English">Оқушы · Ағылшын тілі</span></div>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review rv">
+        <p class="txt t" data-kaz="Өте жақсы курс. Сабақты керемет деңгейде түсіндіреді. Балнұр апай — топ!" data-ru="Курс мне понравился. Разговорная речь реально круто и интересно, результаты хорошие." data-en="I really liked the course. The speaking practice is genuinely fun and interesting, and the results are good.">Өте жақсы курс. Сабақты керемет деңгейде түсіндіреді. Балнұр апай — топ!</p>
+        <div class="who">
+          <div class="ava t" data-kaz="А" data-ru="Б" data-en="B">А</div>
+          <div><h4 class="t" data-kaz="Аяна Сағындық" data-ru="Баян Уздыбаева" data-en="Bayan Uzdybayeva">Аяна Сағындық</h4><span class="t" data-kaz="Оқушы" data-ru="Ученица · Разговорный английский" data-en="Student · Spoken English">Оқушы</span></div>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review rv">
+        <p class="txt t" data-kaz="Балнұр апай жақсы үйретеді, маған ұнады." data-ru="Очень хороший курс, учусь уже 2 месяца. Учителя хорошо объясняют, благодаря курсам стала лучше разговаривать." data-en="A very good course, I have been studying for two months. The teachers explain things well and thanks to the classes I speak much better now.">Балнұр апай жақсы үйретеді, маған ұнады.</p>
+        <div class="who">
+          <div class="ava t" data-kaz="Р" data-ru="А" data-en="A">Р</div>
+          <div><h4 class="t" data-kaz="Рамзиддин М." data-ru="Аяжан" data-en="Ayazhan">Рамзиддин М.</h4><span class="t" data-kaz="Оқушы" data-ru="Ученица" data-en="Student">Оқушы</span></div>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review rv">
+        <p class="txt t" data-kaz="Қатысқаныма 1 ай болды. Жақсы үйретеді, қызық әрі түсінікті. Әр ағай-апайдың өз әдісі бар." data-ru="Здесь создают комфортные условия для обучения. За это время уровень заметно вырос — большая заслуга преподавателей. Спасибо Miss Dana за понятные объяснения и поддержку." data-en="They create really comfortable conditions for learning here. My level has grown a lot in this time, and much of the credit goes to the teachers. Thank you, Miss Dana, for the clear explanations and support.">Қатысқаныма 1 ай болды. Жақсы үйретеді, қызық әрі түсінікті. Әр ағай-апайдың өз әдісі бар.</p>
+        <div class="who">
+          <div class="ava t" data-kaz="Г" data-ru="И" data-en="I">Г</div>
+          <div><h4 class="t" data-kaz="Гүлнұр Кален" data-ru="Идрис Орынбек" data-en="Idris Orynbek">Гүлнұр Кален</h4><span class="t" data-kaz="Оқушы" data-ru="Ученик · Английский язык" data-en="Student · English">Оқушы</span></div>
         </div>
         <div class="stars">★★★★★</div>
       </div>
     </div>
     <div class="drag-hint">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 12l4-4M5 12l4 4M19 12l-4-4M19 12l-4 4"/></svg>
-      <span class="t" data-kaz="Оңға-солға жылжытыңыз" data-ru="Листайте в стороны">Оңға-солға жылжытыңыз</span>
+      <span class="t" data-kaz="Оңға-солға жылжытыңыз" data-ru="Листайте в стороны" data-en="Swipe sideways">Оңға-солға жылжытыңыз</span>
     </div>
   </div>
 </section>
@@ -1041,30 +1123,30 @@
 <section id="faq">
   <div class="container">
     <div class="section-head rv">
-      <div class="kicker"><span class="t" data-kaz="Сұрақ-жауап" data-ru="Вопросы и ответы">Сұрақ-жауап</span></div>
-      <h2><span class="t" data-kaz="Жиі қойылатын" data-ru="Частые">Жиі қойылатын</span> <em class="t" data-kaz="сұрақтар" data-ru="вопросы">сұрақтар</em></h2>
+      <div class="kicker"><span class="t" data-kaz="Сұрақ-жауап" data-ru="Вопросы и ответы" data-en="Questions and answers">Сұрақ-жауап</span></div>
+      <h2><span class="t" data-kaz="Жиі қойылатын" data-ru="Частые" data-en="Frequently asked">Жиі қойылатын</span> <em class="t" data-kaz="сұрақтар" data-ru="вопросы" data-en="questions">сұрақтар</em></h2>
     </div>
 
     <div class="faq-list">
       <div class="faq-item rv">
-        <button class="faq-q t" data-kaz="Сабақтар қалай өтеді?" data-ru="Как проходят занятия?">Сабақтар қалай өтеді?</button>
-        <div class="faq-a"><p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p></div>
+        <button class="faq-q t" data-kaz="Сабақтар қалай өтеді?" data-ru="Как проходят занятия?" data-en="How do the lessons work?">Сабақтар қалай өтеді?</button>
+        <div class="faq-a"><p class="t" data-kaz="Сабақтар шағын топта (10 адамға дейін) немесе жеке өтеді. Әр сабақта басты назар — сөйлеу: грамматика мен жаңа сөздерді бірден тәжірибеде қолданасыз. Кесте сізге ыңғайлы уақытқа қарай құрылады." data-ru="Занятия проходят в малых группах (до 10 человек) или индивидуально. Основной акцент на каждом уроке — разговорная речь: грамматику и новые слова вы сразу применяете на практике. Расписание подбираем под ваше удобное время." data-en="Lessons take place in small groups of up to 10 students, or one-to-one. The main focus of every lesson is speaking: you put grammar and new words into practice straight away. We arrange the timetable around the hours that suit you.">Сабақтар шағын топта (10 адамға дейін) немесе жеке өтеді. Әр сабақта басты назар — сөйлеу: грамматика мен жаңа сөздерді бірден тәжірибеде қолданасыз. Кесте сізге ыңғайлы уақытқа қарай құрылады.</p></div>
       </div>
       <div class="faq-item rv">
-        <button class="faq-q t" data-kaz="Деңгейімді қалай білемін?" data-ru="Как узнать свой уровень?">Деңгейімді қалай білемін?</button>
-        <div class="faq-a"><p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p></div>
+        <button class="faq-q t" data-kaz="Деңгейімді қалай білемін?" data-ru="Как узнать свой уровень?" data-en="How do I find out my level?">Деңгейімді қалай білемін?</button>
+        <div class="faq-a"><p class="t" data-kaz="Сайттағы тегін тестті өтіңіз — 12 сұрақ, шамамен 3 минут, соңында деңгейіңізді (A1–C1) көресіз. Сондай-ақ тегін сынақ сабағында мұғалім деңгейіңізді нақтылап, сізге сай топты ұсынады." data-ru="Пройдите бесплатный тест на сайте — 12 вопросов, около 3 минут, в конце увидите свой уровень (A1–C1). Также на бесплатном пробном уроке преподаватель уточнит уровень и подберёт подходящую группу." data-en="Take the free test on this site — 12 questions, about three minutes, and you will see your level (A1–C1) at the end. At the free trial lesson the teacher will also confirm your level and suggest a suitable group.">Сайттағы тегін тестті өтіңіз — 12 сұрақ, шамамен 3 минут, соңында деңгейіңізді (A1–C1) көресіз. Сондай-ақ тегін сынақ сабағында мұғалім деңгейіңізді нақтылап, сізге сай топты ұсынады.</p></div>
       </div>
       <div class="faq-item rv">
-        <button class="faq-q t" data-kaz="Топта неше адам оқиды?" data-ru="Сколько человек в группе?">Топта неше адам оқиды?</button>
-        <div class="faq-a"><p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p></div>
+        <button class="faq-q t" data-kaz="Топта неше адам оқиды?" data-ru="Сколько человек в группе?" data-en="How many students are in a group?">Топта неше адам оқиды?</button>
+        <div class="faq-a"><p class="t" data-kaz="Топта 10 адамға дейін. Бұл әр оқушыға жеке көңіл бөліп, сабақта көбірек сөйлеуге мүмкіндік береді. Қаласаңыз, кез келген курсты жеке (индивидуально) оқуға болады." data-ru="В группе до 10 человек. Это позволяет уделить внимание каждому ученику и говорить на занятии больше. При желании любой курс можно проходить индивидуально." data-en="There are up to 10 students per group. That lets the teacher give attention to everyone and gives you more speaking time. If you prefer, any course can be taken one-to-one.">Топта 10 адамға дейін. Бұл әр оқушыға жеке көңіл бөліп, сабақта көбірек сөйлеуге мүмкіндік береді. Қаласаңыз, кез келген курсты жеке (индивидуально) оқуға болады.</p></div>
       </div>
       <div class="faq-item rv">
-        <button class="faq-q t" data-kaz="Тегін сынақ сабағы бар ма?" data-ru="Есть ли бесплатный пробный урок?">Тегін сынақ сабағы бар ма?</button>
-        <div class="faq-a"><p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p></div>
+        <button class="faq-q t" data-kaz="Тегін сынақ сабағы бар ма?" data-ru="Есть ли бесплатный пробный урок?" data-en="Is there a free trial lesson?">Тегін сынақ сабағы бар ма?</button>
+        <div class="faq-a"><p class="t" data-kaz="Иә, алғашқы сабақ тегін. Онда мұғаліммен танысып, деңгейіңізді анықтап, сабақ форматын көресіз. Жазылу үшін WhatsApp арқылы хабарласыңыз немесе сайттағы өтінімді толтырыңыз." data-ru="Да, первый урок бесплатный. Вы познакомитесь с преподавателем, определите свой уровень и увидите формат занятий. Записаться можно через WhatsApp или заполнив заявку на сайте." data-en="Yes, the first lesson is free. You will meet the teacher, find out your level and see how the lessons are run. You can book through WhatsApp or by filling in the form on this site.">Иә, алғашқы сабақ тегін. Онда мұғаліммен танысып, деңгейіңізді анықтап, сабақ форматын көресіз. Жазылу үшін WhatsApp арқылы хабарласыңыз немесе сайттағы өтінімді толтырыңыз.</p></div>
       </div>
       <div class="faq-item rv">
-        <button class="faq-q t" data-kaz="Балаларға қандай курстар бар?" data-ru="Какие курсы есть для детей?">Балаларға қандай курстар бар?</button>
-        <div class="faq-a"><p class="t" data-kaz="Мәтін орны" data-ru="Место для текста">Мәтін орны</p></div>
+        <button class="faq-q t" data-kaz="Балаларға қандай курстар бар?" data-ru="Какие курсы есть для детей?" data-en="What courses do you have for children?">Балаларға қандай курстар бар?</button>
+        <div class="faq-a"><p class="t" data-kaz="Балалар ағылшын және орыс тілі курстарының бастауыш деңгейіне қабылданады — топ жасына және деңгейіне қарай құрылады. Сондай-ақ мектеп бағдарламасына сай математика сабақтары бар." data-ru="Дети занимаются на курсах английского и русского языка с начального уровня — группу формируем по возрасту и уровню. Также есть занятия по математике по школьной программе." data-en="Children study on the English and Russian courses from beginner level — groups are formed by age and level. There are also mathematics lessons following the school curriculum.">Балалар ағылшын және орыс тілі курстарының бастауыш деңгейіне қабылданады — топ жасына және деңгейіне қарай құрылады. Сондай-ақ мектеп бағдарламасына сай математика сабақтары бар.</p></div>
       </div>
     </div>
   </div>
@@ -1076,63 +1158,63 @@
     <div class="signup-frame rv">
       <div class="signup-grid">
         <div>
-          <div class="kicker"><span class="t" data-kaz="Тегін сабақ" data-ru="Бесплатный урок">Тегін сабақ</span></div>
-          <h2><span class="t" data-kaz="Тәжіңізді" data-ru="Примерьте">Тәжіңізді</span> <em class="t" data-kaz="киіп көріңіз" data-ru="корону">киіп көріңіз</em></h2>
+          <div class="kicker"><span class="t" data-kaz="Тегін сабақ" data-ru="Бесплатный урок" data-en="Free lesson">Тегін сабақ</span></div>
+          <h2><span class="t" data-kaz="Тәжіңізді" data-ru="Примерьте" data-en="Try on">Тәжіңізді</span> <em class="t" data-kaz="киіп көріңіз" data-ru="корону" data-en="the crown">киіп көріңіз</em></h2>
           <p class="sub t"
             data-kaz="Анкетаны толтырыңыз — өтінім бірден WhatsApp арқылы менеджерге жетеді, 30 минут ішінде жауап береміз."
-            data-ru="Заполните анкету — заявка сразу уйдёт менеджеру в WhatsApp, ответим в течение 30 минут.">Анкетаны толтырыңыз — өтінім бірден WhatsApp арқылы менеджерге жетеді, 30 минут ішінде жауап береміз.</p>
+            data-ru="Заполните анкету — заявка сразу уйдёт менеджеру в WhatsApp, ответим в течение 30 минут." data-en="Fill in the form — your request goes straight to our manager on WhatsApp and we reply within 30 minutes.">Анкетаны толтырыңыз — өтінім бірден WhatsApp арқылы менеджерге жетеді, 30 минут ішінде жауап береміз.</p>
           <ul class="perks">
-            <li><span class="tick">✓</span><span class="t" data-kaz="Деңгей анықтайтын тегін тестілеу" data-ru="Бесплатное тестирование уровня">Деңгей анықтайтын тегін тестілеу</span></li>
-            <li><span class="tick">✓</span><span class="t" data-kaz="Толық сабақ форматында өтеді" data-ru="Проходит в формате полноценного занятия">Толық сабақ форматында өтеді</span></li>
-            <li><span class="tick">✓</span><span class="t" data-kaz="Ешқандай міндеттеме жоқ" data-ru="Никаких обязательств">Ешқандай міндеттеме жоқ</span></li>
+            <li><span class="tick">✓</span><span class="t" data-kaz="Деңгей анықтайтын тегін тестілеу" data-ru="Бесплатное тестирование уровня" data-en="Free level assessment">Деңгей анықтайтын тегін тестілеу</span></li>
+            <li><span class="tick">✓</span><span class="t" data-kaz="Толық сабақ форматында өтеді" data-ru="Проходит в формате полноценного занятия" data-en="Runs as a full lesson">Толық сабақ форматында өтеді</span></li>
+            <li><span class="tick">✓</span><span class="t" data-kaz="Ешқандай міндеттеме жоқ" data-ru="Никаких обязательств" data-en="No obligations">Ешқандай міндеттеме жоқ</span></li>
           </ul>
         </div>
 
         <div>
           <div class="form-card">
             <form id="leadForm">
-              <h3 class="t" data-kaz="Жазылу" data-ru="Записаться">Жазылу</h3>
-              <p class="hint t" data-kaz="Өтінім WhatsApp-қа жіберіледі" data-ru="Заявка отправится в WhatsApp">Өтінім WhatsApp-қа жіберіледі</p>
+              <h3 class="t" data-kaz="Жазылу" data-ru="Записаться" data-en="Sign up">Жазылу</h3>
+              <p class="hint t" data-kaz="Өтінім WhatsApp-қа жіберіледі" data-ru="Заявка отправится в WhatsApp" data-en="The request is sent to WhatsApp">Өтінім WhatsApp-қа жіберіледі</p>
               <div class="field">
-                <label class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия">Аты-жөні <span class="req">*</span></label>
-                <input type="text" name="name" id="nameInput" required class="t" data-kaz="Аты-жөніңізді жазыңыз" data-ru="Введите имя и фамилию" placeholder="Аты-жөніңізді жазыңыз">
+                <label class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия" data-en="Full name">Аты-жөні <span class="req">*</span></label>
+                <input type="text" name="name" id="nameInput" required class="t" data-kaz="Аты-жөніңізді жазыңыз" data-ru="Введите имя и фамилию" data-en="Enter your first and last name" placeholder="Аты-жөніңізді жазыңыз">
               </div>
               <div class="field">
-                <label class="t" data-kaz="Телефон" data-ru="Телефон">Телефон <span class="req">*</span></label>
+                <label class="t" data-kaz="Телефон" data-ru="Телефон" data-en="Phone">Телефон <span class="req">*</span></label>
                 <input type="tel" name="phone" id="phoneInput" required placeholder="+7 (___) ___-__-__" inputmode="numeric">
               </div>
               <div class="field">
-                <label class="t" data-kaz="Курс" data-ru="Курс">Курс</label>
+                <label class="t" data-kaz="Курс" data-ru="Курс" data-en="Course">Курс</label>
                 <select name="course" id="courseSelect">
-                  <option value="eng" class="t" data-kaz="Ағылшын тілі" data-ru="Английский язык">Ағылшын тілі</option>
-                  <option value="rus" class="t" data-kaz="Орыс тілі" data-ru="Русский язык">Орыс тілі</option>
-                  <option value="math" class="t" data-kaz="Математика" data-ru="Математика">Математика</option>
+                  <option value="eng" class="t" data-kaz="Ағылшын тілі" data-ru="Английский язык" data-en="English">Ағылшын тілі</option>
+                  <option value="rus" class="t" data-kaz="Орыс тілі" data-ru="Русский язык" data-en="Russian">Орыс тілі</option>
+                  <option value="math" class="t" data-kaz="Математика" data-ru="Математика" data-en="Mathematics">Математика</option>
                   <option value="sat">SAT</option>
                   <option value="ielts">IELTS</option>
                 </select>
               </div>
               <div class="field">
-                <label class="t" data-kaz="Ыңғайлы уақыт" data-ru="Удобное время">Ыңғайлы уақыт</label>
+                <label class="t" data-kaz="Ыңғайлы уақыт" data-ru="Удобное время" data-en="Preferred time">Ыңғайлы уақыт</label>
                 <select name="time" id="timeSelect">
-                  <option value="9:00-12:00" class="t" data-kaz="Таңертең (9:00–12:00)" data-ru="Утром (9:00–12:00)">Таңертең (9:00–12:00)</option>
-                  <option value="12:00-17:00" class="t" data-kaz="Күндіз (12:00–17:00)" data-ru="Днём (12:00–17:00)">Күндіз (12:00–17:00)</option>
-                  <option value="17:00-21:00" class="t" data-kaz="Кешке (17:00–21:00)" data-ru="Вечером (17:00–21:00)">Кешке (17:00–21:00)</option>
+                  <option value="9:00-12:00" class="t" data-kaz="Таңертең (9:00–12:00)" data-ru="Утром (9:00–12:00)" data-en="Morning (9:00–12:00)">Таңертең (9:00–12:00)</option>
+                  <option value="12:00-17:00" class="t" data-kaz="Күндіз (12:00–17:00)" data-ru="Днём (12:00–17:00)" data-en="Afternoon (12:00–17:00)">Күндіз (12:00–17:00)</option>
+                  <option value="17:00-21:00" class="t" data-kaz="Кешке (17:00–21:00)" data-ru="Вечером (17:00–21:00)" data-en="Evening (17:00–21:00)">Кешке (17:00–21:00)</option>
                 </select>
               </div>
               <button type="submit" class="btn btn-wa" style="width:100%;">
                 <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4 8.94 8.94 0 0 0 3.12 12.93a8.84 8.84 0 0 0 1.18 4.43L3 21l3.74-1.27a8.93 8.93 0 0 0 5.32 1.72h.01a8.94 8.94 0 0 0 8.93-8.93 8.86 8.86 0 0 0-2.6-6.2zM12.06 19.7a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.8.95.94-2.74-.18-.28a7.45 7.45 0 1 1 13.8-3.97 7.5 7.5 0 0 1-7.71 7.24z"/></svg>
-                <span class="t" data-kaz="WhatsApp арқылы жіберу" data-ru="Отправить в WhatsApp">WhatsApp арқылы жіберу</span>
+                <span class="t" data-kaz="WhatsApp арқылы жіберу" data-ru="Отправить в WhatsApp" data-en="Send via WhatsApp">WhatsApp арқылы жіберу</span>
               </button>
-              <p class="form-error" id="formError"><span class="t" data-kaz="Телефон нөмірін толық енгізіңіз" data-ru="Введите номер телефона полностью">Телефон нөмірін толық енгізіңіз</span></p>
-              <p class="form-note t" data-kaz="Батырманы басқанда WhatsApp ашылып, дайын хабарлама шығады" data-ru="При нажатии откроется WhatsApp с готовым сообщением">Батырманы басқанда WhatsApp ашылып, дайын хабарлама шығады</p>
+              <p class="form-error" id="formError"><span class="t" data-kaz="Телефон нөмірін толық енгізіңіз" data-ru="Введите номер телефона полностью" data-en="Enter the full phone number">Телефон нөмірін толық енгізіңіз</span></p>
+              <p class="form-note t" data-kaz="Батырманы басқанда WhatsApp ашылып, дайын хабарлама шығады" data-ru="При нажатии откроется WhatsApp с готовым сообщением" data-en="Tapping the button opens WhatsApp with a ready-made message">Батырманы басқанда WhatsApp ашылып, дайын хабарлама шығады</p>
             </form>
 
             <div id="thanks">
               <div class="ok">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
               </div>
-              <h3 class="t" data-kaz="Рахмет!" data-ru="Спасибо!">Рахмет!</h3>
-              <p class="t" data-kaz="Жақын арада хабарласамыз." data-ru="Мы скоро свяжемся с вами.">Жақын арада хабарласамыз.</p>
+              <h3 class="t" data-kaz="Рахмет!" data-ru="Спасибо!" data-en="Thank you!">Рахмет!</h3>
+              <p class="t" data-kaz="Жақын арада хабарласамыз." data-ru="Мы скоро свяжемся с вами." data-en="We will be in touch shortly.">Жақын арада хабарласамыз.</p>
             </div>
           </div>
         </div>
@@ -1145,30 +1227,30 @@
 <section id="contacts">
   <div class="container">
     <div class="section-head rv">
-      <div class="kicker"><span class="t" data-kaz="Байланыс" data-ru="Контакты">Байланыс</span></div>
-      <h2><span class="t" data-kaz="Корольдікке" data-ru="Дорога в">Корольдікке</span> <em class="t" data-kaz="жол" data-ru="королевство">жол</em></h2>
+      <div class="kicker"><span class="t" data-kaz="Байланыс" data-ru="Контакты" data-en="Contacts">Байланыс</span></div>
+      <h2><span class="t" data-kaz="Корольдікке" data-ru="Дорога в" data-en="The road to the">Корольдікке</span> <em class="t" data-kaz="жол" data-ru="королевство" data-en="kingdom">жол</em></h2>
     </div>
 
     <div class="contacts-grid">
       <div class="contact-card rv">
         <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <div class="cc-text">
-          <h4 class="t" data-kaz="Мекенжай" data-ru="Адрес">Мекенжай</h4>
-          <p class="t" data-kaz="Республика даңғылы, 21 (1-қабат) · Арғынбеков көшесі, 296 (3-қабат)" data-ru="проспект Республики, 21 (1 этаж) · улица Аргынбекова, 296 (3 этаж)">Республика даңғылы, 21 (1-қабат) · Арғынбеков көшесі, 296 (3-қабат)</p>
+          <h4 class="t" data-kaz="Мекенжай" data-ru="Адрес" data-en="Address">Мекенжай</h4>
+          <p class="t" data-kaz="Республика даңғылы, 21 (1-қабат) · Арғынбеков көшесі, 296 (3-қабат)" data-ru="проспект Республики, 21 (1 этаж) · улица Аргынбекова, 296 (3 этаж)" data-en="21 Respubliki Avenue (1st floor) · 296 Argynbekov Street (3rd floor)">Республика даңғылы, 21 (1-қабат) · Арғынбеков көшесі, 296 (3-қабат)</p>
         </div>
       </div>
       <div class="contact-card rv">
         <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
         <div class="cc-text">
-          <h4 class="t" data-kaz="Телефон" data-ru="Телефон">Телефон</h4>
-          <a class="val" id="phoneLink" href="tel:+77053396313">+7 (705) 339-63-13</a>
+          <h4 class="t" data-kaz="Телефон" data-ru="Телефон" data-en="Phone">Телефон</h4>
+          <a class="val" id="phoneLink" href="tel:+77011166273">+7 (701) 116-62-73</a>
         </div>
       </div>
       <div class="contact-card rv">
         <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4 8.94 8.94 0 0 0 3.12 12.93a8.84 8.84 0 0 0 1.18 4.43L3 21l3.74-1.27a8.93 8.93 0 0 0 5.32 1.72h.01a8.94 8.94 0 0 0 8.93-8.93 8.86 8.86 0 0 0-2.6-6.2zM12.06 19.7a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.8.95.94-2.74-.18-.28a7.45 7.45 0 1 1 13.8-3.97 7.5 7.5 0 0 1-7.71 7.24z"/></svg></div>
         <div class="cc-text">
           <h4>WhatsApp</h4>
-          <a class="val wa-link t" href="#" data-kaz="+7 (705) 339-63-13" data-ru="+7 (705) 339-63-13">+7 (705) 339-63-13</a>
+          <a class="val wa-link t" href="#" data-kaz="+7 (701) 116-62-73" data-ru="+7 (701) 116-62-73" data-en="+7 (701) 116-62-73">+7 (701) 116-62-73</a>
         </div>
       </div>
     </div>
@@ -1178,15 +1260,15 @@
         <div class="branch-head">
           <span class="roman">I</span>
           <div>
-            <h3 class="t" data-kaz="1-филиал" data-ru="Филиал 1">1-филиал</h3>
-            <p class="t" data-kaz="Республика даңғылы, 21 · 1-қабат" data-ru="проспект Республики, 21 · 1 этаж">Республика даңғылы, 21 · 1-қабат</p>
+            <h3 class="t" data-kaz="1-филиал" data-ru="Филиал 1" data-en="Branch 1">1-филиал</h3>
+            <p class="t" data-kaz="Республика даңғылы, 21 · 1-қабат" data-ru="проспект Республики, 21 · 1 этаж" data-en="21 Respubliki Avenue · 1st floor">Республика даңғылы, 21 · 1-қабат</p>
           </div>
         </div>
         <div class="map-frame">
           <iframe title="Kingdom — проспект Республики, 21" src="https://www.openstreetmap.org/export/embed.html?bbox=69.570318,42.307088,69.586318,42.315088&amp;layer=mapnik&amp;marker=42.311088,69.578318" loading="lazy"></iframe>
         </div>
         <a class="branch-link" href="https://2gis.kz/shymkent/geo/70000001026186559" target="_blank" rel="noopener">
-          <span class="t" data-kaz="2ГИС-те ашу" data-ru="Открыть в 2ГИС">2ГИС-те ашу</span>
+          <span class="t" data-kaz="2ГИС-те ашу" data-ru="Открыть в 2ГИС" data-en="Open in 2GIS">2ГИС-те ашу</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
         </a>
       </div>
@@ -1194,15 +1276,15 @@
         <div class="branch-head">
           <span class="roman">II</span>
           <div>
-            <h3 class="t" data-kaz="2-филиал" data-ru="Филиал 2">2-филиал</h3>
-            <p class="t" data-kaz="Арғынбеков көшесі, 296 · 3-қабат" data-ru="улица Аргынбекова, 296 · 3 этаж">Арғынбеков көшесі, 296 · 3-қабат</p>
+            <h3 class="t" data-kaz="2-филиал" data-ru="Филиал 2" data-en="Branch 2">2-филиал</h3>
+            <p class="t" data-kaz="Арғынбеков көшесі, 296 · 3-қабат" data-ru="улица Аргынбекова, 296 · 3 этаж" data-en="296 Argynbekov Street · 3rd floor">Арғынбеков көшесі, 296 · 3-қабат</p>
           </div>
         </div>
         <div class="map-frame">
           <iframe title="Kingdom — улица Аргынбекова, 296" src="https://www.openstreetmap.org/export/embed.html?bbox=69.636435,42.348215,69.652435,42.356215&amp;layer=mapnik&amp;marker=42.352215,69.644435" loading="lazy"></iframe>
         </div>
         <a class="branch-link" href="https://2gis.kz/shymkent/geo/70000001105871200" target="_blank" rel="noopener">
-          <span class="t" data-kaz="2ГИС-те ашу" data-ru="Открыть в 2ГИС">2ГИС-те ашу</span>
+          <span class="t" data-kaz="2ГИС-те ашу" data-ru="Открыть в 2ГИС" data-en="Open in 2GIS">2ГИС-те ашу</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
         </a>
       </div>
@@ -1220,17 +1302,17 @@
       </a>
 
       <div class="footer-links">
-        <a href="#courses" class="t" data-kaz="Курстар" data-ru="Курсы">Курстар</a>
-        <a href="#about" class="t" data-kaz="Біз туралы" data-ru="О нас">Біз туралы</a>
-        <a href="#teachers" class="t" data-kaz="Мұғалімдер" data-ru="Учителя">Мұғалімдер</a>
-        <a href="#reviews" class="t" data-kaz="Пікірлер" data-ru="Отзывы">Пікірлер</a>
-        <a href="#contacts" class="t" data-kaz="Байланыс" data-ru="Контакты">Байланыс</a>
+        <a href="#courses" class="t" data-kaz="Курстар" data-ru="Курсы" data-en="Courses">Курстар</a>
+        <a href="#about" class="t" data-kaz="Біз туралы" data-ru="О нас" data-en="About">Біз туралы</a>
+        <a href="#teachers" class="t" data-kaz="Мұғалімдер" data-ru="Учителя" data-en="Teachers">Мұғалімдер</a>
+        <a href="#reviews" class="t" data-kaz="Пікірлер" data-ru="Отзывы" data-en="Reviews">Пікірлер</a>
+        <a href="#contacts" class="t" data-kaz="Байланыс" data-ru="Контакты" data-en="Contacts">Байланыс</a>
       </div>
     </div>
 
     <div class="footer-bottom">
       <span>© 2026 Kingdom Shymkent</span>
-      <span class="t" data-kaz="Барлық құқықтар қорғалған" data-ru="Все права защищены">Барлық құқықтар қорғалған</span>
+      <span class="t" data-kaz="Барлық құқықтар қорғалған" data-ru="Все права защищены" data-en="All rights reserved">Барлық құқықтар қорғалған</span>
     </div>
   </div>
 </footer>
@@ -1238,7 +1320,7 @@
 <!-- ================= WHATSAPP FLOAT ================= -->
 <a href="#" class="wa-float wa-link" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4 8.94 8.94 0 0 0 3.12 12.93a8.84 8.84 0 0 0 1.18 4.43L3 21l3.74-1.27a8.93 8.93 0 0 0 5.32 1.72h.01a8.94 8.94 0 0 0 8.93-8.93 8.86 8.86 0 0 0-2.6-6.2zM12.06 19.7a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.8.95.94-2.74-.18-.28a7.45 7.45 0 1 1 13.8-3.97 7.5 7.5 0 0 1-7.71 7.24zm4.1-5.56c-.22-.11-1.32-.65-1.53-.73-.2-.08-.35-.11-.5.11-.15.22-.57.73-.7.88-.13.15-.26.16-.48.05a6.13 6.13 0 0 1-1.8-1.11 6.74 6.74 0 0 1-1.25-1.55c-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.08-.15.04-.28-.02-.39-.06-.11-.5-1.2-.68-1.65-.18-.43-.36-.37-.5-.38h-.43a.82.82 0 0 0-.6.28 2.5 2.5 0 0 0-.78 1.86c0 1.1.8 2.16.91 2.31.11.15 1.57 2.4 3.81 3.36.53.23.95.37 1.27.47.53.17 1.02.14 1.4.09.43-.06 1.32-.54 1.5-1.06.19-.52.19-.96.13-1.05-.05-.1-.2-.16-.42-.27z"/></svg>
-  <span class="t" data-kaz="Жазу" data-ru="Написать">Жазу</span>
+  <span class="t" data-kaz="Жазу" data-ru="Написать" data-en="Message us">Жазу</span>
 </a>
 
 <!-- ================= COURSE MODAL ================= -->
@@ -1262,11 +1344,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
   /* ===== КОНФИГ: замените номер на реальный WhatsApp школы (без +) ===== */
-  var WA_NUMBER = '77053396313';
+  var WA_NUMBER = '77011166273';
 
   /* ============ I18N ============ */
   function setLanguage(lang){
-    document.documentElement.lang = lang === 'kaz' ? 'kk' : 'ru';
+    document.documentElement.lang = { kaz:'kk', ru:'ru', en:'en' }[lang] || 'kk';
     document.querySelectorAll('.t').forEach(function(el){
       var val = el.dataset[lang];
       if(val === undefined) return;
@@ -1294,7 +1376,11 @@
   }
   /* приветствия в WhatsApp всегда на казахском */
   function defaultWaText(){
-    return 'Сәлеметсіз бе! Kingdom мектебінің курстары туралы білгім келеді.';
+    return ({
+      kaz:'Сәлеметсіз бе! Kingdom мектебінің курстары туралы білгім келеді.',
+      ru:'Здравствуйте! Хочу узнать о курсах школы Kingdom.',
+      en:'Hello! I would like to find out more about the courses at Kingdom.'
+    })[currentLang()] || 'Сәлеметсіз бе! Kingdom мектебінің курстары туралы білгім келеді.';
   }
   document.querySelectorAll('.wa-link').forEach(function(a){
     a.addEventListener('click', function(e){
@@ -1308,67 +1394,67 @@
   var courseInfo = {
     'eng': {
       roman:'I',
-      title:{ kaz:'Ағылшын тілі', ru:'Английский язык' },
-      meta:{ kaz:'Бастауыш және жоғары деңгей • топта 10-ға дейін • жеке де болады', ru:'Начинающий и продвинутый • до 10 в группе • можно индивидуально' },
+      title:{ kaz:'Ағылшын тілі', ru:'Английский язык', en:'English' },
+      meta:{ kaz:'Бастауыш және жоғары деңгей • топта 10-ға дейін • жеке де болады', ru:'Начинающий и продвинутый • до 10 в группе • можно индивидуально', en:'Beginner and advanced • up to 10 per group • one-to-one available' },
       desc:{
         kaz:'Барлық деңгейге арналған ағылшын тілі — бастауыштан жоғары деңгейге (продвинутый) дейін. Бастауыштар алфавит, негізгі грамматика және күнделікті сөйлесуден бастайды; жоғары деңгейдегілер күрделі грамматика, идиомалар мен еркін пікірталасқа көшеді. Тобыңызды деңгейіңізге қарай таңдаймыз, басты назар — сөйлеу.',
-        ru:'Английский для всех уровней — от начинающих до продвинутых. Начинающие стартуют с алфавита, базовой грамматики и повседневного общения; продвинутые переходят к сложной грамматике, идиомам и свободным дискуссиям. Группу подбираем по вашему уровню, главный акцент — разговорная речь.'
+        ru:'Английский для всех уровней — от начинающих до продвинутых. Начинающие стартуют с алфавита, базовой грамматики и повседневного общения; продвинутые переходят к сложной грамматике, идиомам и свободным дискуссиям. Группу подбираем по вашему уровню, главный акцент — разговорная речь.', en:'English for every level — from complete beginners to advanced. Beginners start with the alphabet, basic grammar and everyday conversation; advanced students move on to complex grammar, idioms and free discussion. We match you to a group by your level, and speaking always comes first.'
       },
       points:{
         kaz:['Бастауыш және жоғары (продвинутый) деңгейлер','Сөйлеуге басымдық — бірінші сабақтан','Топта 10 адамға дейін немесе жеке'],
-        ru:['Уровни: начинающий и продвинутый','Упор на разговор — с первого урока','До 10 в группе или индивидуально']
+        ru:['Уровни: начинающий и продвинутый','Упор на разговор — с первого урока','До 10 в группе или индивидуально'], en:['Beginner and advanced levels','Speaking focus from the very first lesson','Up to 10 per group or one-to-one']
       }
     },
     'rus': {
       roman:'II',
-      title:{ kaz:'Орыс тілі', ru:'Русский язык' },
-      meta:{ kaz:'Бастауыш және жоғары деңгей • топта 10-ға дейін • жеке де болады', ru:'Начинающий и продвинутый • до 10 в группе • можно индивидуально' },
+      title:{ kaz:'Орыс тілі', ru:'Русский язык', en:'Russian' },
+      meta:{ kaz:'Бастауыш және жоғары деңгей • топта 10-ға дейін • жеке де болады', ru:'Начинающий и продвинутый • до 10 в группе • можно индивидуально', en:'Beginner and advanced • up to 10 per group • one-to-one available' },
       desc:{
         kaz:'Барлық деңгейге арналған орыс тілі — бастауыштан жоғары деңгейге (продвинутый) дейін. Бастауыштар айтылым, негізгі грамматика және күнделікті сөздерден бастайды; жоғары деңгейдегілер сауатты сөйлеу, бай лексика мен күрделі грамматикаға көшеді. Тобыңызды деңгейіңізге қарай таңдаймыз, басты назар — сөйлеу.',
-        ru:'Русский для всех уровней — от начинающих до продвинутых. Начинающие стартуют с произношения, базовой грамматики и повседневных слов; продвинутые переходят к грамотной речи, богатой лексике и сложной грамматике. Группу подбираем по вашему уровню, главный акцент — разговорная речь.'
+        ru:'Русский для всех уровней — от начинающих до продвинутых. Начинающие стартуют с произношения, базовой грамматики и повседневных слов; продвинутые переходят к грамотной речи, богатой лексике и сложной грамматике. Группу подбираем по вашему уровню, главный акцент — разговорная речь.', en:'Russian for every level — from complete beginners to advanced. Beginners start with pronunciation, basic grammar and everyday vocabulary; advanced students move on to accurate speech, wider vocabulary and complex grammar. We match you to a group by your level, and speaking always comes first.'
       },
       points:{
         kaz:['Бастауыш және жоғары (продвинутый) деңгейлер','Сөйлеуге басымдық','Топта 10 адамға дейін немесе жеке'],
-        ru:['Уровни: начинающий и продвинутый','Упор на разговор','До 10 в группе или индивидуально']
+        ru:['Уровни: начинающий и продвинутый','Упор на разговор','До 10 в группе или индивидуально'], en:['Beginner and advanced levels','Speaking focus','Up to 10 per group or one-to-one']
       }
     },
     'math': {
       roman:'III',
-      title:{ kaz:'Математика', ru:'Математика' },
-      meta:{ kaz:'Топта 10 адамға дейін • жеке де болады', ru:'До 10 в группе • можно индивидуально' },
+      title:{ kaz:'Математика', ru:'Математика', en:'Mathematics' },
+      meta:{ kaz:'Топта 10 адамға дейін • жеке де болады', ru:'До 10 в группе • можно индивидуально', en:'Up to 10 per group • one-to-one available' },
       desc:{
         kaz:'Мектеп бағдарламасы мен емтихандарға арналған математика. Тақырыптарды нөлден түсіндіріп, есеп шығару дағдысын бекітеміз. Оқушының олқы тұстарын тауып, жеке қарқынмен алға жылжимыз.',
-        ru:'Математика для школьной программы и экзаменов. Объясняем темы с нуля и закрепляем навык решения задач. Находим пробелы ученика и движемся в индивидуальном темпе.'
+        ru:'Математика для школьной программы и экзаменов. Объясняем темы с нуля и закрепляем навык решения задач. Находим пробелы ученика и движемся в индивидуальном темпе.', en:'Mathematics for the school curriculum and for exams. We explain topics from scratch and build up problem-solving skills. We find the gaps and move at a pace that suits each student.'
       },
       points:{
         kaz:['Тақырыпты нөлден түсіндіру','Топта 10 адамға дейін','Жеке (индивидуально) де оқуға болады'],
-        ru:['Объясняем темы с нуля','До 10 человек в группе','Можно заниматься индивидуально']
+        ru:['Объясняем темы с нуля','До 10 человек в группе','Можно заниматься индивидуально'], en:['Topics explained from scratch','Up to 10 students per group','One-to-one lessons available']
       }
     },
     'sat': {
       roman:'IV',
-      title:{ kaz:'SAT', ru:'SAT' },
-      meta:{ kaz:'Топта 10 адамға дейін • жеке де болады', ru:'До 10 в группе • можно индивидуально' },
+      title:{ kaz:'SAT', ru:'SAT', en:'SAT' },
+      meta:{ kaz:'Топта 10 адамға дейін • жеке де болады', ru:'До 10 в группе • можно индивидуально', en:'Up to 10 per group • one-to-one available' },
       desc:{
         kaz:'SAT емтиханына дайындық: Math және English бөлімдері, стратегиялар мен уақытты дұрыс бөлу. Нақты тест форматындағы жаттығулар арқылы балл жинауды үйренесіз.',
-        ru:'Подготовка к экзамену SAT: разделы Math и English, стратегии и тайм-менеджмент. Через тренировки в реальном формате теста учитесь набирать баллы.'
+        ru:'Подготовка к экзамену SAT: разделы Math и English, стратегии и тайм-менеджмент. Через тренировки в реальном формате теста учитесь набирать баллы.', en:'SAT preparation: the Math and English sections, strategies and time management. Practising in the real test format teaches you how to build your score.'
       },
       points:{
         kaz:['Math және English бөлімдері','Нақты формат бойынша сынақ тесттер','Топта 10 адамға дейін немесе жеке'],
-        ru:['Разделы Math и English','Пробные тесты в реальном формате','До 10 в группе или индивидуально']
+        ru:['Разделы Math и English','Пробные тесты в реальном формате','До 10 в группе или индивидуально'], en:['Math and English sections','Practice tests in the real exam format','Up to 10 per group or one-to-one']
       }
     },
     'ielts': {
       roman:'V',
-      title:{ kaz:'IELTS', ru:'IELTS' },
-      meta:{ kaz:'Топта 10 адамға дейін • жеке де болады', ru:'До 10 в группе • можно индивидуально' },
+      title:{ kaz:'IELTS', ru:'IELTS', en:'IELTS' },
+      meta:{ kaz:'Топта 10 адамға дейін • жеке де болады', ru:'До 10 в группе • можно индивидуально', en:'Up to 10 per group • one-to-one available' },
       desc:{
         kaz:'IELTS емтиханына дайындық: Listening, Reading, Writing және Speaking. Әр бөлімнің стратегиясын меңгеріп, қажетті балға жетуге бағыттап дайындаймыз.',
-        ru:'Подготовка к IELTS: Listening, Reading, Writing и Speaking. Осваиваете стратегию каждого раздела и целенаправленно готовитесь к нужному баллу.'
+        ru:'Подготовка к IELTS: Listening, Reading, Writing и Speaking. Осваиваете стратегию каждого раздела и целенаправленно готовитесь к нужному баллу.', en:'IELTS preparation: Listening, Reading, Writing and Speaking. You master the strategy for each section and prepare with your target band in mind.'
       },
       points:{
         kaz:['4 бөлім бойынша толық дайындық','Speaking пен Writing-ке ерекше көңіл','Топта 10 адамға дейін немесе жеке'],
-        ru:['Полная подготовка по 4 разделам','Особый упор на Speaking и Writing','До 10 в группе или индивидуально']
+        ru:['Полная подготовка по 4 разделам','Особый упор на Speaking и Writing','До 10 в группе или индивидуально'], en:['Full preparation for all four sections','Extra focus on Speaking and Writing','Up to 10 per group or one-to-one']
       }
     }
   };
@@ -1396,12 +1482,16 @@
       li.appendChild(tick); li.appendChild(txt);
       ul.appendChild(li);
     });
-    document.getElementById('cmCta').textContent = (lang === 'kaz')
-      ? 'Тегін сынақ сабағына жазылу'
-      : 'Записаться на бесплатный пробный урок';
-    document.getElementById('cmNote').textContent = (lang === 'kaz')
-      ? 'Батырманы басқанда WhatsApp ашылып, дайын өтінім шығады'
-      : 'При нажатии откроется WhatsApp с готовой заявкой';
+    document.getElementById('cmCta').textContent = ({
+      kaz:'Тегін сынақ сабағына жазылу',
+      ru:'Записаться на бесплатный пробный урок',
+      en:'Book a free trial lesson'
+    })[lang];
+    document.getElementById('cmNote').textContent = ({
+      kaz:'Батырманы басқанда WhatsApp ашылып, дайын өтінім шығады',
+      ru:'При нажатии откроется WhatsApp с готовой заявкой',
+      en:'Tapping the button opens WhatsApp with a ready-made request'
+    })[lang];
   }
 
   function openCourseModal(key){
@@ -1433,9 +1523,11 @@
     var info = courseInfo[openCourse];
     var lang = currentLang();
     var name = info ? info.title[lang] : openCourse;
-    var text = (lang === 'kaz')
-      ? 'Сәлеметсіз бе! «' + name + '» курсына тегін сынақ сабағына жазылғым келеді.'
-      : 'Здравствуйте! Хочу записаться на бесплатный пробный урок по курсу «' + name + '».';
+    var text = ({
+      kaz:'Сәлеметсіз бе! «' + name + '» курсына тегін сынақ сабағына жазылғым келеді.',
+      ru:'Здравствуйте! Хочу записаться на бесплатный пробный урок по курсу «' + name + '».',
+      en:'Hello! I would like to book a free trial lesson for the "' + name + '" course.'
+    })[lang];
     window.open(waUrl(text), '_blank');
   });
   /* тіл ауысқанда ашық модальді қайта сызу */
@@ -1496,11 +1588,16 @@
     var timeSel = document.getElementById('timeSelect');
     var time = timeSel.options[timeSel.selectedIndex].text;
 
-    var msg = 'Сәлеметсіз бе! Тегін сынақ сабағына жазылғым келеді.\n'
-        + 'Аты-жөні: ' + name + '\n'
-        + 'Телефон: ' + phoneInput.value + '\n'
-        + 'Курс: ' + course + '\n'
-        + 'Ыңғайлы уақыт: ' + time;
+    var F = ({
+      kaz:{ head:'Сәлеметсіз бе! Тегін сынақ сабағына жазылғым келеді.', name:'Аты-жөні', phone:'Телефон', course:'Курс', time:'Ыңғайлы уақыт' },
+      ru:{ head:'Здравствуйте! Хочу записаться на бесплатный пробный урок.', name:'Имя Фамилия', phone:'Телефон', course:'Курс', time:'Удобное время' },
+      en:{ head:'Hello! I would like to book a free trial lesson.', name:'Name', phone:'Phone', course:'Course', time:'Preferred time' }
+    })[currentLang()];
+    var msg = F.head + '\n'
+        + F.name + ': ' + name + '\n'
+        + F.phone + ': ' + phoneInput.value + '\n'
+        + F.course + ': ' + course + '\n'
+        + F.time + ': ' + time;
     window.open(waUrl(msg), '_blank');
     leadForm.style.display = 'none';
     thanks.style.display = 'block';
@@ -1564,11 +1661,11 @@
         langWord: { en:'ағылшын', ru:'орыс' },
         scoreLabel: 'Дұрыс жауап',
         levels: {
-          A1:{ name:'A1 — Бастаушы', desc:'Сіз тілмен жаңа танысып келе жатырсыз. Берік іргетас қалау үшін Starter (A1–A2) тобы тамаша сәйкес келеді.' },
-          A2:{ name:'A2 — Қарапайым', desc:'Негізгі базаңыз қаланған. Еркін сөйлеуге жету үшін Intermediate (A2–B1) бағдарламасы ұсынылады.' },
-          B1:{ name:'B1 — Орта деңгей', desc:'Күнделікті тақырыптарда сенімдісіз. Intermediate (A2–B1) тобын аяқтап, B2-ге шығуға дайынсыз.' },
-          B2:{ name:'B2 — Орташадан жоғары', desc:'Күшті деңгей! Тіліңізді кәсіби деңгейге жеткізу үшін Upper (B2–C1) тобы лайық.' },
-          C1:{ name:'C1 — Жоғары деңгей', desc:'Тамаша нәтиже! Upper (B2–C1) тобында тілді жетілдіріп, халықаралық емтихандарға дайындала аласыз.' }
+          A1:{ name:'A1 — Бастаушы', desc:'Сіз тілмен жаңа танысып келе жатырсыз. Берік іргетас қалау үшін бастауыш тобы тамаша сәйкес келеді.' },
+          A2:{ name:'A2 — Қарапайым', desc:'Негізгі базаңыз қаланған. Бастауыш топты жалғастырып, еркін сөйлеуге шыға аласыз.' },
+          B1:{ name:'B1 — Орта деңгей', desc:'Күнделікті тақырыптарда сенімдісіз. Жоғары деңгей тобына өтуге дайынсыз.' },
+          B2:{ name:'B2 — Орташадан жоғары', desc:'Күшті деңгей! Жоғары деңгей тобы немесе IELTS дайындығы сізге лайық.' },
+          C1:{ name:'C1 — Жоғары деңгей', desc:'Тамаша нәтиже! IELTS дайындығына қосылып, халықаралық емтиханға дайындала аласыз.' }
         },
         ad: {
           en:'Kingdom Shymkent — шағын топтар, тәжірибелі мұғалімдер және нәтижеге бағытталған әдістеме. Тегін консультацияда әдіскеріміз дәл деңгейіңізге сай ағылшын тобын таңдап береді.',
@@ -1580,15 +1677,31 @@
         langWord: { en:'английского', ru:'русского' },
         scoreLabel: 'Правильных ответов',
         levels: {
-          A1:{ name:'A1 — Начальный', desc:'Вы только начинаете знакомство с языком. Чтобы заложить прочный фундамент, идеально подойдёт группа Starter (A1–A2).' },
-          A2:{ name:'A2 — Элементарный', desc:'База уже есть. Чтобы заговорить свободно, рекомендуем программу Intermediate (A2–B1).' },
-          B1:{ name:'B1 — Средний', desc:'Вы уверенно держитесь в бытовых темах. Группа Intermediate (A2–B1) поможет выйти на уровень B2.' },
-          B2:{ name:'B2 — Выше среднего', desc:'Сильный уровень! Чтобы довести язык до профессионального, подойдёт группа Upper (B2–C1).' },
-          C1:{ name:'C1 — Продвинутый', desc:'Отличный результат! В группе Upper (B2–C1) можно отшлифовать язык и подготовиться к международным экзаменам.' }
+          A1:{ name:'A1 — Начальный', desc:'Вы только начинаете знакомство с языком. Чтобы заложить прочный фундамент, идеально подойдёт группа для начинающих.' },
+          A2:{ name:'A2 — Элементарный', desc:'База уже есть. Продолжите в группе для начинающих — и заговорите свободно.' },
+          B1:{ name:'B1 — Средний', desc:'Вы уверенно держитесь в бытовых темах. Пора переходить в группу продвинутого уровня.' },
+          B2:{ name:'B2 — Выше среднего', desc:'Сильный уровень! Подойдёт продвинутая группа или подготовка к IELTS.' },
+          C1:{ name:'C1 — Продвинутый', desc:'Отличный результат! Можно идти на подготовку к IELTS и сдавать международный экзамен.' }
         },
         ad: {
           en:'Kingdom Shymkent — малые группы, опытные преподаватели и методика на результат. На бесплатной консультации методист подберёт группу английского точно под ваш уровень.',
           ru:'Kingdom Shymkent — малые группы, опытные преподаватели и методика на результат. На бесплатной консультации методист подберёт группу русского точно под ваш уровень.'
+        }
+      },
+      en: {
+        langName: { en:'English', ru:'Russian' },
+        langWord: { en:'English', ru:'Russian' },
+        scoreLabel: 'Correct answers',
+        levels: {
+          A1:{ name:'A1 — Beginner', desc:'You are just getting started with the language. The beginner group is the perfect place to build a solid foundation.' },
+          A2:{ name:'A2 — Elementary', desc:'You already have the basics. Continue in the beginner group and you will start speaking freely.' },
+          B1:{ name:'B1 — Intermediate', desc:'You are confident with everyday topics. It is time to move up to the advanced group.' },
+          B2:{ name:'B2 — Upper-intermediate', desc:'A strong level! The advanced group or IELTS preparation will suit you well.' },
+          C1:{ name:'C1 — Advanced', desc:'Excellent result! You are ready for IELTS preparation and an international exam.' }
+        },
+        ad: {
+          en:'Kingdom Shymkent — small groups, experienced teachers and a method built for results. At a free consultation our academic adviser will pick an English group that matches your exact level.',
+          ru:'Kingdom Shymkent — small groups, experienced teachers and a method built for results. At a free consultation our academic adviser will pick a Russian group that matches your exact level.'
         }
       }
     };
@@ -1660,6 +1773,13 @@
 
     function consultMsg(){
       var lvl = levelFor(score);
+      var L = currentLang();
+      if(L === 'en'){
+        return 'Hello! I took the level test. My ' + (currentTest === 'en' ? 'English' : 'Russian') + ' level is ' + lvl + '. I would like to book a free consultation.';
+      }
+      if(L === 'ru'){
+        return 'Здравствуйте! Я прошёл тест уровня. Мой уровень ' + (currentTest === 'en' ? 'английского' : 'русского') + ' — ' + lvl + '. Хочу записаться на бесплатную консультацию.';
+      }
       var word = currentTest === 'en' ? 'ағылшын' : 'орыс';
       return 'Сәлеметсіз бе! Деңгей тестінен өттім. Менің ' + word + ' тілі деңгейім — ' + lvl + '. Тегін консультацияға жазылғым келеді.';
     }

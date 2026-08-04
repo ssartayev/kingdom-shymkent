@@ -47,11 +47,15 @@ if(fullMarkCount < 1){
   errors.push(`Expected >=1 full logo mark (hero), found ${fullMarkCount}`);
 }
 
-// 5. data-kaz / data-ru count parity
+// 5. data-kaz / data-ru / data-en count parity
 const kazCount = (html.match(/data-kaz=/g) || []).length;
 const ruCount = (html.match(/data-ru=/g) || []).length;
+const enCount = (html.match(/data-en=/g) || []).length;
 if(kazCount !== ruCount){
   errors.push(`data-kaz count (${kazCount}) !== data-ru count (${ruCount})`);
+}
+if(kazCount !== enCount){
+  errors.push(`data-kaz count (${kazCount}) !== data-en count (${enCount})`);
 }
 if(kazCount === 0){
   errors.push('No data-kaz attributes found');
@@ -61,7 +65,7 @@ if(kazCount === 0){
 console.log(`Tags: ${stack.length === 0 ? 'OK (balanced)' : 'FAIL'}`);
 console.log(`logo-crown.png: ${crownImgExists ? 'OK' : 'MISSING'}, logo-full.png: ${fullImgExists ? 'OK' : 'MISSING'}`);
 console.log(`crown marks: ${crownMarkCount} (expected >=2), full marks: ${fullMarkCount} (expected >=1)`);
-console.log(`data-kaz: ${kazCount}, data-ru: ${ruCount}`);
+console.log(`data-kaz: ${kazCount}, data-ru: ${ruCount}, data-en: ${enCount}`);
 
 if(errors.length){
   console.error('\nFAILED:');

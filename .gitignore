@@ -1,2 +1,5 @@
 .DS_Store
 .claude/
+
+# исходники фото учителей (только локально, в сайт идут dist/teachers/)
+teachers-src/
