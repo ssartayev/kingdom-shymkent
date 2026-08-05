@@ -265,6 +265,7 @@
   .stat{text-align:center;}
   .stat .num{font-family:'Cormorant Garamond',serif; font-size:clamp(2.6rem,6vw,4rem); font-weight:700; color:var(--gold-soft); line-height:1;}
   .stat .lbl{font-size:0.8rem; color:var(--cream-dim); margin-top:8px;}
+  .stat .num-text{font-size:clamp(1.9rem,4.4vw,2.9rem); line-height:1; padding-top:0.26em; white-space:nowrap;}
 
   /* ---------- courses ---------- */
   .course-list{display:flex; flex-direction:column; border-top:1px solid var(--line);}
@@ -641,6 +642,7 @@
     .stats-frame{padding:26px 12px;}
     .stats-grid{gap:12px 6px;}
     .stat .num{font-size:1.7rem;}
+    .stat .num-text{font-size:1.12rem; padding-top:0.24em;}
     .stat .lbl{font-size:0.58rem; margin-top:4px; line-height:1.25;}
 
     /* курсы компактнее — меньше скролла */
@@ -801,10 +803,10 @@
   <div class="container">
     <div class="stats-frame rv">
       <div class="stats-grid">
-        <div class="stat"><div class="num"><i data-count="500">0</i>+</div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения" data-en="Achievement label">Жетістік орны</div></div>
-        <div class="stat"><div class="num"><i data-count="7">0</i></div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения" data-en="Achievement label">Жетістік орны</div></div>
-        <div class="stat"><div class="num"><i data-count="12">0</i></div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения" data-en="Achievement label">Жетістік орны</div></div>
-        <div class="stat"><div class="num"><i data-count="98">0</i>%</div><div class="lbl t" data-kaz="Жетістік орны" data-ru="Место достижения" data-en="Achievement label">Жетістік орны</div></div>
+        <div class="stat"><div class="num"><i data-count="30000">0</i>+</div><div class="lbl t" data-kaz="оқушы оқыды" data-ru="учеников обучено" data-en="students taught">оқушы оқыды</div></div>
+        <div class="stat"><div class="num"><i data-count="16">0</i></div><div class="lbl t" data-kaz="жыл нарықта" data-ru="лет на рынке" data-en="years on the market">жыл нарықта</div></div>
+        <div class="stat"><div class="num num-text">6.5–7.0</div><div class="lbl t" data-kaz="оқушылардың IELTS орташа балы" data-ru="средний балл IELTS учеников" data-en="average student IELTS score">оқушылардың IELTS орташа балы</div></div>
+        <div class="stat"><div class="num"><i data-count="7">0</i></div><div class="lbl t" data-kaz="авторлық кітап" data-ru="авторских книг" data-en="original textbooks">авторлық кітап</div></div>
       </div>
     </div>
   </div>
@@ -984,9 +986,9 @@
           <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
         </div>
         <div class="body">
-          <h3 class="t" data-kaz="Аты-жөні" data-ru="Имя Фамилия" data-en="Full name">Аты-жөні</h3>
-          <div class="role t" data-kaz="Мәтін орны" data-ru="Место для текста" data-en="Text placeholder">Мәтін орны</div>
-          <p class="bio t" data-kaz="Мәтін орны" data-ru="Место для текста" data-en="Text placeholder">Мәтін орны</p>
+          <h3 class="t" data-kaz="Дана Саулимбаева" data-ru="Дана Саулимбаева" data-en="Dana Saulimbayeva">Дана Саулимбаева</h3>
+          <div class="role t" data-kaz="Директор · IELTS сарапшысы" data-ru="Директор · эксперт IELTS" data-en="Director · IELTS expert">Директор · IELTS сарапшысы</div>
+          <p class="bio t" data-kaz="IELTS 8.5. Педагогика және экономика бойынша екі жоғары білім, педагогика ғылымдарының магистрі. Саладағы тәжірибесі — 19 жылдан астам." data-ru="IELTS 8.5. Два высших образования — педагогическое и экономическое, магистр педагогических наук. Более 19 лет в профессии." data-en="IELTS 8.5. Two university degrees — in education and economics — and a master&#39;s in education. Over 19 years in the profession.">IELTS 8.5. Педагогика және экономика бойынша екі жоғары білім, педагогика ғылымдарының магистрі. Саладағы тәжірибесі — 19 жылдан астам.</p>
         </div>
       </div>
       <div class="teacher rv">
@@ -1923,7 +1925,7 @@
       onEnter: function(){
         gsap.to(obj, {
           val: target, duration: 1.8, ease: 'power2.out',
-          onUpdate: function(){ el.textContent = Math.round(obj.val); }
+          onUpdate: function(){ el.textContent = Math.round(obj.val).toLocaleString('ru-RU'); }
         });
       }
     });
