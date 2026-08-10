@@ -438,6 +438,9 @@
   .contact-card h4{font-size:0.72rem; font-weight:800; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-soft);}
   .contact-card .cc-text{display:flex; flex-direction:column; gap:5px;}
   .contact-card p,.contact-card a.val{font-size:1.05rem; font-weight:700; color:var(--cream);}
+  .contact-card .addr-line{display:flex; flex-direction:column; gap:1px;}
+  .contact-card .addr-line + .addr-line{margin-top:9px;}
+  .contact-card .addr-tag{font-size:0.68rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-soft);}
   .contact-card a.val:hover{color:var(--gold-soft);}
   .maps-grid{display:grid; gap:22px; grid-template-columns:1fr; margin-top:26px;}
   @media(min-width:800px){.maps-grid{grid-template-columns:repeat(2,1fr);}}
@@ -675,7 +678,8 @@
 
     /* контакты — карточки в строку (узкие, меньше высоты) */
     .contacts-grid{gap:10px;}
-    .contact-card{flex-direction:row; align-items:center; gap:14px; padding:16px 18px;}
+    .contact-card{flex-direction:row; align-items:flex-start; gap:14px; padding:16px 18px;}
+    .contact-card .ico{flex:0 0 auto;}
     .contact-card .ico{margin-bottom:0;}
 
     /* филиалы/карты — не так громоздко */
@@ -1301,7 +1305,8 @@
         <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <div class="cc-text">
           <h4 class="t" data-kaz="Мекенжай" data-ru="Адрес" data-en="Address">Мекенжай</h4>
-          <p class="t" data-kaz="Республика даңғылы, 21 (1-қабат) · Арғынбеков көшесі, 296 (3-қабат)" data-ru="проспект Республики, 21 (1 этаж) · улица Аргынбекова, 296 (3 этаж)" data-en="21 Respubliki Avenue (1st floor) · 296 Argynbekov Street (3rd floor)">Республика даңғылы, 21 (1-қабат) · Арғынбеков көшесі, 296 (3-қабат)</p>
+          <p class="addr-line"><span class="addr-tag t" data-kaz="1-филиал" data-ru="Филиал 1" data-en="Branch 1">1-филиал</span><span class="t" data-kaz="Республика даңғылы, 21 · 1-қабат" data-ru="проспект Республики, 21 · 1 этаж" data-en="21 Respubliki Avenue · 1st floor">Республика даңғылы, 21 · 1-қабат</span></p>
+          <p class="addr-line"><span class="addr-tag t" data-kaz="2-филиал" data-ru="Филиал 2" data-en="Branch 2">2-филиал</span><span class="t" data-kaz="Арғынбеков көшесі, 296 · 3-қабат" data-ru="улица Аргынбекова, 296 · 3 этаж" data-en="296 Argynbekov Street · 3rd floor">Арғынбеков көшесі, 296 · 3-қабат</span></p>
         </div>
       </div>
       <div class="contact-card rv">
