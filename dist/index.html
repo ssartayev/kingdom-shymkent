@@ -179,15 +179,16 @@
   .mobile-menu a{font-family:'Cormorant Garamond',serif; font-size:2.1rem; padding:9px 0; border-bottom:1px solid var(--line-soft); width:100%; display:flex; align-items:baseline; gap:14px;}
   .mobile-menu a .roman{font-size:0.85rem;}
   .mobile-menu .btn{margin-top:24px; width:100%; font-family:'Manrope',sans-serif; font-size:0.95rem; border-bottom:none; padding:16px 24px;}
-  @media(min-width:920px){
+  @media(min-width:1000px){
     .nav-links{display:flex; gap:26px; font-size:0.85rem; font-weight:600; color:var(--cream-dim);}
     .nav-links a{position:relative; padding:4px 0; transition:color .25s ease;}
     .nav-links a::after{content:''; position:absolute; left:0; bottom:-2px; width:0; height:1px; background:var(--gold); transition:width .3s ease;}
     .nav-links a:hover{color:var(--gold-soft);}
     .nav-links a:hover::after{width:100%;}
-    .nav-right .nav-cta{display:inline-flex;}
     .burger{display:none;}
   }
+  /* кнопка в шапке — только когда реально помещается */
+  @media(min-width:1120px){ .nav-right .nav-cta{display:inline-flex;} }
 
   /* ---------- buttons ---------- */
   .btn{
