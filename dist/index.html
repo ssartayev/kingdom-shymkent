@@ -132,8 +132,8 @@
     border-bottom:1px solid var(--line);
     transition:transform .4s ease;
   }
-  .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 22px; max-width:var(--container); margin:0 auto;}
-  .logo{display:flex; align-items:center; gap:11px;}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:nowrap; padding:12px 22px; max-width:var(--container); margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:11px; flex:0 0 auto;}
   .logo svg{width:42px; height:42px;}
   .logo .brand-word{font-family:'Cormorant Garamond',serif; font-weight:700; letter-spacing:0.2em; font-size:1.15rem; color:var(--cream);}
   .logo .brand-word small{display:block; font-family:'Manrope',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:0.42em; color:var(--gold);}
@@ -156,7 +156,7 @@
     -webkit-mask:url(logo-crown.png) center/contain no-repeat; mask:url(logo-crown.png) center/contain no-repeat;
   }
   .nav-links{display:none;}
-  .nav-right{display:flex; align-items:center; gap:12px;}
+  .nav-right{display:flex; align-items:center; gap:12px; flex:0 0 auto;}
   .lang-switch{display:flex; gap:3px; font-size:0.74rem; font-weight:800; letter-spacing:0.05em; border:1px solid var(--line); border-radius:999px; padding:3px; background:rgba(8,17,52,0.6);}
   .lang-btn{background:none; border:none; color:var(--cream-dim); padding:6px 11px; border-radius:999px; transition:all .25s ease;}
   .lang-btn.active{color:var(--night); background:var(--gold);}
@@ -179,8 +179,8 @@
   .mobile-menu a{font-family:'Cormorant Garamond',serif; font-size:2.1rem; padding:9px 0; border-bottom:1px solid var(--line-soft); width:100%; display:flex; align-items:baseline; gap:14px;}
   .mobile-menu a .roman{font-size:0.85rem;}
   .mobile-menu .btn{margin-top:24px; width:100%; font-family:'Manrope',sans-serif; font-size:0.95rem; border-bottom:none; padding:16px 24px;}
-  @media(min-width:1000px){
-    .nav-links{display:flex; gap:26px; font-size:0.85rem; font-weight:600; color:var(--cream-dim);}
+  @media(min-width:1120px){
+    .nav-links{display:flex; gap:24px; flex:0 0 auto; white-space:nowrap; font-size:0.85rem; font-weight:600; color:var(--cream-dim);}
     .nav-links a{position:relative; padding:4px 0; transition:color .25s ease;}
     .nav-links a::after{content:''; position:absolute; left:0; bottom:-2px; width:0; height:1px; background:var(--gold); transition:width .3s ease;}
     .nav-links a:hover{color:var(--gold-soft);}
@@ -188,7 +188,7 @@
     .burger{display:none;}
   }
   /* кнопка в шапке — только когда реально помещается */
-  @media(min-width:1120px){ .nav-right .nav-cta{display:inline-flex;} }
+  @media(min-width:1260px){ .nav-right .nav-cta{display:inline-flex;} }
 
   /* ---------- buttons ---------- */
   .btn{
